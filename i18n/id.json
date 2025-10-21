@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "services": "Layanan",
+    "projects": "Proyek",
+    "testimonials": "Testimoni",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "greeting": "Halo, saya",
+    "subtitle": "Full‑Stack Web & Mobile Developer",
+    "viewWork": "Lihat karya",
+    "hireMe": "Rekrut saya"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "desc": "Saya membangun aplikasi modern, aman, dan scalable—backend web dengan Laravel, aplikasi mobile dengan Flutter/Kotlin, serta dashboard untuk pemerintah & enterprise.",
+    "skills": "Keahlian Inti",
+    "exp": "Pengalaman",
+    "location": "Lokasi"
+  },
+  "services": {
+    "title": "Layanan",
+    "webdev": {
+      "title": "Pengembangan Web",
+      "desc": "Website kustom, admin dashboard, dan API dengan Laravel/CI4."
+    },
+    "mobile": {
+      "title": "Aplikasi Mobile",
+      "desc": "Aplikasi Flutter lintas platform dan Android native dengan Kotlin."
+    },
+    "integrations": {
+      "title": "Integrasi",
+      "desc": "Payment, WhatsApp (Fonnte), peta, dan analytics."
+    }
+  },
+  "projects": {
+    "title": "Proyek Unggulan",
+    "note": "Pilihan proyek nyata untuk portal pemerintah dan aplikasi komersial."
+  },
+  "testi": {
+    "title": "Kata Klien",
+    "note": "Kepercayaan lahir dari hasil yang nyata."
+  },
+  "contact": {
+    "title": "Ayo bangun sesuatu",
+    "desc": "Ceritakan proyek Anda—timeline, anggaran, dan tujuan.",
+    "form": {
+      "name": "Nama Anda",
+      "email": "Email",
+      "message": "Pesan",
+      "send": "Kirim"
+    }
+  },
+  "footer": {
+    "rights": "Seluruh hak cipta dilindungi."
+  }
+}

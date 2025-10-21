@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I am",
+    "subtitle": "Full-Stack Web & Mobile Developer",
+    "viewWork": "View my work",
+    "hireMe": "Hire me"
+  },
+  "about": {
+    "title": "About Me",
+    "desc": "I build modern, secure, and scalable apps—web backends with Laravel, mobile apps with Flutter/Kotlin, and dashboards for government & enterprise.",
+    "skills": "Core Skills",
+    "exp": "Experience",
+    "location": "Location"
+  },
+  "services": {
+    "title": "Services",
+    "webdev": {
+      "title": "Web Development",
+      "desc": "Custom websites, admin dashboards, and APIs with Laravel/CI4."
+    },
+    "mobile": {
+      "title": "Mobile Apps",
+      "desc": "Cross‑platform Flutter apps and native Android with Kotlin."
+    },
+    "integrations": {
+      "title": "Integrations",
+      "desc": "Payments, WhatsApp (Fonnte), maps, and analytics."
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "note": "A selection of real projects across government portals and commercial apps."
+  },
+  "testi": {
+    "title": "What Clients Say",
+    "note": "Trust built from delivered results."
+  },
+  "contact": {
+    "title": "Let's build something",
+    "desc": "Tell me about your project—timeline, budget, and goals.",
+    "form": {
+      "name": "Your Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
