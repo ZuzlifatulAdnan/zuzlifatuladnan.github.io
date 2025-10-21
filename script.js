@@ -22,22 +22,22 @@ document.getElementById('heroTitle').textContent = PROFILE.name;
 document.getElementById('emailLink').href = `mailto:${PROFILE.email}`;
 
 const PROJECTS = [
-  {
-    title: "e‑SAKIP Kabupaten",
-    desc_en: "Strategic Planning & KPI dashboard for government (CI4 + MySQL).",
-    desc_id: "Dashboard Perencanaan & IKU pemerintah (CI4 + MySQL).",
-    img: "assets/img/p1.svg",
-    tags: ["CI4", "MySQL", "Dashboard"],
-    link: "#"
-  },
-  {
-    title: "PPID Portal",
-    desc_en: "Public Information Disclosure portal with category & year filters.",
-    desc_id: "Portal Keterbukaan Informasi Publik dengan filter kategori & tahun.",
-    img: "assets/img/p2.svg",
-    tags: ["CI4", "Bootstrap", "SEO"],
-    link: "#"
-  },
+  // {
+  //   title: "e‑SAKIP Kabupaten",
+  //   desc_en: "Strategic Planning & KPI dashboard for government (CI4 + MySQL).",
+  //   desc_id: "Dashboard Perencanaan & IKU pemerintah (CI4 + MySQL).",
+  //   img: "assets/img/p1.svg",
+  //   tags: ["CI4", "MySQL", "Dashboard"],
+  //   link: "#"
+  // },
+  // {
+  //   title: "PPID Portal",
+  //   desc_en: "Public Information Disclosure portal with category & year filters.",
+  //   desc_id: "Portal Keterbukaan Informasi Publik dengan filter kategori & tahun.",
+  //   img: "assets/img/p2.svg",
+  //   tags: ["CI4", "Bootstrap", "SEO"],
+  //   link: "#"
+  // },
   {
     title: "Clean Wash Laundromart",
     desc_en: "PWA laundry app with WhatsApp notifications via Fonnte.",
@@ -46,14 +46,14 @@ const PROJECTS = [
     tags: ["Laravel", "PWA", "Fonnte"],
     link: "#"
   },
-  {
-    title: "SmartCanteen PWA",
-    desc_en: "Canteen ordering with AI search & payment gateway.",
-    desc_id: "Pemesanan kantin dengan pencarian AI & payment gateway.",
-    img: "assets/img/p4.svg",
-    tags: ["PWA", "Node.js", "Payments"],
-    link: "#"
-  },
+  // {
+  //   title: "SmartCanteen PWA",
+  //   desc_en: "Canteen ordering with AI search & payment gateway.",
+  //   desc_id: "Pemesanan kantin dengan pencarian AI & payment gateway.",
+  //   img: "assets/img/p4.svg",
+  //   tags: ["PWA", "Node.js", "Payments"],
+  //   link: "#"
+  // },
   {
     title: "Absensi QR Kampus",
     desc_en: "QR-based attendance with geolocation & parent notification.",
@@ -62,35 +62,35 @@ const PROJECTS = [
     tags: ["Laravel", "QR", "Maps"],
     link: "#"
   },
-  {
-    title: "Backend Presensi LAPKIN",
-    desc_en: "Express + Sequelize backend for attendance & HR modules.",
-    desc_id: "Backend Express + Sequelize untuk presensi & SDM.",
-    img: "assets/img/p6.svg",
-    tags: ["Node.js", "Express", "Sequelize"],
-    link: "#"
-  }
+  // {
+  //   title: "Backend Presensi LAPKIN",
+  //   desc_en: "Express + Sequelize backend for attendance & HR modules.",
+  //   desc_id: "Backend Express + Sequelize untuk presensi & SDM.",
+  //   img: "assets/img/p6.svg",
+  //   tags: ["Node.js", "Express", "Sequelize"],
+  //   link: "#"
+  // }
 ];
 
 const TESTIMONIALS = [
-  {
-    name: "Dinas Kominfo",
-    role_en: "Province Partner",
-    role_id: "Mitra Provinsi",
-    avatar: "assets/img/a1.svg",
-    rating: 5,
-    text_en: "Delivered on time with strong security and clean UI.",
-    text_id: "Tepat waktu, keamanan kuat, dan UI rapi."
-  },
-  {
-    name: "Kampus IIB Darmajaya",
-    role_en: "Academic Client",
-    role_id: "Klien Akademik",
-    avatar: "assets/img/a2.svg",
-    rating: 5,
-    text_en: "Great communication and reliable maintenance.",
-    text_id: "Komunikasi bagus, maintenance bisa diandalkan."
-  },
+  // {
+  //   name: "Dinas Kominfo",
+  //   role_en: "Province Partner",
+  //   role_id: "Mitra Provinsi",
+  //   avatar: "assets/img/a1.svg",
+  //   rating: 5,
+  //   text_en: "Delivered on time with strong security and clean UI.",
+  //   text_id: "Tepat waktu, keamanan kuat, dan UI rapi."
+  // },
+  // {
+  //   name: "Kampus IIB Darmajaya",
+  //   role_en: "Academic Client",
+  //   role_id: "Klien Akademik",
+  //   avatar: "assets/img/a2.svg",
+  //   rating: 5,
+  //   text_en: "Great communication and reliable maintenance.",
+  //   text_id: "Komunikasi bagus, maintenance bisa diandalkan."
+  // },
   {
     name: "UMKM Owner",
     role_en: "SME",
