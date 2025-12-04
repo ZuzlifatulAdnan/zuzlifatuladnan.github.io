@@ -2,16 +2,8 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>SIRISA - Prototype Retribusi Sampah</title>
+    <title>SI-RESIK – Retribusi Sampah Pringsewu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Leaflet CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
 
     <style>
       :root {
@@ -20,11 +12,9 @@
         --bg-light: #f3f4f6;
         --text-dark: #263238;
         --accent-blue: #1565c0;
-        --danger: #c62828;
-        --warning: #f9a825;
-        --radius-lg: 16px;
-        --radius-md: 10px;
-        --shadow-card: 0 10px 25px rgba(15, 23, 42, 0.06);
+        --radius-xl: 28px;
+        --radius-lg: 18px;
+        --shadow-card: 0 14px 35px rgba(15, 23, 42, 0.14);
       }
 
       * {
@@ -35,1634 +25,579 @@
 
       body {
         margin: 0;
-        background: var(--bg-light);
-        color: var(--text-dark);
-        display: flex;
         min-height: 100vh;
+        background: radial-gradient(circle at top, #e8f5e9 0, #f3f4f6 55%);
+        color: var(--text-dark);
       }
 
-      /* ========== SIDEBAR ========== */
-      .sidebar {
-        width: 260px;
-        background: linear-gradient(180deg, #1b5e20, #2e7d32);
-        color: #fff;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        position: relative;
-        z-index: 1000;
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
-      .brand {
+      .page {
+        max-width: 1200px;
+        margin: 16px auto 32px;
+        padding: 0 12px;
+      }
+
+      /* ===== HEADER ===== */
+      .header {
         display: flex;
         align-items: center;
-        gap: 12px;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 10px 18px;
+        background: #ffffffdd;
+        border-radius: 999px;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 10px;
+        z-index: 20;
       }
 
-      .brand-logo {
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-crest {
         width: 40px;
         height: 40px;
         border-radius: 12px;
-        background: #ffffff33;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: #e8f5e9;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 700;
-        font-size: 20px;
-        flex-shrink: 0;
       }
 
-      .brand-text {
+      .logo-crest img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .header-text {
         display: flex;
         flex-direction: column;
         line-height: 1.2;
       }
 
-      .brand-text span:first-child {
-        font-size: 14px;
-        opacity: 0.9;
-      }
-
-      .brand-text span:last-child {
-        font-size: 18px;
-        font-weight: 700;
-      }
-
-      .btn-close-sidebar {
-        display: none;
-        margin-left: auto;
-        border: none;
-        background: #ffffff22;
-        color: #fff;
-        width: 32px;
-        height: 32px;
-        border-radius: 999px;
-        font-size: 18px;
-        cursor: pointer;
-      }
-
-      .nav-title {
+      .header-text span:first-child {
         font-size: 11px;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.08em;
         opacity: 0.7;
-        margin-bottom: 4px;
       }
 
-      .nav {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .nav li {
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      .nav button {
-        width: 100%;
-        border: none;
-        outline: none;
-        background: transparent;
-        color: #fff;
-        padding: 10px 12px;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        font-size: 14px;
-        border-radius: 10px;
-        transition: background 0.15s ease, transform 0.08s ease;
-      }
-
-      .nav button span.icon {
-        width: 24px;
-        text-align: center;
-        opacity: 0.9;
-      }
-
-      .nav button:hover {
-        background: #ffffff1a;
-        transform: translateY(-1px);
-      }
-
-      .nav button.active {
-        background: #ffffff;
-        color: var(--green-main);
-      }
-
-      .nav-footer {
-        margin-top: auto;
-        font-size: 12px;
-        opacity: 0.8;
-      }
-
-      /* ========== MAIN AREA ========== */
-      .main {
-        flex: 1;
-        padding: 20px 24px;
-        overflow: auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .main-inner {
-        max-width: 1320px;
-        margin: 0 auto 32px auto;
-      }
-
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-
-      .topbar-left {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex: 1;
-        min-width: 0;
-      }
-
-      .topbar-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .topbar-title {
-        font-size: 22px;
+      .header-text span:last-child {
+        font-size: 15px;
         font-weight: 600;
       }
 
-      .topbar-subtitle {
-        font-size: 13px;
-        opacity: 0.7;
-        margin-top: 2px;
-      }
-
-      .topbar-right {
+      .header-right {
         display: flex;
-        gap: 10px;
         align-items: center;
+        gap: 10px;
         flex-wrap: wrap;
-        justify-content: flex-end;
       }
 
-      .badge-pill {
-        padding: 6px 12px;
+      .chip-program {
+        font-size: 11px;
+        padding: 4px 10px;
         border-radius: 999px;
-        font-size: 12px;
         background: #e8f5e9;
         color: var(--green-main);
-        white-space: nowrap;
-      }
-
-      .btn {
-        border-radius: 999px;
-        padding: 8px 14px;
-        border: none;
-        font-size: 13px;
-        cursor: pointer;
-        display: inline-flex;
+        display: flex;
         align-items: center;
         gap: 6px;
         white-space: nowrap;
       }
 
+      .btn-outline {
+        border-radius: 999px;
+        border: 1px solid #cbd5e1;
+        padding: 6px 12px;
+        font-size: 12px;
+        background: #fff;
+        cursor: pointer;
+      }
+
       .btn-primary {
+        border-radius: 999px;
+        border: none;
+        padding: 7px 14px;
+        font-size: 13px;
+        cursor: pointer;
         background: var(--green-main);
         color: #fff;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
       }
 
       .btn-primary:hover {
         filter: brightness(1.05);
       }
 
-      .btn-ghost {
-        background: transparent;
-        color: var(--text-dark);
+      /* ===== HERO ===== */
+      .hero {
+        margin-top: 22px;
+        border-radius: var(--radius-xl);
+        background: #ffffffdd;
+        box-shadow: var(--shadow-card);
+        padding: 24px 24px 26px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        gap: 20px;
       }
 
-      .btn-small {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-
-      .btn-menu {
-        display: none;
-        border-radius: 999px;
-        border: none;
-        background: #e8f5e9;
-        color: var(--green-main);
-        width: 36px;
-        height: 36px;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        cursor: pointer;
-        flex-shrink: 0;
-      }
-
-      /* ========== GENERIC LAYOUT ========== */
-      .section {
-        display: none;
-        margin-bottom: 32px;
-      }
-
-      .section.active {
-        display: block;
-      }
-
-      .content {
+      .hero-left {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 14px;
+        justify-content: center;
       }
 
-      /* ====== CARD STATS ====== */
-      .cards-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 18px;
+      .hero-kicker {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--green-main);
       }
 
-      .card {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        padding: 14px 18px;
-        box-shadow: var(--shadow-card);
-        height: 100%;
+      .hero-title {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
       }
 
-      .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 10px;
-        gap: 8px;
+      .hero-title span {
+        color: var(--green-main);
       }
 
-      .card-title {
+      .hero-subtitle {
         font-size: 13px;
-        opacity: 0.7;
+        opacity: 0.85;
+        max-width: 420px;
       }
 
-      .card-value {
-        font-size: 20px;
-        font-weight: 600;
-      }
-
-      .chip {
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
         font-size: 11px;
-        padding: 3px 8px;
+      }
+
+      .hero-badges span {
+        padding: 4px 10px;
         border-radius: 999px;
-        background: #e3f2fd;
-        color: var(--accent-blue);
-        white-space: nowrap;
+        background: #f1f5f9;
       }
 
-      .chip-danger {
-        background: #ffebee;
-        color: var(--danger);
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 4px;
       }
 
-      .chip-warning {
-        background: #fff8e1;
-        color: var(--warning);
-      }
-
-      .muted {
+      .hero-note {
         font-size: 11px;
         opacity: 0.7;
+        margin-top: 4px;
+      }
+
+      .hero-right {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        background: #000;
+        min-height: 220px;
+      }
+
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        opacity: 0.92;
+      }
+
+      .hero-tag {
+        position: absolute;
+        left: 14px;
+        bottom: 12px;
+        background: #00000088;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 11px;
+        backdrop-filter: blur(6px);
+      }
+
+      /* ===== SECTION ROLES ===== */
+      .section {
+        margin-top: 24px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
       }
 
       .section-title {
-        font-size: 15px;
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
-
-      /* ====== TABLE WRAPPER ====== */
-      .table-wrapper {
-        background: #fff;
-        border-radius: var(--radius-lg);
-        padding: 16px 18px;
-        box-shadow: var(--shadow-card);
-        overflow-x: auto;
-      }
-
-      .table-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 12px;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .table-title {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
       }
 
-      .filters {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .input {
-        border-radius: 999px;
-        border: 1px solid #ddd;
-        padding: 6px 10px;
-        font-size: 12px;
-        min-width: 140px;
-        background: #fff;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 12px;
-        min-width: 520px;
-      }
-
-      thead {
-        background: #f1f8e9;
-      }
-
-      th,
-      td {
-        padding: 8px 6px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
-      }
-
-      th {
-        font-weight: 600;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        opacity: 0.7;
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      .status-pill {
-        padding: 4px 10px;
-        border-radius: 999px;
-        font-size: 11px;
-        display: inline-block;
-      }
-
-      .status-lunas {
-        background: #e8f5e9;
-        color: #2e7d32;
-      }
-
-      .status-belum {
-        background: #fff3e0;
-        color: #ef6c00;
-      }
-
-      .status-tunggakan {
-        background: #ffebee;
-        color: #c62828;
-      }
-
-      /* ====== GRID UTILITIES ====== */
-      .grid-2 {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 18px;
-      }
-
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px;
-      }
-
-      .col-6 {
-        flex: 1 1 320px;
-        min-width: 0;
-      }
-
-      .form-group {
-        margin-bottom: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      label {
+      .section-subtitle {
         font-size: 12px;
         opacity: 0.8;
       }
 
-      .input-full {
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        padding: 7px 9px;
-        font-size: 13px;
-        width: 100%;
-        background: #fff;
+      .roles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
       }
 
-      textarea {
-        resize: vertical;
-        min-height: 70px;
+      .role-card {
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        padding: 14px 14px 12px;
+        box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
       }
 
-      .qr-box {
-        border-radius: var(--radius-md);
-        border: 1px dashed #ccc;
-        padding: 14px;
-        text-align: center;
+      .role-badge {
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: #e8f5e9;
+        color: var(--green-main);
+        display: inline-block;
+      }
+
+      .role-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .role-desc {
         font-size: 12px;
-        background: #fafafa;
+        opacity: 0.85;
       }
 
-      /* Map container */
-      .map-box {
-        border-radius: 12px;
+      .role-meta {
+        font-size: 11px;
+        opacity: 0.75;
+        margin-top: 2px;
+      }
+
+      /* ===== SECTION PIMPINAN ===== */
+      .leaders-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      .leader-card {
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        padding: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      }
+
+      .leader-photo {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
         overflow: hidden;
-        border: 1px solid #e5e7eb;
-        height: 260px;
+        background: #e5e7eb;
+        flex-shrink: 0;
       }
 
-      #map-dashboard,
-      #map-pelanggan,
-      #map-tagihan,
-      #map-pembayaran,
-      #map-piutang {
+      .leader-photo img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
-      /* ========== RESPONSIVE BREAKPOINTS ========== */
-      @media (max-width: 1024px) {
-        body {
+      .leader-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .leader-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .leader-role {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      .leader-meta {
+        font-size: 11px;
+        opacity: 0.7;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        margin-top: 24px;
+        font-size: 11px;
+        opacity: 0.7;
+        text-align: center;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-right {
+          order: -1;
+          min-height: 190px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header {
           flex-direction: column;
+          align-items: flex-start;
+          border-radius: 18px;
         }
 
-        .sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease;
+        .hero {
+          padding: 18px 16px 20px;
+          border-radius: 22px;
         }
 
-        body.sidebar-open .sidebar {
-          transform: translateX(0);
+        .hero-title {
+          font-size: 22px;
         }
 
-        .btn-menu {
-          display: inline-flex;
-        }
-
-        .btn-close-sidebar {
-          display: inline-flex;
-        }
-
-        .main {
-          padding: 16px 14px 22px;
-        }
-
-        table {
-          min-width: 480px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .topbar-title {
-          font-size: 19px;
-        }
-
-        .table-wrapper {
-          padding: 12px 12px;
-        }
-
-        table {
-          min-width: 420px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .topbar-subtitle {
-          font-size: 12px;
-        }
-
-        .badge-pill {
-          font-size: 11px;
-          padding: 4px 8px;
-        }
-
-        .btn {
-          font-size: 11px;
-          padding: 6px 10px;
+        .leaders-grid,
+        .roles-grid {
+          gap: 10px;
         }
       }
     </style>
   </head>
   <body>
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div style="display: flex; align-items: center; gap: 10px">
-        <div class="brand">
-          <div class="brand-logo">S</div>
-          <div class="brand-text">
-            <span>Retribusi Sampah</span>
-            <span>SIRISA DLH</span>
+    <div class="page">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-left">
+          <div class="logo-crest">
+            <!-- GANTI src DENGAN FILE LOGO PRINGSEWU -->
+            <img src="img/logo-pringsewu.png" alt="Logo Kabupaten Pringsewu" />
+          </div>
+          <div class="header-text">
+            <span>Pemerintah Kabupaten Pringsewu</span>
+            <span>Sistem Retribusi Sampah Pringsewu (SI-RESIK)</span>
           </div>
         </div>
-        <button
-          class="btn-close-sidebar"
-          type="button"
-          aria-label="Tutup sidebar"
-        >
-          ×
-        </button>
-      </div>
 
-      <div>
-        <div class="nav-title">Menu</div>
-        <ul class="nav">
-          <li>
+        <div class="header-right">
+          <div class="chip-program">♻️ Program: Pringsewu Bersih</div>
+          <button
+            class="btn-outline"
+            onclick="document
+            .getElementById('about')
+            .scrollIntoView({ behavior: 'smooth' })"
+          >
+            Tentang Sistem
+          </button>
+          <a href="login.html">
+            <button class="btn-primary">Masuk ke Sistem</button>
+          </a>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="hero-left">
+          <div class="hero-kicker">Portal Terpadu Retribusi Sampah</div>
+          <div class="hero-title">
+            Satu pintu untuk
+            <span>pengelolaan retribusi sampah</span> di Kabupaten Pringsewu.
+          </div>
+          <div class="hero-subtitle">
+            SI-RESIK menghubungkan DLH, petugas lapangan, dan warga dalam satu
+            sistem: pendataan wajib retribusi, penetapan tarif, pemetaan zona,
+            pembayaran online, hingga pengingat WhatsApp.
+          </div>
+
+          <div class="hero-badges">
+            <span>Dashboard Penerimaan</span>
+            <span>Pembayaran Non-Tunai</span>
+            <span>Integrasi Notifikasi WA</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="login.html">
+              <button class="btn-primary">Masuk Portal SI-RESIK</button>
+            </a>
             <button
-              class="active"
-              data-target="dashboard"
-              data-title="SIRISA – Sistem Retribusi Sampah"
-              data-subtitle="Prototype HTML • Eco Green • Desktop 1440 Layout"
+              class="btn-outline"
+              onclick="document
+                .getElementById('leaders')
+                .scrollIntoView({ behavior: 'smooth' })"
             >
-              <span class="icon">📊</span>Dashboard
+              Lihat Dukungan Pimpinan
             </button>
-          </li>
-          <li>
-            <button
-              data-target="pelanggan"
-              data-title="Data Wajib Retribusi"
-              data-subtitle="Manajemen data wajib retribusi & ringkasan tarif"
-            >
-              <span class="icon">👥</span>Data Wajib Retribusi
-            </button>
-          </li>
-          <li>
-            <button
-              data-target="tagihan"
-              data-title="Tagihan Bulanan"
-              data-subtitle="Generasi tagihan, status pembayaran, dan sebaran zona"
-            >
-              <span class="icon">🧾</span>Tagihan Bulanan
-            </button>
-          </li>
-          <li>
-            <button
-              data-target="pembayaran"
-              data-title="Pembayaran Online"
-              data-subtitle="Simulasi pembayaran QRIS / VA & integrasi gateway"
-            >
-              <span class="icon">💳</span>Pembayaran Online
-            </button>
-          </li>
-          <li>
-            <button
-              data-target="piutang"
-              data-title="Piutang / Tunggakan"
-              data-subtitle="Monitoring tunggakan & template teguran WhatsApp"
-            >
-              <span class="icon">⚠️</span>Piutang / Tunggakan
-            </button>
-          </li>
-        </ul>
-      </div>
+          </div>
 
-      <div class="nav-footer">
-        Prototype – v0.1<br />
-        Untuk Design Sprint Pringsewu 2025
-      </div>
-    </aside>
+          <div class="hero-note">
+            Prototype ini digunakan untuk kebutuhan
+            <strong>Innovation / Design Sprint Pringsewu 2025</strong>.
+          </div>
+        </div>
 
-    <!-- MAIN -->
-    <main class="main">
-      <div class="main-inner">
-        <header class="topbar">
-          <div class="topbar-left">
-            <button class="btn-menu" type="button" aria-label="Toggle menu">
-              ☰
-            </button>
-            <div class="topbar-text">
-              <div class="topbar-title">SIRISA – Sistem Retribusi Sampah</div>
-              <div class="topbar-subtitle">
-                Prototype HTML • Eco Green • Desktop 1440 Layout
+        <div class="hero-right">
+          <!-- GANTI src DENGAN FOTO KABUPATEN PRINGSEWU -->
+          <img
+            src="img/pringsewu-kota.jpg"
+            alt="Kota / Lanskap Kabupaten Pringsewu"
+            class="hero-img"
+          />
+          <div class="hero-tag">
+            Pringsewu • Zona layanan sampah terintegrasi
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: ROLE PENGGUNA -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Siapa yang menggunakan SI-RESIK?</div>
+            <div class="section-subtitle">
+              Sistem ini dirancang untuk tiga kelompok utama pengguna.
+            </div>
+          </div>
+        </div>
+
+        <div class="roles-grid">
+          <div class="role-card">
+            <span class="role-badge">Admin DLH &amp; Pimpinan</span>
+            <div class="role-name">Monitoring kebijakan &amp; laporan</div>
+            <div class="role-desc">
+              Melihat realisasi retribusi per kecamatan, zona angkut, tren
+              kepatuhan, serta piutang/tunggakan untuk bahan rekomendasi
+              kebijakan.
+            </div>
+            <div class="role-meta">
+              Akses ke: Dashboard utama, rekap penerimaan, peta zona, dan
+              laporan bulanan.
+            </div>
+          </div>
+
+          <div class="role-card">
+            <span class="role-badge">Petugas Lapangan / Loket</span>
+            <div class="role-name">Operasional penagihan &amp; pencatatan</div>
+            <div class="role-desc">
+              Mengelola data wajib retribusi, mencetak/tagihan, mencatat
+              pembayaran tunai maupun non-tunai, dan mengirim pengingat.
+            </div>
+            <div class="role-meta">
+              Akses ke: Data pelanggan, tagihan bulanan, pembayaran, &amp;
+              tunggakan.
+            </div>
+          </div>
+
+          <div class="role-card">
+            <span class="role-badge">Warga / Wajib Retribusi</span>
+            <div class="role-name">
+              Akses informasi tagihan &amp; pembayaran
+            </div>
+            <div class="role-desc">
+              Melihat status tagihan, riwayat pembayaran, informasi zona
+              layanan, dan kanal pengaduan terkait pelayanan sampah.
+            </div>
+            <div class="role-meta">
+              Akses ke: Portal warga (tagihan, riwayat, dan informasi zona).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: PIMPINAN -->
+      <section class="section" id="leaders">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Pimpinan Kabupaten Pringsewu</div>
+            <div class="section-subtitle">
+              Dukungan kepemimpinan daerah untuk program
+              <strong>Pringsewu Bersih</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="leaders-grid">
+          <!-- KARTU BUPATI -->
+          <div class="leader-card">
+            <div class="leader-photo">
+              <!-- GANTI src DENGAN FOTO BUPATI -->
+              <img
+                src="img/bupati-pringsewu.jpg"
+                alt="Bupati Kabupaten Pringsewu"
+              />
+            </div>
+            <div class="leader-info">
+              <div class="leader-name">H. Riyanto Pamungkas</div>
+              <div class="leader-role">Bupati Kabupaten Pringsewu</div>
+              <div class="leader-meta">
+                Berkomitmen meningkatkan kebersihan, tata kelola persampahan,
+                dan layanan publik melalui sistem digital terintegrasi.
               </div>
             </div>
           </div>
-          <div class="topbar-right">
-            <span class="badge-pill">Program: Pringsewu Bersih</span>
-            <button class="btn btn-primary btn-small">
-              + Tambah Wajib Retribusi
-            </button>
-          </div>
-        </header>
 
-        <!-- DASHBOARD -->
-        <section id="dashboard" class="section active">
-          <div class="content">
-            <!-- cards -->
-            <div class="cards-row">
-              <div class="card">
-                <div class="card-header">
-                  <div>
-                    <div class="card-title">Realisasi Retribusi Bulan Ini</div>
-                    <div class="card-value">Rp 245.000.000</div>
-                  </div>
-                  <span class="chip">+18% vs bulan lalu</span>
-                </div>
-                <div class="muted">Target: Rp 300.000.000</div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <div>
-                    <div class="card-title">Total Wajib Retribusi Aktif</div>
-                    <div class="card-value">12.452</div>
-                  </div>
-                  <span class="chip">Zona: 7</span>
-                </div>
-                <div class="muted">Rumah 78% • Usaha 19% • Instansi 3%</div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <div>
-                    <div class="card-title">Piutang / Tunggakan</div>
-                    <div class="card-value">Rp 62.000.000</div>
-                  </div>
-                  <span class="chip chip-warning">Fokus penagihan</span>
-                </div>
-                <div class="muted">Didominasi tunggakan &gt; 3 bulan</div>
-              </div>
-
-              <div class="card">
-                <div class="card-header">
-                  <div>
-                    <div class="card-title">Tingkat Kepatuhan</div>
-                    <div class="card-value">76%</div>
-                  </div>
-                  <span class="chip chip-danger">Target: ≥ 90%</span>
-                </div>
-                <div class="muted">Zona 3 &amp; 5 kepatuhan &lt; 60%</div>
-              </div>
+          <!-- KARTU WAKIL BUPATI -->
+          <div class="leader-card">
+            <div class="leader-photo">
+              <!-- GANTI src DENGAN FOTO WAKIL BUPATI -->
+              <img
+                src="img/wakil-bupati-pringsewu.jpg"
+                alt="Wakil Bupati Kabupaten Pringsewu"
+              />
             </div>
-
-            <!-- tabel & reminder -->
-            <div class="grid-2">
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">Top Zona Berdasarkan Penerimaan</div>
-                  <div class="filters">
-                    <select class="input">
-                      <option>Bulan ini</option>
-                      <option>3 bulan terakhir</option>
-                    </select>
-                  </div>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Zona</th>
-                      <th>Kecamatan</th>
-                      <th>Penerimaan</th>
-                      <th>Kepatuhan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Zona 1</td>
-                      <td>Gadingrejo</td>
-                      <td>Rp 72.500.000</td>
-                      <td>
-                        <span class="status-pill status-lunas">92%</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Zona 2</td>
-                      <td>Pringsewu</td>
-                      <td>Rp 55.300.000</td>
-                      <td>
-                        <span class="status-pill status-lunas">88%</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Zona 3</td>
-                      <td>Pardasuka</td>
-                      <td>Rp 31.200.000</td>
-                      <td>
-                        <span class="status-pill status-belum">61%</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Zona 5</td>
-                      <td>Pagelaran</td>
-                      <td>Rp 24.900.000</td>
-                      <td>
-                        <span class="status-pill status-tunggakan">54%</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">Reminder WhatsApp Otomatis</div>
-                </div>
-                <p class="muted">
-                  Contoh template pesan WA yang digunakan untuk pengingat dan
-                  konfirmasi pembayaran retribusi sampah.
-                </p>
-                <div
-                  class="card"
-                  style="background: #e8f5e9; box-shadow: none; margin-top: 8px"
-                >
-                  <div class="card-title">Tagihan Baru</div>
-                  <div class="muted">
-                    <strong>Halo {NAMA},</strong><br />
-                    Tagihan retribusi sampah bulan
-                    <strong>{BULAN}</strong> sebesar
-                    <strong>Rp {NOMINAL}</strong> telah terbit.<br />
-                    Batas bayar sampai:
-                    <strong>{JATUH_TEMPO}</strong>.<br /><br />
-                    Anda dapat membayar melalui:<br />
-                    - Loket DLH / petugas lapangan<br />
-                    - Transfer / QRIS (link pembayaran: {LINK})<br /><br />
-                    Terima kasih telah mendukung
-                    <strong>Pringsewu Bersih</strong>.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PETA (Leaflet) -->
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
-                  </p>
-                  <div class="map-box">
-                    <div id="map-dashboard"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Kecamatan Utama</th>
-                        <th>Keterangan Singkat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Zona 1</td>
-                        <td>Gadingrejo</td>
-                        <td>Koridor permukiman padat dan pasar lokal.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 2</td>
-                        <td>Pringsewu</td>
-                        <td>Pusat kota, perkantoran, dan usaha menengah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 3</td>
-                        <td>Pardasuka</td>
-                        <td>Wilayah campuran pertanian dan permukiman.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 4</td>
-                        <td>Pagelaran</td>
-                        <td>Jalur utama ke TPA dan zona transit sampah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 5</td>
-                        <td>Sukoharjo</td>
-                        <td>Dominasi permukiman dan fasilitas pendidikan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 6</td>
-                        <td>Ambarawa</td>
-                        <td>Wilayah pinggiran dengan akses antar-kecamatan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 7</td>
-                        <td>Banyumas / Sekitarnya</td>
-                        <td>Wilayah barat, potensi pengembangan rute baru.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+            <div class="leader-info">
+              <div class="leader-name">Umi Laila, S.Ag</div>
+              <div class="leader-role">Wakil Bupati Kabupaten Pringsewu</div>
+              <div class="leader-meta">
+                Mendukung implementasi inovasi retribusi sampah yang transparan,
+                akuntabel, dan mudah diakses oleh warga.
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- PELANGGAN -->
-        <section id="pelanggan" class="section">
-          <div class="content">
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div>
-                  <div class="table-title">Data Wajib Retribusi</div>
-                  <div class="muted">
-                    Contoh tampilan data pelanggan / wajib retribusi sampah
-                  </div>
-                </div>
-                <div class="filters">
-                  <input class="input" placeholder="Cari nama / alamat..." />
-                  <select class="input">
-                    <option>Semua Zona</option>
-                    <option>Zona 1</option>
-                    <option>Zona 2</option>
-                    <option>Zona 3</option>
-                  </select>
-                </div>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Kode</th>
-                    <th>Nama</th>
-                    <th>Kategori</th>
-                    <th>Alamat</th>
-                    <th>Zona</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>RT-0001</td>
-                    <td>Budi Santoso</td>
-                    <td>Rumah Tangga</td>
-                    <td>Gadingrejo, RT 03 RW 02</td>
-                    <td>Zona 1</td>
-                    <td><span class="status-pill status-lunas">Aktif</span></td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Detail</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>US-0134</td>
-                    <td>Toko Maju Jaya</td>
-                    <td>Usaha Kecil</td>
-                    <td>Jl. Jendral Sudirman No. 12</td>
-                    <td>Zona 2</td>
-                    <td><span class="status-pill status-lunas">Aktif</span></td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Detail</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>US-0201</td>
-                    <td>Hotel Nusa Indah</td>
-                    <td>Usaha Besar</td>
-                    <td>Jl. Raya Pringsewu No. 88</td>
-                    <td>Zona 3</td>
-                    <td>
-                      <span class="status-pill status-belum">Review</span>
-                    </td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Detail</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>IN-0007</td>
-                    <td>SD Negeri 1 Pringsewu</td>
-                    <td>Instansi</td>
-                    <td>Jl. Pendidikan No. 5</td>
-                    <td>Zona 4</td>
-                    <td><span class="status-pill status-lunas">Aktif</span></td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Detail</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="grid-2">
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">
-                    Form Tambah / Edit Wajib Retribusi
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Nama Wajib Retribusi</label>
-                  <input
-                    class="input-full"
-                    placeholder="Contoh: Toko Maju Jaya"
-                  />
-                </div>
-                <div class="form-group">
-                  <label>Kategori</label>
-                  <select class="input-full">
-                    <option>Rumah Tangga</option>
-                    <option>Usaha Kecil</option>
-                    <option>Usaha Menengah</option>
-                    <option>Usaha Besar</option>
-                    <option>Instansi</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Alamat Lengkap</label>
-                  <textarea
-                    class="input-full"
-                    placeholder="Masukkan alamat lengkap"
-                  ></textarea>
-                </div>
-                <div class="form-group">
-                  <label>Zona Angkut</label>
-                  <select class="input-full">
-                    <option>Zona 1 - Gadingrejo</option>
-                    <option>Zona 2 - Pringsewu</option>
-                    <option>Zona 3 - Pardasuka</option>
-                  </select>
-                </div>
-                <button class="btn btn-primary">Simpan Data</button>
-              </div>
-
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">Ringkasan Tarif</div>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Kategori</th>
-                      <th>Kelas</th>
-                      <th>Tarif / Bulan</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Rumah Tangga</td>
-                      <td>Kelas A</td>
-                      <td>Rp 10.000</td>
-                    </tr>
-                    <tr>
-                      <td>Rumah Tangga</td>
-                      <td>Kelas B</td>
-                      <td>Rp 15.000</td>
-                    </tr>
-                    <tr>
-                      <td>Usaha Kecil</td>
-                      <td>Flat</td>
-                      <td>Rp 50.000</td>
-                    </tr>
-                    <tr>
-                      <td>Usaha Besar</td>
-                      <td>Flat</td>
-                      <td>Rp 150.000</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!-- PETA PELANGGAN -->
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
-                  </p>
-                  <div class="map-box">
-                    <div id="map-pelanggan"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Kecamatan Utama</th>
-                        <th>Keterangan Singkat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Zona 1</td>
-                        <td>Gadingrejo</td>
-                        <td>Koridor permukiman padat dan pasar lokal.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 2</td>
-                        <td>Pringsewu</td>
-                        <td>Pusat kota, perkantoran, dan usaha menengah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 3</td>
-                        <td>Pardasuka</td>
-                        <td>Wilayah campuran pertanian dan permukiman.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 4</td>
-                        <td>Pagelaran</td>
-                        <td>Jalur utama ke TPA dan zona transit sampah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 5</td>
-                        <td>Sukoharjo</td>
-                        <td>Dominasi permukiman dan fasilitas pendidikan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 6</td>
-                        <td>Ambarawa</td>
-                        <td>Wilayah pinggiran dengan akses antar-kecamatan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 7</td>
-                        <td>Banyumas / Sekitarnya</td>
-                        <td>Wilayah barat, potensi pengembangan rute baru.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- TAGIHAN -->
-        <section id="tagihan" class="section">
-          <div class="content">
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div>
-                  <div class="table-title">Tagihan Bulanan</div>
-                  <div class="muted">Tampilan daftar tagihan per periode</div>
-                </div>
-                <div class="filters">
-                  <select class="input">
-                    <option>Januari 2025</option>
-                    <option>Februari 2025</option>
-                    <option>Maret 2025</option>
-                  </select>
-                  <button class="btn btn-primary btn-small">
-                    Generate Tagihan
-                  </button>
-                </div>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Pelanggan</th>
-                    <th>Kategori</th>
-                    <th>Periode</th>
-                    <th>Tagihan</th>
-                    <th>Status</th>
-                    <th>Metode</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Budi Santoso</td>
-                    <td>Rumah Tangga</td>
-                    <td>Jan 2025</td>
-                    <td>Rp 10.000</td>
-                    <td><span class="status-pill status-lunas">Lunas</span></td>
-                    <td>Loket</td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Kwitansi</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Toko Maju Jaya</td>
-                    <td>Usaha Kecil</td>
-                    <td>Jan 2025</td>
-                    <td>Rp 50.000</td>
-                    <td>
-                      <span class="status-pill status-belum">Belum Bayar</span>
-                    </td>
-                    <td>-</td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">
-                        Bayar Online
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Hotel Nusa Indah</td>
-                    <td>Usaha Besar</td>
-                    <td>Jan 2025</td>
-                    <td>Rp 150.000</td>
-                    <td>
-                      <span class="status-pill status-tunggakan"
-                        >Tunggakan 2 bln</span
-                      >
-                    </td>
-                    <td>VA / QRIS</td>
-                    <td>
-                      <button class="btn btn-ghost btn-small">Detail</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- PETA TAGIHAN -->
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
-                  </p>
-                  <div class="map-box">
-                    <div id="map-tagihan"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Kecamatan Utama</th>
-                        <th>Keterangan Singkat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Zona 1</td>
-                        <td>Gadingrejo</td>
-                        <td>Koridor permukiman padat dan pasar lokal.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 2</td>
-                        <td>Pringsewu</td>
-                        <td>Pusat kota, perkantoran, dan usaha menengah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 3</td>
-                        <td>Pardasuka</td>
-                        <td>Wilayah campuran pertanian dan permukiman.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 4</td>
-                        <td>Pagelaran</td>
-                        <td>Jalur utama ke TPA dan zona transit sampah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 5</td>
-                        <td>Sukoharjo</td>
-                        <td>Dominasi permukiman dan fasilitas pendidikan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 6</td>
-                        <td>Ambarawa</td>
-                        <td>Wilayah pinggiran dengan akses antar-kecamatan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 7</td>
-                        <td>Banyumas / Sekitarnya</td>
-                        <td>Wilayah barat, potensi pengembangan rute baru.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PEMBAYARAN -->
-        <section id="pembayaran" class="section">
-          <div class="content">
-            <div class="grid-2">
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">
-                    Pembayaran Online – Contoh Tampilan
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Pilih Pelanggan</label>
-                  <select class="input-full">
-                    <option>Budi Santoso – RT-0001</option>
-                    <option>Toko Maju Jaya – US-0134</option>
-                    <option>Hotel Nusa Indah – US-0201</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Periode Tagihan</label>
-                  <select class="input-full">
-                    <option>Januari 2025</option>
-                    <option>Februari 2025</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Nominal Tagihan</label>
-                  <input class="input-full" value="Rp 50.000" />
-                </div>
-                <div class="form-group">
-                  <label>Metode Pembayaran</label>
-                  <select class="input-full">
-                    <option>QRIS</option>
-                    <option>Virtual Account</option>
-                  </select>
-                </div>
-                <button class="btn btn-primary">Generate Kode Bayar</button>
-              </div>
-
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">QRIS / VA Preview</div>
-                </div>
-                <div class="qr-box">
-                  <div style="font-size: 36px; margin-bottom: 8px">▢</div>
-                  <div class="muted">
-                    Placeholder area untuk QRIS yang dikirim dari payment
-                    gateway.<br />
-                    Dalam implementasi nyata, QR akan berupa gambar dari pihak
-                    bank/payment gateway.
-                  </div>
-                  <hr
-                    style="
-                      margin: 14px 0;
-                      border: none;
-                      border-top: 1px dashed #ddd;
-                    "
-                  />
-                  <div class="muted">
-                    <strong>Kode Virtual Account:</strong><br />
-                    <span style="font-size: 14px">88802 1234 5678 9012</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PETA PEMBAYARAN -->
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
-                  </p>
-                  <div class="map-box">
-                    <div id="map-pembayaran"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Kecamatan Utama</th>
-                        <th>Keterangan Singkat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Zona 1</td>
-                        <td>Gadingrejo</td>
-                        <td>Koridor permukiman padat dan pasar lokal.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 2</td>
-                        <td>Pringsewu</td>
-                        <td>Pusat kota, perkantoran, dan usaha menengah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 3</td>
-                        <td>Pardasuka</td>
-                        <td>Wilayah campuran pertanian dan permukiman.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 4</td>
-                        <td>Pagelaran</td>
-                        <td>Jalur utama ke TPA dan zona transit sampah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 5</td>
-                        <td>Sukoharjo</td>
-                        <td>Dominasi permukiman dan fasilitas pendidikan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 6</td>
-                        <td>Ambarawa</td>
-                        <td>Wilayah pinggiran dengan akses antar-kecamatan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 7</td>
-                        <td>Banyumas / Sekitarnya</td>
-                        <td>Wilayah barat, potensi pengembangan rute baru.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PIUTANG -->
-        <section id="piutang" class="section">
-          <div class="content">
-            <div class="grid-2">
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div>
-                    <div class="table-title">Daftar Tunggakan</div>
-                    <div class="muted">
-                      Contoh daftar pelanggan dengan tunggakan &gt; 1 bulan
-                    </div>
-                  </div>
-                  <div class="filters">
-                    <select class="input">
-                      <option>Semua Zona</option>
-                      <option>Zona 1</option>
-                      <option>Zona 2</option>
-                    </select>
-                  </div>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Pelanggan</th>
-                      <th>Zona</th>
-                      <th>Lama Tunggakan</th>
-                      <th>Total</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Hotel Nusa Indah</td>
-                      <td>Zona 3</td>
-                      <td>3 bulan</td>
-                      <td>Rp 450.000</td>
-                      <td>
-                        <button class="btn btn-ghost btn-small">
-                          Kirim WA Teguran
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Toko Sumber Rejeki</td>
-                      <td>Zona 5</td>
-                      <td>2 bulan</td>
-                      <td>Rp 100.000</td>
-                      <td>
-                        <button class="btn btn-ghost btn-small">
-                          Kirim WA Teguran
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="table-wrapper">
-                <div class="table-header">
-                  <div class="table-title">Contoh Pesan Teguran WA</div>
-                </div>
-                <div
-                  class="card"
-                  style="background: #ffebee; box-shadow: none; margin-top: 8px"
-                >
-                  <div class="card-title">Tunggakan Retribusi</div>
-                  <div class="muted">
-                    <strong>Halo {NAMA},</strong><br />
-                    Sistem kami mencatat terdapat tunggakan retribusi sampah
-                    selama
-                    <strong>{JUMLAH_BULAN} bulan</strong> dengan total
-                    <strong>Rp {TOTAL}</strong>.<br /><br />
-                    Mohon kesediaannya untuk melakukan pelunasan melalui:<br />
-                    - Pembayaran tunai ke petugas / loket DLH<br />
-                    - Pembayaran online (link: {LINK_PEMBAYARAN})<br /><br />
-                    Apabila sudah melakukan pembayaran, abaikan pesan ini.<br />
-                    Terima kasih atas kerjasama Anda dalam mendukung
-                    <strong>Pringsewu Bersih</strong>.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- PETA PIUTANG -->
-            <div class="table-wrapper">
-              <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
-                  </p>
-                  <div class="map-box">
-                    <div id="map-piutang"></div>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Zona</th>
-                        <th>Kecamatan Utama</th>
-                        <th>Keterangan Singkat</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Zona 1</td>
-                        <td>Gadingrejo</td>
-                        <td>Koridor permukiman padat dan pasar lokal.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 2</td>
-                        <td>Pringsewu</td>
-                        <td>Pusat kota, perkantoran, dan usaha menengah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 3</td>
-                        <td>Pardasuka</td>
-                        <td>Wilayah campuran pertanian dan permukiman.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 4</td>
-                        <td>Pagelaran</td>
-                        <td>Jalur utama ke TPA dan zona transit sampah.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 5</td>
-                        <td>Sukoharjo</td>
-                        <td>Dominasi permukiman dan fasilitas pendidikan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 6</td>
-                        <td>Ambarawa</td>
-                        <td>Wilayah pinggiran dengan akses antar-kecamatan.</td>
-                      </tr>
-                      <tr>
-                        <td>Zona 7</td>
-                        <td>Banyumas / Sekitarnya</td>
-                        <td>Wilayah barat, potensi pengembangan rute baru.</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <!-- Leaflet JS -->
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-
-    <script>
-      const navButtons = document.querySelectorAll(".nav button");
-      const sections = document.querySelectorAll(".section");
-      const body = document.body;
-      const btnMenu = document.querySelector(".btn-menu");
-      const btnClose = document.querySelector(".btn-close-sidebar");
-      const topTitle = document.querySelector(".topbar-title");
-      const topSubtitle = document.querySelector(".topbar-subtitle");
-
-      navButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const target = btn.getAttribute("data-target");
-
-          // set active button
-          navButtons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          // tampilkan section sesuai target
-          sections.forEach((sec) => {
-            sec.classList.toggle("active", sec.id === target);
-          });
-
-          // ubah judul & subtitle topbar sesuai menu
-          const newTitle = btn.dataset.title;
-          const newSubtitle = btn.dataset.subtitle;
-          if (newTitle) topTitle.textContent = newTitle;
-          if (newSubtitle) topSubtitle.textContent = newSubtitle;
-
-          // tutup sidebar di mobile
-          if (window.innerWidth <= 1024) {
-            body.classList.remove("sidebar-open");
-          }
-
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      });
-
-      if (btnMenu) {
-        btnMenu.addEventListener("click", () => {
-          body.classList.toggle("sidebar-open");
-        });
-      }
-
-      if (btnClose) {
-        btnClose.addEventListener("click", () => {
-          body.classList.remove("sidebar-open");
-        });
-      }
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 1024) {
-          body.classList.remove("sidebar-open");
-        }
-      });
-
-      // =====================
-      // Leaflet Maps (dummy)
-      // =====================
-
-      const pringsewuCenter = [-5.358, 104.974]; // koordinat kira-kira Pringsewu
-
-      function initMap(id) {
-        const map = L.map(id).setView(pringsewuCenter, 11);
-
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 18,
-          attribution: "&copy; OpenStreetMap",
-        }).addTo(map);
-
-        // Contoh beberapa marker zona (dummy)
-        const zones = [
-          { name: "Zona 1 - Gadingrejo", coord: [-5.33, 104.99] },
-          { name: "Zona 2 - Pringsewu", coord: [-5.36, 104.97] },
-          { name: "Zona 3 - Pardasuka", coord: [-5.39, 104.94] },
-        ];
-
-        zones.forEach((z) => {
-          L.marker(z.coord).addTo(map).bindPopup(z.name);
-        });
-
-        return map;
-      }
-
-      const mapDashboard = initMap("map-dashboard");
-      const mapPelanggan = initMap("map-pelanggan");
-      const mapTagihan = initMap("map-tagihan");
-      const mapPembayaran = initMap("map-pembayaran");
-      const mapPiutang = initMap("map-piutang");
-
-      // Supaya peta redraw saat section pertama kali kelihatan (kalau sempat hidden)
-      function invalidateAll() {
-        mapDashboard.invalidateSize();
-        mapPelanggan.invalidateSize();
-        mapTagihan.invalidateSize();
-        mapPembayaran.invalidateSize();
-        mapPiutang.invalidateSize();
-      }
-
-      setTimeout(invalidateAll, 500);
-    </script>
+      <!-- FOOTER -->
+      <footer class="footer">
+        Prototype SI-RESIK – Sistem Retribusi Sampah Kabupaten Pringsewu •
+        Innovation Sprint 2025 • Halaman ini terhubung ke
+        <code>login.html</code> dan <code>dashboard.html</code>.
+      </footer>
+    </div>
   </body>
 </html>

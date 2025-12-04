@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login SI-RESIK - Retribusi Sampah Pringsewu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      :root {
+        --green-main: #2e7d32;
+        --green-soft: #a5d6a7;
+        --bg-light: #f3f4f6;
+        --text-dark: #263238;
+        --accent-blue: #1565c0;
+        --radius-lg: 18px;
+        --shadow-card: 0 12px 30px rgba(15, 23, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        background: radial-gradient(circle at top, #e8f5e9 0, #f3f4f6 55%);
+        color: var(--text-dark);
+      }
+
+      .page {
+        width: 100%;
+        max-width: 1080px;
+        margin: 24px;
+        background: #ffffffdd;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-card);
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+      }
+
+      /* ===== Left (Info) ===== */
+      .left {
+        padding: 32px 32px 28px;
+        background: linear-gradient(145deg, #1b5e20, #388e3c);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .left::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at top left,
+          #ffffff22 0,
+          transparent 55%
+        );
+        pointer-events: none;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: #ffffff22;
+        backdrop-filter: blur(6px);
+      }
+
+      .badge span {
+        font-size: 13px;
+      }
+
+      .logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .logo-crest {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: #ffffff33;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .logo-crest img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+      }
+
+      .logo-text span:first-child {
+        font-size: 13px;
+        opacity: 0.9;
+      }
+
+      .logo-text span:last-child {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .left-title {
+        margin-top: 26px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .left-subtitle {
+        margin-top: 6px;
+        font-size: 13px;
+        opacity: 0.9;
+        max-width: 360px;
+      }
+
+      .left-list {
+        margin-top: 20px;
+        padding-left: 18px;
+        font-size: 13px;
+        opacity: 0.95;
+      }
+
+      .left-list li + li {
+        margin-top: 4px;
+      }
+
+      .left-footer {
+        position: absolute;
+        left: 32px;
+        right: 32px;
+        bottom: 22px;
+        font-size: 11px;
+        opacity: 0.8;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* ===== Right (Form) ===== */
+      .right {
+        padding: 32px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 360px;
+        background: #fff;
+        border-radius: 22px;
+        padding: 22px 20px 20px;
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+      }
+
+      .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .logo-pringsewu-login {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        background: #f1f5f9;
+        margin-bottom: 8px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-pringsewu-login img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .card-title {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .card-subtitle {
+        font-size: 12px;
+        opacity: 0.8;
+        margin-top: 4px;
+      }
+
+      .form {
+        margin-top: 12px;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      label {
+        font-size: 12px;
+        opacity: 0.9;
+      }
+
+      .input {
+        border-radius: 10px;
+        border: 1px solid #d1d5db;
+        padding: 7px 9px;
+        font-size: 13px;
+        width: 100%;
+        background: #fff;
+      }
+
+      .input:focus {
+        outline: 2px solid #a5d6a7;
+        outline-offset: 1px;
+        border-color: #81c784;
+      }
+
+      .role-hint {
+        font-size: 11px;
+        opacity: 0.8;
+      }
+
+      .btn-primary {
+        width: 100%;
+        border-radius: 999px;
+        border: none;
+        padding: 9px 12px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 6px;
+        background: var(--green-main);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .btn-primary:hover {
+        filter: brightness(1.05);
+      }
+
+      .btn-ghost {
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 999px;
+        border: 1px dashed #cbd5e1;
+        padding: 8px 12px;
+        font-size: 12px;
+        cursor: pointer;
+        background: #f9fafb;
+        color: #475569;
+      }
+
+      .meta {
+        margin-top: 12px;
+        font-size: 11px;
+        opacity: 0.75;
+      }
+
+      .meta span {
+        color: var(--accent-blue);
+        cursor: default;
+      }
+
+      .error {
+        margin-top: 6px;
+        font-size: 11px;
+        color: #c62828;
+        display: none;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 900px) {
+        .page {
+          grid-template-columns: 1fr;
+        }
+        .left-footer {
+          position: static;
+          margin-top: 20px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        body {
+          background: #f3f4f6;
+        }
+        .page {
+          margin: 12px;
+          border-radius: 18px;
+        }
+        .left {
+          padding: 22px 20px 18px;
+        }
+        .right {
+          padding: 18px 16px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- LEFT: info program -->
+      <div class="left">
+        <div class="badge">♻️ <span>Program Pringsewu Bersih</span></div>
+
+        <div class="logo-wrap">
+          <div class="logo-crest">
+            <!-- GANTI src DENGAN FILE LOGO PRINGSEWU -->
+            <img src="img/logo-pringsewu.png" alt="Logo Pringsewu" />
+          </div>
+          <div class="logo-text">
+            <span>Pemerintah Kabupaten Pringsewu</span>
+            <span>SI-RESIK DLH</span>
+          </div>
+        </div>
+
+        <div class="left-title">Portal Pengelolaan Retribusi Sampah</div>
+        <div class="left-subtitle">
+          Dashboard terintegrasi untuk DLH, petugas lapangan, dan warga
+          Pringsewu dalam pengelolaan retribusi sampah yang transparan.
+        </div>
+
+        <ul class="left-list">
+          <li>Monitoring penerimaan retribusi per zona &amp; kecamatan</li>
+          <li>Pembayaran non-tunai (QRIS / VA) &amp; loket</li>
+          <li>Notifikasi pengingat &amp; teguran melalui WhatsApp</li>
+        </ul>
+
+        <div class="left-footer">
+          <span>Prototype – Design Sprint Pringsewu 2025</span>
+          <span>v0.1 • Dashboard &amp; Portal Warga</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: form login -->
+      <div class="right">
+        <div class="card">
+          <div class="card-header">
+            <div class="logo-pringsewu-login">
+              <!-- GANTI src DENGAN FILE LOGO PRINGSEWU -->
+              <img src="img/logo-pringsewu.png" alt="Logo Pringsewu" />
+            </div>
+            <div class="card-title">Masuk ke SI-RESIK</div>
+            <div class="card-subtitle">
+              Login hanya simulasi (tanpa cek database). Pilih role untuk
+              melihat tampilan sesuai kebutuhan.
+            </div>
+          </div>
+
+          <form class="form" id="loginForm">
+            <div class="form-group">
+              <label for="username">NIK / Nomor Pelanggan / NIP</label>
+              <input
+                type="text"
+                id="username"
+                class="input"
+                placeholder="Contoh: 1804xxxxxx / RT-0001"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">PIN / Kata Sandi</label>
+              <input
+                type="password"
+                id="password"
+                class="input"
+                placeholder="Contoh: 123456"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="role">Masuk sebagai</label>
+              <select id="role" class="input">
+                <option value="admin">Admin DLH / Pimpinan</option>
+                <option value="petugas">Petugas Lapangan / Loket</option>
+                <option value="warga">Warga / Wajib Retribusi</option>
+              </select>
+              <div class="role-hint">
+                • <strong>Admin:</strong> lihat dashboard &amp; analitik<br />
+                • <strong>Petugas:</strong> fokus tagihan &amp; penagihan<br />
+                • <strong>Warga:</strong> lihat tagihan &amp; pembayaran
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Masuk Sistem</button>
+
+            <button
+              type="button"
+              class="btn-ghost"
+              id="btnDemo"
+              title="Langsung ke dashboard tanpa isi form"
+            >
+              Lihat Demo Tanpa Login (Mode Admin)
+            </button>
+
+            <div class="error" id="errorMsg">
+              Harap isi minimal <strong>Username</strong> dan pilih
+              <strong>Role</strong>.
+            </div>
+
+            <div class="meta">
+              Prototype ini belum terhubung dengan database. Alur login hanya
+              untuk demo
+              <span>(redirect ke dashboard.html dengan ?role=)</span>.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const errorMsg = document.getElementById("errorMsg");
+      const btnDemo = document.getElementById("btnDemo");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const role = document.getElementById("role").value;
+
+        // validasi ringan (hanya UX, bukan keamanan)
+        if (!username || !role) {
+          errorMsg.style.display = "block";
+          return;
+        }
+
+        errorMsg.style.display = "none";
+
+        const target = "dashboard.html?role=" + encodeURIComponent(role);
+        window.location.href = target;
+      });
+
+      // tombol demo: langsung ke dashboard mode Admin
+      btnDemo.addEventListener("click", function () {
+        const target = "dashboard.html?role=admin";
+        window.location.href = target;
+      });
+    </script>
+  </body>
+</html>
