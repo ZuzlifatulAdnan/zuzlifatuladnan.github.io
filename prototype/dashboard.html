@@ -516,6 +516,13 @@
         height: 100%;
       }
 
+      /* Icon truk di map */
+      .truck-icon {
+        font-size: 24px;
+        line-height: 24px;
+        text-align: center;
+      }
+
       /* ========== RESPONSIVE BREAKPOINTS ========== */
       @media (max-width: 1024px) {
         body {
@@ -829,17 +836,20 @@
               </div>
             </div>
 
-            <!-- PETA DASHBOARD -->
+            <!-- PETA DASHBOARD + RUTE ARMADA -->
             <div class="table-wrapper">
               <div class="table-header">
-                <div class="table-title">Peta Zona Layanan Pringsewu</div>
+                <div class="table-title">
+                  Peta Zona Layanan & Rute Armada Pringsewu
+                </div>
               </div>
               <div class="row">
                 <div class="col-6">
                   <p class="muted">
-                    Peta ini menampilkan lokasi Kabupaten Pringsewu. Pada
-                    implementasi penuh, tiap zona angkut (Zona 1–7) dapat
-                    divisualisasikan sebagai layer/poligon berbeda.
+                    Peta ini menampilkan lokasi Kabupaten Pringsewu beserta
+                    contoh rute armada pengangkut sampah. Garis merah/biru
+                    menggambarkan jalur angkut, ikon 🚛 bergerak sebagai
+                    simulasi pergerakan kendaraan.
                   </p>
                   <div class="map-box">
                     <div id="map-dashboard"></div>
@@ -1649,10 +1659,121 @@
       roleBadge.textContent = "Role: " + roleText;
 
       // =====================
-      // Leaflet Maps (dummy)
+      // Leaflet Maps + RUTE GPS
       // =====================
 
       const pringsewuCenter = [-5.358, 104.974]; // kira-kira koordinat Pringsewu
+
+      // RUTE LEBIH JAUH (dummy, mirip lintasan GPS)
+      // Zona 1 (Gadingrejo) – rute cukup panjang memutar
+      const routeZona1 = [
+        [-5.4, 104.93],
+        [-5.39, 104.94],
+        [-5.38, 104.95],
+        [-5.37, 104.96],
+        [-5.36, 104.97],
+        [-5.35, 104.98],
+        [-5.34, 104.99],
+        [-5.33, 105.0],
+        [-5.32, 105.01],
+        [-5.33, 105.0],
+        [-5.34, 104.99],
+        [-5.35, 104.98],
+        [-5.36, 104.97],
+        [-5.37, 104.96],
+        [-5.38, 104.95],
+        [-5.39, 104.94],
+        [-5.4, 104.93],
+      ];
+
+      // Zona 2 (Pringsewu) – rute lain, sedikit bergelombang
+      const routeZona2 = [
+        [-5.36, 104.96],
+        [-5.355, 104.97],
+        [-5.35, 104.98],
+        [-5.345, 104.99],
+        [-5.34, 105.0],
+        [-5.345, 105.01],
+        [-5.35, 105.02],
+        [-5.36, 105.03],
+        [-5.37, 105.035],
+        [-5.38, 105.03],
+        [-5.39, 105.02],
+        [-5.395, 105.01],
+        [-5.39, 105.0],
+        [-5.38, 104.99],
+        [-5.37, 104.98],
+        [-5.36, 104.97],
+        [-5.36, 104.96],
+      ];
+
+      // Zona 3 (Pardasuka) – rute agak menjauh ke selatan
+      const routeZona3 = [
+        [-5.42, 104.96],
+        [-5.415, 104.97],
+        [-5.41, 104.98],
+        [-5.405, 104.99],
+        [-5.4, 105.0],
+        [-5.395, 105.01],
+        [-5.39, 105.02],
+        [-5.385, 105.03],
+        [-5.38, 105.04],
+        [-5.375, 105.05],
+        [-5.37, 105.04],
+        [-5.365, 105.03],
+        [-5.36, 105.02],
+        [-5.355, 105.01],
+        [-5.35, 105.0],
+        [-5.345, 104.99],
+        [-5.34, 104.98],
+        [-5.335, 104.97],
+        [-5.33, 104.96],
+      ];
+
+      // Icon truk (emoji) untuk GPS tracker
+      const truckIcon = L.divIcon({
+        className: "truck-icon",
+        html: "🚛",
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+      });
+
+      // Fungsi membuat truk bergerak + jejak (trail) seperti GPS
+      function createMovingTruckWithTrail(map, route, options) {
+        const color = options.color || "red";
+        const delayMs = options.delayMs || 500;
+        const maxTrailPoints = options.maxTrailPoints || route.length; // banyak titik jejak
+
+        let idx = 0;
+
+        // polyline jejak
+        const trail = L.polyline([route[0]], {
+          color: color,
+          weight: 3,
+          opacity: 0.7,
+        }).addTo(map);
+
+        // marker truk
+        const marker = L.marker(route[0], { icon: truckIcon }).addTo(map);
+
+        setInterval(() => {
+          idx = (idx + 1) % route.length;
+          const nextPos = route[idx];
+
+          // pindahkan truk
+          marker.setLatLng(nextPos);
+
+          // tambah titik jejak
+          trail.addLatLng(nextPos);
+
+          // kalau titik jejak sudah terlalu banyak, buang yang paling awal
+          const pts = trail.getLatLngs();
+          if (pts.length > maxTrailPoints) {
+            pts.shift();
+            trail.setLatLngs(pts);
+          }
+        }, delayMs);
+      }
 
       function initMap(id) {
         const map = L.map(id).setView(pringsewuCenter, 11);
@@ -1662,6 +1783,7 @@
           attribution: "&copy; OpenStreetMap",
         }).addTo(map);
 
+        // marker zona sederhana (bisa disesuaikan dengan data real)
         const zones = [
           { name: "Zona 1 - Gadingrejo", coord: [-5.33, 104.99] },
           { name: "Zona 2 - Pringsewu", coord: [-5.36, 104.97] },
@@ -1671,6 +1793,50 @@
         zones.forEach((z) => {
           L.marker(z.coord).addTo(map).bindPopup(z.name);
         });
+
+        // KHUSUS DASHBOARD: tampilkan rute & truk bergerak untuk beberapa zona
+        if (id === "map-dashboard") {
+          // Perbesar area agar rute terlihat semua
+          const allCoords = routeZona1.concat(routeZona2).concat(routeZona3);
+          const bounds = L.latLngBounds(allCoords);
+          map.fitBounds(bounds, { padding: [20, 20] });
+
+          // gambar garis rute (polyline)
+          L.polyline(routeZona1, {
+            color: "red",
+            weight: 2,
+            opacity: 0.6,
+          }).addTo(map);
+          L.polyline(routeZona2, {
+            color: "blue",
+            weight: 2,
+            opacity: 0.6,
+          }).addTo(map);
+          L.polyline(routeZona3, {
+            color: "green",
+            weight: 2,
+            opacity: 0.6,
+          }).addTo(map);
+
+          // tiga armada sesuai zona
+          createMovingTruckWithTrail(map, routeZona1, {
+            color: "red",
+            delayMs: 450,
+            maxTrailPoints: 40,
+          });
+
+          createMovingTruckWithTrail(map, routeZona2, {
+            color: "blue",
+            delayMs: 500,
+            maxTrailPoints: 40,
+          });
+
+          createMovingTruckWithTrail(map, routeZona3, {
+            color: "green",
+            delayMs: 550,
+            maxTrailPoints: 50,
+          });
+        }
 
         return map;
       }
