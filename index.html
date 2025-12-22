@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Professional Web & Mobile Developer</title>
+  <meta name="description" content="Professional portfolio of a Web & Mobile Developer (Laravel, Flutter, Kotlin)."/>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#"><span class="logo">N</span><span id="brandName">Your Name</span></a>
+      <nav class="nav">
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+        <a href="#contact" data-i18n="nav.contact" class="btn primary">Contact</a>
+      </nav>
+      <div class="actions">
+        <select id="langSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="id">ID</option>
+        </select>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle dark/light">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="section hero">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow" data-i18n="hero.greeting">Hello, I am</p>
+          <h1 id="heroTitle">Your Name</h1>
+          <p id="heroSubtitle" class="subtitle" data-i18n="hero.subtitle">Full-Stack Web & Mobile Developer</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary" data-i18n="hero.viewWork">View my work</a>
+            <a href="#contact" class="btn ghost" data-i18n="hero.hireMe">Hire me</a>
+          </div>
+          <div class="stack">
+            <span class="tag">Laravel</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="hero-illu card">
+          <img src="assets/img/hero-dev.svg" alt="Developer Illustration" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2 data-i18n="about.title">About Me</h2>
+          <p id="aboutDesc" data-i18n="about.desc">
+            I build modern, secure, and scalable apps—web backends with Laravel, mobile apps with Flutter/Kotlin, and dashboards for government & enterprise.
+          </p>
+          <ul class="list">
+            <li><strong data-i18n="about.exp">Experience:</strong> <span id="yearsExp">4+ years</span></li>
+            <li><strong data-i18n="about.location">Location:</strong> Lampung, Indonesia</li>
+            <li><strong>Email:</strong> <a id="emailLink" href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-i18n="about.skills">Core Skills</h3>
+          <div class="skills">
+            <span class="tag">Laravel</span><span class="tag">CI4</span><span class="tag">MySQL</span>
+            <span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Node.js</span>
+            <span class="tag">REST API</span>>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section alt">
+      <div class="container">
+        <h2 class="center" data-i18n="services.title">Services</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3 data-i18n="services.webdev.title">Web Development</h3>
+            <p data-i18n="services.webdev.desc">Custom websites, admin dashboards, and APIs with Laravel/CI4.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="services.mobile.title">Mobile Apps</h3>
+            <p data-i18n="services.mobile.desc">Cross‑platform Flutter apps and native Android with Kotlin.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="services.integrations.title">Integrations</h3>
+            <p data-i18n="services.integrations.desc">Payments, WhatsApp (Fonnte), maps, and analytics.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="projects.title">Featured Projects</h2>
+          <p class="muted" data-i18n="projects.note">A selection of real projects across government portals and commercial apps.</p>
+        </div>
+        <div id="projectGrid" class="card-grid projects"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="testi.title">What Clients Say</h2>
+          <p class="muted" data-i18n="testi.note">Trust built from delivered results.</p>
+        </div>
+        <div class="carousel card" id="testiCarousel">
+          <div class="carousel-track" id="testiTrack"></div>
+          <div class="carousel-nav">
+            <button class="icon-btn" id="prevBtn" aria-label="Prev">&#10094;</button>
+            <button class="icon-btn" id="nextBtn" aria-label="Next">&#10095;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container grid-2">
+        <div>
+          <h2 data-i18n="contact.title">Let's build something</h2>
+          <p class="muted" data-i18n="contact.desc">Tell me about your project—timeline, budget, and goals.</p>
+          <ul class="list">
+            <li><strong>Email:</strong> <a href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
+            <!-- <li><strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank" rel="noreferrer">+62 812‑3456‑7890</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/yourgithub" target="_blank" rel="noreferrer">yourgithub</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourname" target="_blank" rel="noreferrer">yourname</a></li> -->
+          </ul>
+        </div>
+        <form class="card contact-form" action="mailto:juslifatuladnan@gmail.com" method="post" enctype="text/plain">
+          <label>
+            <span data-i18n="contact.form.name">Your Name</span>
+            <input type="text" name="name" required/>
+          </label>
+          <label>
+            <span data-i18n="contact.form.email">Email</span>
+            <input type="email" name="email" required/>
+          </label>
+          <label>
+            <span data-i18n="contact.form.message">Message</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn primary" data-i18n="contact.form.send">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> <span id="footerName">Your Name</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <div class="footer-links">
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
