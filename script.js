@@ -44,7 +44,7 @@ const TECH_ICONS = {
   events: "./assets/img/tech/events.svg"
 };
 
-function techKey(tag){
+function techKey(tag) {
   return String(tag || "")
     .trim()
     .toLowerCase()
@@ -54,15 +54,14 @@ function techKey(tag){
     .replace(/-/g, "-");
 }
 
-function renderTechPills(tags){
+function renderTechPills(tags) {
   const arr = Array.isArray(tags) ? tags : [];
-  return `<div class="tech-wrap">${
-    arr.map(t => {
-      const key = techKey(t);
-      const icon = TECH_ICONS[key] || "./assets/img/tech/default.svg";
-      return `<span class="tech-pill"><img src="${icon}" alt="${t} logo" loading="lazy"><span>${t}</span></span>`;
-    }).join("")
-  }</div>`;
+  return `<div class="tech-wrap">${arr.map(t => {
+    const key = techKey(t);
+    const icon = TECH_ICONS[key] || "./assets/img/tech/default.svg";
+    return `<span class="tech-pill"><img src="${icon}" alt="${t} logo" loading="lazy"><span>${t}</span></span>`;
+  }).join("")
+    }</div>`;
 }
 
 // ====== Basic dynamic content ======
@@ -106,12 +105,6 @@ function renderProjects(locale = 'en') {
       <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
         <a class="btn btn-detail" href="project-detail.html?id=${encodeURIComponent(p.id)}">
           ${locale === 'id' ? 'Lihat Detail' : 'Details'}
-        </a>
-
-        <a href="${hasLink ? p.link : 'javascript:void(0)'}"
-           class="btn btn-view ${hasLink ? '' : 'disabled'}"
-           ${hasLink ? 'target="_blank" rel="noreferrer"' : ''}>
-          ${locale === 'id' ? 'Lihat' : 'View'}
         </a>
       </div>
     `;

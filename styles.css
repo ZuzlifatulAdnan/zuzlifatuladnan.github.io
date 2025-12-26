@@ -223,3 +223,24 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   width: 14px;
   height: 14px;
 }
+.project-actions{
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-detail{
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.btn-detail:hover{
+  background: #3b82f6;
+  color: #fff;
+}
