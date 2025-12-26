@@ -9,43 +9,43 @@
   },
   "hero": {
     "greeting": "Halo, saya",
-    "subtitle": "Full‑Stack Web & Mobile Developer",
-    "viewWork": "Lihat karya",
-    "hireMe": "Rekrut saya"
+    "subtitle": "Full-Stack Web & Mobile Developer",
+    "viewWork": "Lihat karya saya",
+    "hireMe": "Hubungi saya"
   },
   "about": {
     "title": "Tentang Saya",
-    "desc": "Saya membangun aplikasi modern, aman, dan scalable—backend web dengan Laravel, aplikasi mobile dengan Flutter/Kotlin, serta dashboard untuk pemerintah & enterprise.",
-    "skills": "Keahlian Inti",
-    "exp": "Pengalaman",
-    "location": "Lokasi"
+    "desc": "Saya membangun aplikasi modern, aman, dan scalable—backend web dengan Laravel, mobile dengan Flutter/Kotlin, serta dashboard untuk pemerintahan & enterprise.",
+    "exp": "Pengalaman:",
+    "location": "Lokasi:",
+    "skills": "Keahlian Utama"
   },
   "services": {
     "title": "Layanan",
     "webdev": {
       "title": "Pengembangan Web",
-      "desc": "Website kustom, admin dashboard, dan API dengan Laravel/CI4."
+      "desc": "Website custom, dashboard admin, dan API dengan Laravel/CI4."
     },
     "mobile": {
       "title": "Aplikasi Mobile",
-      "desc": "Aplikasi Flutter lintas platform dan Android native dengan Kotlin."
+      "desc": "Aplikasi Flutter cross-platform dan Android native dengan Kotlin."
     },
     "integrations": {
       "title": "Integrasi",
-      "desc": "Payment, WhatsApp (Fonnte), peta, dan analytics."
+      "desc": "Pembayaran, WhatsApp (Fonnte), peta, dan analytics."
     }
   },
   "projects": {
     "title": "Proyek Unggulan",
-    "note": "Pilihan proyek nyata untuk portal pemerintah dan aplikasi komersial."
+    "note": "Pilihan proyek nyata untuk portal pemerintahan dan aplikasi komersial."
   },
   "testi": {
-    "title": "Kata Klien",
-    "note": "Kepercayaan lahir dari hasil yang nyata."
+    "title": "Apa Kata Klien",
+    "note": "Kepercayaan dibangun dari hasil yang terbukti."
   },
   "contact": {
-    "title": "Ayo bangun sesuatu",
-    "desc": "Ceritakan proyek Anda—timeline, anggaran, dan tujuan.",
+    "title": "Yuk bangun sesuatu",
+    "desc": "Ceritakan proyekmu—timeline, budget, dan goals.",
     "form": {
       "name": "Nama Anda",
       "email": "Email",
@@ -54,6 +54,18 @@
     }
   },
   "footer": {
-    "rights": "Seluruh hak cipta dilindungi."
+    "rights": "Hak cipta dilindungi."
+  },
+  "detail": {
+    "back": "← Kembali ke Proyek",
+    "back2": "Kembali",
+    "label": "Detail Proyek",
+    "highlights": "Highlight",
+    "stack": "Teknologi",
+    "open": "Buka Link",
+    "hire": "Jasa untuk proyek serupa",
+    "note": "Tips: tambahkan link demo/repo agar portofolio makin kuat.",
+    "notFoundTitle": "Proyek tidak ditemukan",
+    "notFoundDesc": "ID proyek tidak valid. Silakan kembali ke daftar proyek."
   }
 }

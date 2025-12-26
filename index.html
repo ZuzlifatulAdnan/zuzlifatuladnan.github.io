@@ -14,8 +14,9 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#"><span class="logo">N</span><span id="brandName">Your Name</span></a>
-      <nav class="nav">
+      <a class="brand" href="#home"><span class="logo">N</span><span id="brandName">Your Name</span></a>
+
+      <nav class="nav" id="navMenu">
         <a href="#home" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#services" data-i18n="nav.services">Services</a>
@@ -23,15 +24,21 @@
         <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
         <a href="#contact" data-i18n="nav.contact" class="btn primary">Contact</a>
       </nav>
+
       <div class="actions">
         <select id="langSelect" aria-label="Language">
           <option value="en">EN</option>
           <option value="id">ID</option>
         </select>
+
         <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle dark/light">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" />
           </svg>
+        </button>
+
+        <button id="navToggle" class="icon-btn nav-toggle" aria-label="Toggle menu" aria-expanded="false" title="Menu">
+          ☰
         </button>
       </div>
     </div>
@@ -41,7 +48,7 @@
     <!-- HERO -->
     <section id="home" class="section hero">
       <div class="container grid-2">
-        <div>
+        <div class="reveal">
           <p class="eyebrow" data-i18n="hero.greeting">Hello, I am</p>
           <h1 id="heroTitle">Your Name</h1>
           <p id="heroSubtitle" class="subtitle" data-i18n="hero.subtitle">Full-Stack Web & Mobile Developer</p>
@@ -56,7 +63,8 @@
             <span class="tag">JavaScript</span>
           </div>
         </div>
-        <div class="hero-illu card">
+
+        <div class="hero-illu card reveal">
           <img src="assets/img/hero-dev.svg" alt="Developer Illustration" />
         </div>
       </div>
@@ -65,7 +73,7 @@
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container grid-2">
-        <div>
+        <div class="reveal">
           <h2 data-i18n="about.title">About Me</h2>
           <p id="aboutDesc" data-i18n="about.desc">
             I build modern, secure, and scalable apps—web backends with Laravel, mobile apps with Flutter/Kotlin, and dashboards for government & enterprise.
@@ -76,12 +84,19 @@
             <li><strong>Email:</strong> <a id="emailLink" href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
           </ul>
         </div>
-        <div class="card">
+
+        <div class="card reveal">
           <h3 data-i18n="about.skills">Core Skills</h3>
           <div class="skills">
-            <span class="tag">Laravel</span><span class="tag">CI4</span><span class="tag">MySQL</span>
-            <span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Node.js</span>
-            <span class="tag">REST API</span>>
+            <div class="tech-wrap">
+              <span class="tech-pill"><img src="./assets/img/tech/laravel.svg" alt="Laravel logo" loading="lazy"><span>Laravel</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/ci4.svg" alt="CI4 logo" loading="lazy"><span>CI4</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/mysql.svg" alt="MySQL logo" loading="lazy"><span>MySQL</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/flutter.svg" alt="Flutter logo" loading="lazy"><span>Flutter</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/kotlin.svg" alt="Kotlin logo" loading="lazy"><span>Kotlin</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/nodejs.svg" alt="Node.js logo" loading="lazy"><span>Node.js</span></span>
+              <span class="tech-pill"><img src="./assets/img/tech/rest-api.svg" alt="REST API logo" loading="lazy"><span>REST API</span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -90,17 +105,17 @@
     <!-- SERVICES -->
     <section id="services" class="section alt">
       <div class="container">
-        <h2 class="center" data-i18n="services.title">Services</h2>
+        <h2 class="center reveal" data-i18n="services.title">Services</h2>
         <div class="card-grid">
-          <article class="card">
+          <article class="card reveal">
             <h3 data-i18n="services.webdev.title">Web Development</h3>
             <p data-i18n="services.webdev.desc">Custom websites, admin dashboards, and APIs with Laravel/CI4.</p>
           </article>
-          <article class="card">
+          <article class="card reveal">
             <h3 data-i18n="services.mobile.title">Mobile Apps</h3>
-            <p data-i18n="services.mobile.desc">Cross‑platform Flutter apps and native Android with Kotlin.</p>
+            <p data-i18n="services.mobile.desc">Cross-platform Flutter apps and native Android with Kotlin.</p>
           </article>
-          <article class="card">
+          <article class="card reveal">
             <h3 data-i18n="services.integrations.title">Integrations</h3>
             <p data-i18n="services.integrations.desc">Payments, WhatsApp (Fonnte), maps, and analytics.</p>
           </article>
@@ -111,7 +126,7 @@
     <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2 data-i18n="projects.title">Featured Projects</h2>
           <p class="muted" data-i18n="projects.note">A selection of real projects across government portals and commercial apps.</p>
         </div>
@@ -122,11 +137,11 @@
     <!-- TESTIMONIALS -->
     <section id="testimonials" class="section alt">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2 data-i18n="testi.title">What Clients Say</h2>
           <p class="muted" data-i18n="testi.note">Trust built from delivered results.</p>
         </div>
-        <div class="carousel card" id="testiCarousel">
+        <div class="carousel card reveal" id="testiCarousel">
           <div class="carousel-track" id="testiTrack"></div>
           <div class="carousel-nav">
             <button class="icon-btn" id="prevBtn" aria-label="Prev">&#10094;</button>
@@ -139,17 +154,15 @@
     <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="container grid-2">
-        <div>
+        <div class="reveal">
           <h2 data-i18n="contact.title">Let's build something</h2>
           <p class="muted" data-i18n="contact.desc">Tell me about your project—timeline, budget, and goals.</p>
           <ul class="list">
             <li><strong>Email:</strong> <a href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
-            <!-- <li><strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank" rel="noreferrer">+62 812‑3456‑7890</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/yourgithub" target="_blank" rel="noreferrer">yourgithub</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourname" target="_blank" rel="noreferrer">yourname</a></li> -->
           </ul>
         </div>
-        <form class="card contact-form" action="mailto:juslifatuladnan@gmail.com" method="post" enctype="text/plain">
+
+        <form class="card contact-form reveal" action="mailto:juslifatuladnan@gmail.com" method="post" enctype="text/plain">
           <label>
             <span data-i18n="contact.form.name">Your Name</span>
             <input type="text" name="name" required/>
@@ -179,6 +192,7 @@
     </div>
   </footer>
 
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

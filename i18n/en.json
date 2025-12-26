@@ -16,9 +16,9 @@
   "about": {
     "title": "About Me",
     "desc": "I build modern, secure, and scalable apps—web backends with Laravel, mobile apps with Flutter/Kotlin, and dashboards for government & enterprise.",
-    "skills": "Core Skills",
-    "exp": "Experience",
-    "location": "Location"
+    "exp": "Experience:",
+    "location": "Location:",
+    "skills": "Core Skills"
   },
   "services": {
     "title": "Services",
@@ -28,7 +28,7 @@
     },
     "mobile": {
       "title": "Mobile Apps",
-      "desc": "Cross‑platform Flutter apps and native Android with Kotlin."
+      "desc": "Cross-platform Flutter apps and native Android with Kotlin."
     },
     "integrations": {
       "title": "Integrations",
@@ -55,5 +55,17 @@
   },
   "footer": {
     "rights": "All rights reserved."
+  },
+  "detail": {
+    "back": "← Back to Projects",
+    "back2": "Back",
+    "label": "Project Detail",
+    "highlights": "Highlights",
+    "stack": "Tech Stack",
+    "open": "Open Link",
+    "hire": "Hire me for similar",
+    "note": "Tip: add demo/repo links later to make your portfolio even stronger.",
+    "notFoundTitle": "Project not found",
+    "notFoundDesc": "The project ID is invalid. Please go back to the Projects section."
   }
 }
