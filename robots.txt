@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow common development / private paths if any (none currently)
+Disallow: /memory/
+Disallow: /.git/
+
+Sitemap: https://zuzlifatuladnan.github.io/sitemap.xml

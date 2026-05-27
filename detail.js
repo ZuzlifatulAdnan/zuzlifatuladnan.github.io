@@ -1,34 +1,31 @@
 
 // ===== Tech logo mapping =====
+const DEVICON = (name, variant = 'original') =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-${variant}.svg`;
+
 const TECH_ICONS = {
-  laravel: "./assets/img/tech/laravel.svg",
-  ci4: "./assets/img/tech/ci4.svg",
-  codeigniter: "./assets/img/tech/ci4.svg",
-  mysql: "./assets/img/tech/mysql.svg",
-  flutter: "./assets/img/tech/flutter.svg",
-  kotlin: "./assets/img/tech/kotlin.svg",
-  "node.js": "./assets/img/tech/nodejs.svg",
-  nodejs: "./assets/img/tech/nodejs.svg",
+  laravel: DEVICON('laravel'),
+  ci4: DEVICON('codeigniter', 'plain'),
+  codeigniter: DEVICON('codeigniter', 'plain'),
+  mysql: DEVICON('mysql'),
+  flutter: DEVICON('flutter'),
+  kotlin: DEVICON('kotlin'),
+  "node.js": DEVICON('nodejs'),
+  nodejs: DEVICON('nodejs'),
+  javascript: DEVICON('javascript'),
+  typescript: DEVICON('typescript'),
+  php: DEVICON('php'),
+  android: DEVICON('android'),
+  firebase: DEVICON('firebase', 'plain'),
+  postgresql: DEVICON('postgresql'),
   "rest api": "./assets/img/tech/rest-api.svg",
   restapi: "./assets/img/tech/rest-api.svg",
-  pam: "./assets/img/tech/pam.svg",
-  "k-means": "./assets/img/tech/kmeans.svg",
-  kmeans: "./assets/img/tech/kmeans.svg",
-  "a*": "./assets/img/tech/astar.svg",
-  astar: "./assets/img/tech/astar.svg",
+  fonnte: "./assets/img/tech/whatsapp.svg",
+  whatsapp: "./assets/img/tech/whatsapp.svg",
   maps: "./assets/img/tech/maps.svg",
   qr: "./assets/img/tech/qr.svg",
   pwa: "./assets/img/tech/pwa.svg",
-  fonnte: "./assets/img/tech/whatsapp.svg",
-  whatsapp: "./assets/img/tech/whatsapp.svg",
-  cms: "./assets/img/tech/cms.svg",
-  reservation: "./assets/img/tech/reservation.svg",
-  fifo: "./assets/img/tech/fifo.svg",
-  academic: "./assets/img/tech/academic.svg",
-  dashboard: "./assets/img/tech/dashboard.svg",
-  clustering: "./assets/img/tech/clustering.svg",
-  pos: "./assets/img/tech/pos.svg",
-  events: "./assets/img/tech/events.svg"
+  cms: "./assets/img/tech/cms.svg"
 };
 
 function techKey(tag){
@@ -37,8 +34,7 @@ function techKey(tag){
     .toLowerCase()
     .replace(/\s+/g, " ")
     .replace(/[()]/g, "")
-    .replace(/\+/g, "")
-    .replace(/-/g, "-");
+    .replace(/\+/g, "");
 }
 
 function renderTechPills(tags){
@@ -46,8 +42,10 @@ function renderTechPills(tags){
   return `<div class="tech-wrap">${
     arr.map(t => {
       const key = techKey(t);
-      const icon = TECH_ICONS[key] || "./assets/img/tech/default.svg";
-      return `<span class="tech-pill"><img src="${icon}" alt="${t} logo" loading="lazy"><span>${t}</span></span>`;
+      const icon = TECH_ICONS[key];
+      return icon
+        ? `<span class="tech-pill"><img src="${icon}" alt="${t} logo" loading="lazy"><span>${t}</span></span>`
+        : `<span class="tech-pill tech-pill--text"><span>${t}</span></span>`;
     }).join("")
   }</div>`;
 }
@@ -61,7 +59,10 @@ const themeToggle = document.getElementById('themeToggle');
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     root.classList.toggle('light');
-    localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+    const mode = root.classList.contains('light') ? 'light' : 'dark';
+    localStorage.setItem('theme', mode);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', mode === 'light' ? '#f7fafc' : '#0b0d10');
   });
 }
 
@@ -77,12 +78,15 @@ if (footerName) footerName.textContent = PROFILE.name;
 // ===== Reveal =====
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
   });
-}, { threshold: .15 });
+}, { threshold: .12 });
 
 function attachReveal() {
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
 }
 
 // ===== Helpers =====
@@ -107,13 +111,57 @@ function renderDetail(project) {
   const stackEl = document.getElementById('detailStack');
   const openEl = document.getElementById('detailOpen');
 
-  if (titleEl) titleEl.textContent = project.title || 'Project';
-  if (descEl) descEl.textContent = currentLocale === 'id' ? (project.desc_id || '') : (project.desc_en || '');
-  if (imgEl) imgEl.src = project.img || 'assets/img/p1.svg';
+  const desc = currentLocale === 'id' ? (project.desc_id || '') : (project.desc_en || '');
 
-  // tags
+  if (titleEl) titleEl.textContent = project.title || 'Project';
+  if (descEl) descEl.textContent = desc;
+  if (imgEl) {
+    imgEl.src = project.img || 'assets/img/p1.svg';
+    imgEl.alt = project.title || 'Project cover';
+  }
+  document.title = `${project.title} — Zuzlifatul Adnan`;
+
+  // --- SEO meta updates ---
+  const siteUrl = (PROFILE && PROFILE.siteUrl) ? PROFILE.siteUrl : 'https://zuzlifatuladnan.github.io/';
+  const url = `${siteUrl}project-detail.html?id=${encodeURIComponent(project.id)}`;
+  const imgAbs = (project.img && project.img.startsWith('http')) ? project.img : `${siteUrl}${project.img || 'assets/img/hero-dev.svg'}`;
+
+  const setMeta = (id, attr, val) => { const el = document.getElementById(id); if (el && val) el.setAttribute(attr, val); };
+  setMeta('canonicalLink', 'href', url);
+  setMeta('ogUrl', 'content', url);
+  setMeta('ogTitle', 'content', `${project.title} — Zuzlifatul Adnan`);
+  setMeta('ogDesc', 'content', desc);
+  setMeta('ogImage', 'content', imgAbs);
+
+  const descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta && desc) descMeta.setAttribute('content', desc);
+
+  // --- JSON-LD CreativeWork structured data ---
+  const oldLd = document.getElementById('projectLd');
+  if (oldLd) oldLd.remove();
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.id = 'projectLd';
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "url": url,
+    "image": imgAbs,
+    "description": desc,
+    "keywords": (project.tags || []).join(', '),
+    "creator": {
+      "@type": "Person",
+      "name": "Zuzlifatul Adnan",
+      "url": siteUrl
+    },
+    "inLanguage": currentLocale === 'id' ? 'id-ID' : 'en-US'
+  });
+  document.head.appendChild(ld);
+
+  // tags (use tech pills with logos)
   if (tagsEl) {
-    tagsEl.innerHTML = (project.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+    tagsEl.innerHTML = renderTechPills(project.tags || []);
   }
 
   // highlights
@@ -136,19 +184,18 @@ function renderDetail(project) {
 
   // tech stack
   if (stackEl) {
-    stackEl.innerHTML = (project.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+    stackEl.innerHTML = renderTechPills(project.tags || []);
   }
 
-  // open link
+  // open link — hide entirely when no real demo
   const hasLink = project.link && project.link !== '#';
   if (openEl) {
     if (hasLink) {
       openEl.classList.remove('disabled');
       openEl.href = project.link;
-      openEl.style.display = 'inline-block';
+      openEl.style.display = 'inline-flex';
     } else {
-      openEl.classList.add('disabled');
-      openEl.href = 'javascript:void(0)';
+      openEl.style.display = 'none';
     }
   }
 }

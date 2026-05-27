@@ -3,25 +3,53 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "projects": "Projects",
+    "process": "Process",
+    "stack": "Stack",
+    "packages": "Packages",
+    "projects": "Work",
     "testimonials": "Testimonials",
+    "github": "GitHub",
+    "faq": "FAQ",
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello, I am",
-    "subtitle": "Full-Stack Web & Mobile Developer",
-    "viewWork": "View my work",
-    "hireMe": "Hire me"
+    "available": "Available for new projects",
+    "greeting": "Full-Stack Developer",
+    "subtitle": "I design and build production-grade web platforms and mobile apps for businesses, schools, and government agencies across Indonesia.",
+    "viewWork": "View selected work",
+    "hireMe": "Start a project",
+    "scroll": "Scroll to explore"
+  },
+  "stats": {
+    "projects": "Projects delivered",
+    "years": "Years of experience",
+    "clients": "Satisfied clients",
+    "support": "Support response"
   },
   "about": {
-    "title": "About Me",
-    "desc": "I build modern, secure, and scalable apps—web backends with Laravel, mobile apps with Flutter/Kotlin, and dashboards for government & enterprise.",
-    "exp": "Experience:",
-    "location": "Location:",
-    "skills": "Core Skills"
+    "eyebrow": "About",
+    "title": "Building digital solutions trusted by businesses & institutions",
+    "desc": "Hi, I'm Zuzlifatul Adnan — a Full-Stack Developer based in Lampung with 4+ years of experience building custom websites, admin dashboards, and mobile apps. My clients range from SMEs and schools to local government agencies across Indonesia.",
+    "desc2": "I handle projects end-to-end — from requirement consultation and architecture design, through development with weekly demos, to deployment and post-launch support. Every project is built production-ready from day one, with clean, maintainable code that your team can scale.",
+    "specTitle": "What I work on",
+    "spec1": "Custom websites & admin dashboards (Laravel, CodeIgniter)",
+    "spec2": "Native Android & cross-platform mobile apps (Kotlin, Flutter)",
+    "spec3": "System integrations — payments, WhatsApp (Fonnte), Google Maps, QR",
+    "spec4": "Algorithms & data analytics — K-Means, PAM, A* Pathfinding, FIFO",
+    "exp": "Experience",
+    "location": "Based in",
+    "email": "Email",
+    "availability": "Availability",
+    "availabilityValue": "Open for new projects",
+    "languages": "Languages",
+    "languagesValue": "Indonesian, English",
+    "skills": "Core stack",
+    "cta": "View my work"
   },
   "services": {
-    "title": "Services",
+    "eyebrow": "Services",
+    "title": "What I can help you build",
+    "note": "End-to-end delivery, from architecture to launch — focused on quality, security, and clear communication.",
     "webdev": {
       "title": "Web Development",
       "desc": "Custom websites, admin dashboards, and APIs with Laravel/CI4."
@@ -33,28 +61,122 @@
     "integrations": {
       "title": "Integrations",
       "desc": "Payments, WhatsApp (Fonnte), maps, and analytics."
+    },
+    "consulting": {
+      "title": "Technical Consulting",
+      "desc": "Architecture reviews, performance audits, and team mentoring."
     }
   },
+  "process": {
+    "eyebrow": "Process",
+    "title": "A clear, predictable workflow",
+    "note": "Every engagement follows the same simple rhythm so you always know what's next.",
+    "steps": {
+      "discover": {
+        "title": "Discover",
+        "desc": "We map your goals, users, and constraints. You get a clear scope and timeline."
+      },
+      "design": {
+        "title": "Design",
+        "desc": "Flows, wireframes, and UI design — reviewed and approved before any code is written."
+      },
+      "build": {
+        "title": "Build",
+        "desc": "Iterative development with weekly demos, clean code, and full source ownership."
+      },
+      "launch": {
+        "title": "Launch",
+        "desc": "Deployment, monitoring, training, and 30 days of post-launch support."
+      }
+    }
+  },
+  "stack": {
+    "eyebrow": "Tech stack",
+    "title": "Tools I use every day",
+    "note": "Battle-tested technologies chosen for reliability, performance, and long-term maintainability.",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "frontend": "Frontend",
+    "tools": "Tools & Integrations"
+  },
+  "github": {
+    "eyebrow": "Open source",
+    "title": "Live from GitHub",
+    "note": "Real-time stats and recent activity across my public repositories.",
+    "viewProfile": "View full profile",
+    "repos": "Repositories",
+    "stars": "Total stars",
+    "followers": "Followers",
+    "following": "Following",
+    "topRepos": "Top repositories",
+    "loading": "Loading from GitHub…",
+    "error": "Couldn't reach GitHub right now. Please try again later.",
+    "updatedOn": "Updated"
+  },
   "projects": {
-    "title": "Featured Projects",
-    "note": "A selection of real projects across government portals and commercial apps."
+    "eyebrow": "Selected work",
+    "title": "Recent projects",
+    "note": "A selection of real projects across government portals, education, and commercial apps.",
+    "viewAll": "All projects",
+    "viewDetail": "View case"
+  },
+  "packages": {
+    "eyebrow": "Packages",
+    "title": "Transparent pricing, real results",
+    "note": "Choose the package that fits your business needs. Custom package offers unique solutions on demand."
   },
   "testi": {
-    "title": "What Clients Say",
+    "eyebrow": "Testimonials",
+    "title": "Trusted by clients across sectors",
     "note": "Trust built from delivered results."
   },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "note": "Everything you need to know before we start working together.",
+    "items": {
+      "q1": {
+        "q": "How long does a typical project take?",
+        "a": "Most websites take 2–6 weeks. Mobile apps and complex dashboards usually take 6–12 weeks. You'll get a clear timeline after the discovery call."
+      },
+      "q2": {
+        "q": "Do you work remotely or on-site?",
+        "a": "I work fully remote with clients across Indonesia and overseas. On-site visits are possible within Lampung if required."
+      },
+      "q3": {
+        "q": "What does the price include?",
+        "a": "Design, development, hosting setup, deployment, training, source code, and 30 days of post-launch support. No hidden fees."
+      },
+      "q4": {
+        "q": "Do I own the source code?",
+        "a": "Yes. You get full ownership of the code and all assets upon final payment, including the GitHub/GitLab repository."
+      },
+      "q5": {
+        "q": "How do we communicate during the project?",
+        "a": "WhatsApp for quick chats, email for formal updates, and weekly demo calls. You can reach me any business day."
+      }
+    }
+  },
   "contact": {
-    "title": "Let's build something",
-    "desc": "Tell me about your project—timeline, budget, and goals.",
+    "eyebrow": "Contact",
+    "title": "Let's build something great",
+    "desc": "Tell me about your project — timeline, budget, and goals. I usually reply within one business day.",
     "form": {
       "name": "Your Name",
       "email": "Email",
-      "message": "Message",
-      "send": "Send"
+      "subject": "Subject",
+      "message": "Project details",
+      "send": "Send message"
     }
   },
   "footer": {
+    "tagline": "Full-Stack Web & Mobile Developer based in Lampung, Indonesia.",
+    "links": "Navigation",
+    "social": "Connect",
     "rights": "All rights reserved."
+  },
+  "a11y": {
+    "skip": "Skip to content"
   },
   "detail": {
     "back": "← Back to Projects",

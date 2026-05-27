@@ -3,25 +3,53 @@
     "home": "Beranda",
     "about": "Tentang",
     "services": "Layanan",
-    "projects": "Proyek",
+    "process": "Alur",
+    "stack": "Teknologi",
+    "packages": "Paket",
+    "projects": "Karya",
     "testimonials": "Testimoni",
+    "github": "GitHub",
+    "faq": "FAQ",
     "contact": "Kontak"
   },
   "hero": {
-    "greeting": "Halo, saya",
-    "subtitle": "Full-Stack Web & Mobile Developer",
-    "viewWork": "Lihat karya saya",
-    "hireMe": "Hubungi saya"
+    "available": "Tersedia untuk proyek baru",
+    "greeting": "Full-Stack Developer",
+    "subtitle": "Saya merancang dan membangun platform web serta aplikasi mobile berkualitas produksi untuk bisnis, sekolah, dan instansi pemerintah di seluruh Indonesia.",
+    "viewWork": "Lihat karya pilihan",
+    "hireMe": "Mulai proyek",
+    "scroll": "Gulir untuk menjelajah"
+  },
+  "stats": {
+    "projects": "Proyek diselesaikan",
+    "years": "Tahun pengalaman",
+    "clients": "Klien puas",
+    "support": "Respon support"
   },
   "about": {
-    "title": "Tentang Saya",
-    "desc": "Saya membangun aplikasi modern, aman, dan scalable—backend web dengan Laravel, mobile dengan Flutter/Kotlin, serta dashboard untuk pemerintahan & enterprise.",
-    "exp": "Pengalaman:",
-    "location": "Lokasi:",
-    "skills": "Keahlian Utama"
+    "eyebrow": "Tentang Saya",
+    "title": "Membangun solusi digital yang dipercaya bisnis & instansi",
+    "desc": "Halo, saya Zuzlifatul Adnan — Full-Stack Developer berbasis di Lampung dengan pengalaman 4+ tahun membangun website custom, dashboard admin, dan aplikasi mobile. Klien saya mencakup UMKM, sekolah & kampus, hingga instansi pemerintah daerah di Indonesia.",
+    "desc2": "Saya menangani proyek secara end-to-end — mulai dari konsultasi kebutuhan, perancangan arsitektur, pengerjaan dengan demo mingguan, hingga deployment dan support pasca-launch. Setiap proyek dirancang siap-produksi sejak hari pertama, dengan kode yang bersih dan mudah dirawat tim Anda di masa depan.",
+    "specTitle": "Yang saya kerjakan",
+    "spec1": "Website & dashboard admin custom (Laravel, CodeIgniter)",
+    "spec2": "Aplikasi mobile Android native & cross-platform (Kotlin, Flutter)",
+    "spec3": "Integrasi sistem — pembayaran, WhatsApp (Fonnte), Google Maps, QR",
+    "spec4": "Algoritma & analitik data — K-Means, PAM, A* Pathfinding, FIFO",
+    "exp": "Pengalaman",
+    "location": "Berbasis di",
+    "email": "Email",
+    "availability": "Ketersediaan",
+    "availabilityValue": "Menerima proyek baru",
+    "languages": "Bahasa",
+    "languagesValue": "Indonesia, Inggris",
+    "skills": "Tech utama",
+    "cta": "Lihat karya saya"
   },
   "services": {
-    "title": "Layanan",
+    "eyebrow": "Layanan",
+    "title": "Yang bisa saya bantu",
+    "note": "Pengerjaan end-to-end, dari arsitektur sampai peluncuran — fokus pada kualitas, keamanan, dan komunikasi yang jelas.",
     "webdev": {
       "title": "Pengembangan Web",
       "desc": "Website custom, dashboard admin, dan API dengan Laravel/CI4."
@@ -33,28 +61,122 @@
     "integrations": {
       "title": "Integrasi",
       "desc": "Pembayaran, WhatsApp (Fonnte), peta, dan analytics."
+    },
+    "consulting": {
+      "title": "Konsultasi Teknis",
+      "desc": "Review arsitektur, audit performa, dan mentoring tim."
     }
   },
+  "process": {
+    "eyebrow": "Alur Kerja",
+    "title": "Alur kerja yang jelas dan terukur",
+    "note": "Setiap proyek mengikuti ritme yang sama sehingga Anda selalu tahu langkah berikutnya.",
+    "steps": {
+      "discover": {
+        "title": "Diskusi",
+        "desc": "Kami petakan tujuan, pengguna, dan batasan. Anda dapat scope dan timeline yang jelas."
+      },
+      "design": {
+        "title": "Desain",
+        "desc": "Flow, wireframe, dan desain UI — direview dan disetujui sebelum coding dimulai."
+      },
+      "build": {
+        "title": "Build",
+        "desc": "Pengerjaan iteratif dengan demo mingguan, code rapi, dan kepemilikan source code penuh."
+      },
+      "launch": {
+        "title": "Launch",
+        "desc": "Deploy, monitoring, pelatihan, dan support pasca-launch 30 hari."
+      }
+    }
+  },
+  "stack": {
+    "eyebrow": "Teknologi",
+    "title": "Tools yang saya gunakan setiap hari",
+    "note": "Teknologi teruji yang dipilih untuk keandalan, performa, dan kemudahan maintenance jangka panjang.",
+    "backend": "Backend",
+    "mobile": "Mobile",
+    "frontend": "Frontend",
+    "tools": "Tools & Integrasi"
+  },
+  "github": {
+    "eyebrow": "Open source",
+    "title": "Live dari GitHub",
+    "note": "Statistik dan aktivitas terkini dari seluruh repository publik saya.",
+    "viewProfile": "Lihat profil lengkap",
+    "repos": "Repositori",
+    "stars": "Total bintang",
+    "followers": "Pengikut",
+    "following": "Mengikuti",
+    "topRepos": "Repositori populer",
+    "loading": "Memuat data dari GitHub…",
+    "error": "Tidak bisa terhubung ke GitHub saat ini. Silakan coba lagi nanti.",
+    "updatedOn": "Diperbarui"
+  },
   "projects": {
-    "title": "Proyek Unggulan",
-    "note": "Pilihan proyek nyata untuk portal pemerintahan dan aplikasi komersial."
+    "eyebrow": "Karya Pilihan",
+    "title": "Proyek terkini",
+    "note": "Pilihan proyek nyata untuk portal pemerintahan, pendidikan, dan aplikasi komersial.",
+    "viewAll": "Semua proyek",
+    "viewDetail": "Lihat detail"
+  },
+  "packages": {
+    "eyebrow": "Paket",
+    "title": "Harga transparan, hasil nyata",
+    "note": "Pilih paket yang sesuai kebutuhan bisnis Anda. Paket kustom menawarkan solusi unik sesuai permintaan."
   },
   "testi": {
-    "title": "Apa Kata Klien",
+    "eyebrow": "Testimoni",
+    "title": "Dipercaya klien dari berbagai sektor",
     "note": "Kepercayaan dibangun dari hasil yang terbukti."
   },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Pertanyaan yang sering ditanyakan",
+    "note": "Semua hal yang perlu Anda tahu sebelum kita mulai bekerja sama.",
+    "items": {
+      "q1": {
+        "q": "Berapa lama waktu pengerjaan proyek?",
+        "a": "Sebagian besar website selesai 2–6 minggu. Aplikasi mobile dan dashboard kompleks biasanya 6–12 minggu. Timeline pasti diberikan setelah sesi discovery."
+      },
+      "q2": {
+        "q": "Apakah remote atau on-site?",
+        "a": "Saya bekerja full remote dengan klien dari seluruh Indonesia maupun luar negeri. Kunjungan on-site dimungkinkan di area Lampung jika diperlukan."
+      },
+      "q3": {
+        "q": "Apa saja yang termasuk dalam harga?",
+        "a": "Desain, development, setup hosting, deployment, training, source code, dan support 30 hari pasca-launch. Tanpa biaya tersembunyi."
+      },
+      "q4": {
+        "q": "Apakah saya memiliki source code-nya?",
+        "a": "Ya. Anda mendapat kepemilikan penuh atas source code dan seluruh asset setelah pelunasan, termasuk repository GitHub/GitLab."
+      },
+      "q5": {
+        "q": "Bagaimana cara berkomunikasi selama proyek?",
+        "a": "WhatsApp untuk chat cepat, email untuk update formal, dan demo call mingguan. Anda bisa menghubungi saya setiap hari kerja."
+      }
+    }
+  },
   "contact": {
-    "title": "Yuk bangun sesuatu",
-    "desc": "Ceritakan proyekmu—timeline, budget, dan goals.",
+    "eyebrow": "Kontak",
+    "title": "Yuk bangun sesuatu yang hebat",
+    "desc": "Ceritakan proyek Anda — timeline, budget, dan goals. Biasanya saya membalas dalam 1 hari kerja.",
     "form": {
       "name": "Nama Anda",
       "email": "Email",
-      "message": "Pesan",
-      "send": "Kirim"
+      "subject": "Subjek",
+      "message": "Detail proyek",
+      "send": "Kirim pesan"
     }
   },
   "footer": {
+    "tagline": "Full-Stack Web & Mobile Developer di Lampung, Indonesia.",
+    "links": "Navigasi",
+    "social": "Terhubung",
     "rights": "Hak cipta dilindungi."
+  },
+  "a11y": {
+    "skip": "Lewati ke konten"
   },
   "detail": {
     "back": "← Kembali ke Proyek",
