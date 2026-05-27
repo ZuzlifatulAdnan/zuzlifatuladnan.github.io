@@ -10,6 +10,12 @@
   <meta name="robots" content="index, follow, max-image-preview:large"/>
   <meta name="googlebot" content="index, follow"/>
 
+  <!-- Search engine ownership verification -->
+  <!-- Google Search Console: ganti REPLACE_WITH_GOOGLE_TOKEN dengan token Anda dari https://search.google.com/search-console -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN"/>
+  <!-- Bing Webmaster Tools: ganti REPLACE_WITH_BING_TOKEN dengan token Anda dari https://www.bing.com/webmasters -->
+  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN"/>
+
   <!-- Canonical & language alternates -->
   <link rel="canonical" href="https://zuzlifatuladnan.github.io/"/>
   <link rel="alternate" hreflang="id" href="https://zuzlifatuladnan.github.io/"/>
@@ -24,14 +30,21 @@
   <meta property="og:url" content="https://zuzlifatuladnan.github.io/"/>
   <meta property="og:title" content="Zuzlifatul Adnan — Jasa Pembuatan Website & Aplikasi"/>
   <meta property="og:description" content="Full-Stack Web & Mobile Developer (Laravel, Flutter, Kotlin) di Lampung, Indonesia. Membangun website, dashboard, dan aplikasi mobile produksi untuk bisnis, sekolah, dan pemerintah."/>
-  <meta property="og:image" content="https://zuzlifatuladnan.github.io/assets/img/hero-dev.svg"/>
-  <meta property="og:image:alt" content="Zuzlifatul Adnan — Full-Stack Developer"/>
+  <meta property="og:image" content="https://zuzlifatuladnan.github.io/assets/img/og-image.svg"/>
+  <meta property="og:image:secure_url" content="https://zuzlifatuladnan.github.io/assets/img/og-image.svg"/>
+  <meta property="og:image:type" content="image/svg+xml"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Zuzlifatul Adnan — Full-Stack Web & Mobile Developer"/>
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ZuzlifatulAdnan"/>
+  <meta name="twitter:creator" content="@ZuzlifatulAdnan"/>
   <meta name="twitter:title" content="Zuzlifatul Adnan — Jasa Pembuatan Website & Aplikasi"/>
   <meta name="twitter:description" content="Full-Stack Web & Mobile Developer (Laravel, Flutter, Kotlin) di Lampung, Indonesia."/>
-  <meta name="twitter:image" content="https://zuzlifatuladnan.github.io/assets/img/hero-dev.svg"/>
+  <meta name="twitter:image" content="https://zuzlifatuladnan.github.io/assets/img/og-image.svg"/>
+  <meta name="twitter:image:alt" content="Zuzlifatul Adnan — Full-Stack Web & Mobile Developer"/>
 
   <meta name="theme-color" content="#0a0a0b"/>
   <meta name="geo.region" content="ID-LA"/>
@@ -46,6 +59,22 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Google Analytics 4 — isi GA_ID di bawah dengan Measurement ID (G-XXXXXXXXXX) dari https://analytics.google.com/ -->
+  <!-- Selama GA_ID kosong, script tidak akan jalan (tidak menambah beban halaman). -->
+  <script>
+    window.GA_ID = ""; // ← isi dengan Measurement ID Anda, contoh: "G-ABC123XYZ"
+    if (window.GA_ID) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', window.GA_ID, { anonymize_ip: true });
+    }
+  </script>
 
   <!-- Structured Data: Person -->
   <script type="application/ld+json">

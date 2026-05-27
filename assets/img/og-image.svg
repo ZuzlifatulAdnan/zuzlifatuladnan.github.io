@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0b"/>
+      <stop offset="100%" stop-color="#16181c"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.85" cy="0.15" r="0.55">
+      <stop offset="0%" stop-color="#5b8cff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#5b8cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.1" cy="0.9" r="0.5">
+      <stop offset="0%" stop-color="#5b8cff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#5b8cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f4f5f7"/>
+      <stop offset="55%" stop-color="#5b8cff"/>
+      <stop offset="100%" stop-color="#f4f5f7"/>
+    </linearGradient>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5b8cff"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background layers -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Subtle grid pattern -->
+  <g stroke="#1f2227" stroke-width="1" opacity="0.4">
+    <line x1="0"   y1="120" x2="1200" y2="120"/>
+    <line x1="0"   y1="510" x2="1200" y2="510"/>
+    <line x1="120" y1="0"   x2="120"  y2="630"/>
+    <line x1="1080" y1="0"  x2="1080" y2="630"/>
+  </g>
+
+  <!-- Logo badge -->
+  <g transform="translate(80, 80)">
+    <rect width="68" height="68" rx="16" fill="url(#logoGrad)"/>
+    <text x="34" y="46" font-family="Inter, system-ui, sans-serif"
+          font-size="26" font-weight="800" fill="#0a0a0b"
+          text-anchor="middle" letter-spacing="1">ZA</text>
+  </g>
+
+  <!-- Availability pill -->
+  <g transform="translate(170, 95)">
+    <rect width="245" height="42" rx="21" fill="#16181c" stroke="#1f2227" stroke-width="1"/>
+    <circle cx="22" cy="21" r="5" fill="#10b981"/>
+    <text x="38" y="27" font-family="Inter, system-ui, sans-serif"
+          font-size="15" font-weight="500" fill="#c8ccd4">Available for new projects</text>
+  </g>
+
+  <!-- Eyebrow -->
+  <text x="80" y="240" font-family="Inter, system-ui, sans-serif"
+        font-size="18" font-weight="600" fill="#8a8f99"
+        letter-spacing="3">— PORTFOLIO</text>
+
+  <!-- Main heading -->
+  <text x="80" y="310" font-family="Inter, system-ui, sans-serif"
+        font-size="68" font-weight="700" fill="#f4f5f7"
+        letter-spacing="-2">Zuzlifatul Adnan</text>
+
+  <text x="80" y="380" font-family="Inter, system-ui, sans-serif"
+        font-size="56" font-weight="700" fill="url(#accent)"
+        letter-spacing="-2">Full-Stack Developer</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="440" font-family="Inter, system-ui, sans-serif"
+        font-size="22" font-weight="400" fill="#c8ccd4">
+    Web platforms · Mobile apps · Dashboards
+  </text>
+
+  <!-- Tech tags row -->
+  <g transform="translate(80, 490)" font-family="Inter, system-ui, sans-serif"
+     font-size="15" font-weight="500" fill="#f4f5f7">
+    <g transform="translate(0, 0)">
+      <rect width="98" height="38" rx="19" fill="#16181c" stroke="#1f2227"/>
+      <text x="49" y="24" text-anchor="middle">Laravel</text>
+    </g>
+    <g transform="translate(110, 0)">
+      <rect width="92" height="38" rx="19" fill="#16181c" stroke="#1f2227"/>
+      <text x="46" y="24" text-anchor="middle">Flutter</text>
+    </g>
+    <g transform="translate(212, 0)">
+      <rect width="86" height="38" rx="19" fill="#16181c" stroke="#1f2227"/>
+      <text x="43" y="24" text-anchor="middle">Kotlin</text>
+    </g>
+    <g transform="translate(308, 0)">
+      <rect width="76" height="38" rx="19" fill="#16181c" stroke="#1f2227"/>
+      <text x="38" y="24" text-anchor="middle">MySQL</text>
+    </g>
+    <g transform="translate(394, 0)">
+      <rect width="98" height="38" rx="19" fill="#16181c" stroke="#1f2227"/>
+      <text x="49" y="24" text-anchor="middle">Node.js</text>
+    </g>
+  </g>
+
+  <!-- Location + URL footer -->
+  <g font-family="Inter, system-ui, sans-serif" fill="#8a8f99" font-size="18">
+    <text x="80" y="585">📍 Lampung, Indonesia</text>
+    <text x="1120" y="585" text-anchor="end" fill="#c8ccd4" font-weight="500">
+      zuzlifatuladnan.github.io
+    </text>
+  </g>
+</svg>

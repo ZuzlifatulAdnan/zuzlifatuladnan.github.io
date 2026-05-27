@@ -7,18 +7,29 @@
   <meta name="description" content="Project detail — Zuzlifatul Adnan portfolio."/>
   <meta name="author" content="Zuzlifatul Adnan"/>
   <meta name="robots" content="index, follow, max-image-preview:large"/>
+  <meta name="googlebot" content="index, follow"/>
+
+  <!-- Search engine ownership verification (same tokens as index.html) -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN"/>
+  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN"/>
 
   <link rel="canonical" id="canonicalLink" href="https://zuzlifatuladnan.github.io/project-detail.html"/>
 
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="Zuzlifatul Adnan"/>
   <meta property="og:locale" content="id_ID"/>
+  <meta property="og:locale:alternate" content="en_US"/>
   <meta property="og:url" id="ogUrl" content="https://zuzlifatuladnan.github.io/project-detail.html"/>
   <meta property="og:title" id="ogTitle" content="Project Detail — Zuzlifatul Adnan"/>
   <meta property="og:description" id="ogDesc" content="Project detail — Zuzlifatul Adnan portfolio."/>
-  <meta property="og:image" id="ogImage" content="https://zuzlifatuladnan.github.io/assets/img/hero-dev.svg"/>
+  <meta property="og:image" id="ogImage" content="https://zuzlifatuladnan.github.io/assets/img/og-image.svg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Zuzlifatul Adnan — Project Detail"/>
 
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ZuzlifatulAdnan"/>
+  <meta name="twitter:creator" content="@ZuzlifatulAdnan"/>
   <meta name="theme-color" content="#0a0a0b"/>
 
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
@@ -26,6 +37,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
+
+  <!-- Google Analytics 4 — same GA_ID logic as index.html -->
+  <script>
+    window.GA_ID = ""; // ← isi dengan Measurement ID Anda, contoh: "G-ABC123XYZ"
+    if (window.GA_ID) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', window.GA_ID, { anonymize_ip: true });
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
     <loc>https://zuzlifatuladnan.github.io/</loc>
@@ -10,6 +11,16 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://zuzlifatuladnan.github.io/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://zuzlifatuladnan.github.io/?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zuzlifatuladnan.github.io/" />
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/og-image.svg</image:loc>
+      <image:title>Zuzlifatul Adnan — Full-Stack Web &amp; Mobile Developer</image:title>
+      <image:caption>Portfolio cover image — Zuzlifatul Adnan, Full-Stack Developer (Laravel, Flutter, Kotlin) di Lampung, Indonesia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/profile.png</image:loc>
+      <image:title>Zuzlifatul Adnan — Profile photo</image:title>
+      <image:caption>Foto developer Zuzlifatul Adnan, Lampung Indonesia</image:caption>
+    </image:image>
   </url>
 
   <url>
@@ -17,54 +28,99 @@
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p1.svg</image:loc>
+      <image:title>Promosi Wisata (PAM Clustering)</image:title>
+      <image:caption>Tourism promotion dashboard with PAM clustering — Laravel</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=pos-kmeans</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p2.svg</image:loc>
+      <image:title>POS K-Means</image:title>
+      <image:caption>Point-of-Sale with K-Means clustering analytics — Laravel</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=events-kmeans</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p3.svg</image:loc>
+      <image:title>Events (K-Means)</image:title>
+      <image:caption>Event platform with K-Means participant classification</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=website-profile-sekolah</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p4.svg</image:loc>
+      <image:title>Website Profile Sekolah</image:title>
+      <image:caption>School profile website with CMS — Laravel</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=website-lpg-astar</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p5.svg</image:loc>
+      <image:title>Website LPG (A* Route Finder)</image:title>
+      <image:caption>LPG stock locator with A* pathfinding + Google Maps</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=peminjaman-ruangan-fifo</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p6.svg</image:loc>
+      <image:title>Peminjaman Ruangan (FIFO)</image:title>
+      <image:caption>Room reservation system with FIFO scheduling logic</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=sistem-akademik-sekolah</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p7.svg</image:loc>
+      <image:title>Sistem Akademik Sekolah</image:title>
+      <image:caption>School academic information system — Laravel multi-role</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=cleanwash-laundry-kotlin-laravel</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p8.svg</image:loc>
+      <image:title>Clean Wash Laundry (Kotlin + Laravel)</image:title>
+      <image:caption>Laundry ordering app — Kotlin Android + Laravel backend</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://zuzlifatuladnan.github.io/project-detail.html?id=absensi-qr-sekolah-kotlin-laravel</loc>
     <lastmod>2026-05-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://zuzlifatuladnan.github.io/assets/img/p9.svg</image:loc>
+      <image:title>Absensi QR Sekolah (Kotlin + Laravel)</image:title>
+      <image:caption>QR attendance app with geolocation validation</image:caption>
+    </image:image>
   </url>
 
 </urlset>

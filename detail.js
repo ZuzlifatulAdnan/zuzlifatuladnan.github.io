@@ -159,6 +159,25 @@ function renderDetail(project) {
   });
   document.head.appendChild(ld);
 
+  // --- JSON-LD BreadcrumbList (Google rich result: breadcrumb path in search) ---
+  const oldBc = document.getElementById('breadcrumbLd');
+  if (oldBc) oldBc.remove();
+  const bc = document.createElement('script');
+  bc.type = 'application/ld+json';
+  bc.id = 'breadcrumbLd';
+  const homeLabel = currentLocale === 'id' ? 'Beranda' : 'Home';
+  const projectsLabel = currentLocale === 'id' ? 'Karya' : 'Projects';
+  bc.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": homeLabel,     "item": siteUrl },
+      { "@type": "ListItem", "position": 2, "name": projectsLabel, "item": siteUrl + "#projects" },
+      { "@type": "ListItem", "position": 3, "name": project.title, "item": url }
+    ]
+  });
+  document.head.appendChild(bc);
+
   // tags (use tech pills with logos)
   if (tagsEl) {
     tagsEl.innerHTML = renderTechPills(project.tags || []);
