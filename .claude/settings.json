@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"console.log\\(require\\('playwright'\\)?'pw-ok':'no'\\)\")",
+      "Bash(node -e \"console.log\\(require\\('puppeteer'\\)?'pp-ok':'no'\\)\")",
+      "Bash(where chrome *)",
+      "Bash(where msedge *)",
+      "Bash(node --check script.js)"
+    ]
+  }
+}

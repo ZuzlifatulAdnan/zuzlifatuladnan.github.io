@@ -60,6 +60,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body { padding: 0; margin: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -76,12 +77,12 @@ button { font-family: inherit; }
 
 /* ---------- Layout ---------- */
 .container { width: min(var(--content-w), 92vw); margin: 0 auto; }
-.section { padding: 120px 0; position: relative; }
-.section.tight { padding: 96px 0; }
+.section { padding: clamp(64px, 9vw, 120px) 0; position: relative; }
+.section.tight { padding: clamp(48px, 7vw, 96px) 0; }
 .section.alt { background: var(--bg-2); }
 section[id] { scroll-margin-top: 88px; }
 
-.section-head { max-width: 720px; margin: 0 0 56px; }
+.section-head { max-width: 720px; margin: 0 0 clamp(36px, 5vw, 56px); }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
 .section-head .eyebrow + h2 { margin-top: 10px; }
 .section-head h2 + .lead { margin-top: 12px; }
@@ -307,7 +308,7 @@ select#langSelect {
 .detail-stack .tech-pill img { width: 14px; height: 14px; }
 
 /* ---------- Hero ---------- */
-.hero { padding: 140px 0 100px; position: relative; overflow: hidden; }
+.hero { padding: clamp(96px, 12vw, 150px) 0 clamp(64px, 9vw, 100px); position: relative; overflow: hidden; }
 .hero::before {
   content: "";
   position: absolute;
@@ -1624,28 +1625,36 @@ summary:focus-visible {
 
 /* ---------- Mobile nav ---------- */
 .nav-toggle { display: none; }
+.nav-contact-only { display: none; }
 @media (max-width: 960px) {
-  .header-inner { grid-template-columns: auto 1fr auto auto; }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .brand { flex-shrink: 0; }
   .brand-name { display: none; }
   .nav {
     position: absolute;
-    top: 70px;
+    top: calc(100% + 8px);
     right: 4%;
     left: 4%;
     display: none;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
     padding: 12px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 18px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-lg);
   }
-  .nav a { width: 100%; padding: 12px 16px; font-size: .95rem; }
+  .nav a { width: 100%; padding: 13px 16px; font-size: .98rem; border-radius: 12px; }
   .nav.open { display: flex; }
   .nav-toggle { display: inline-flex; }
-  .section { padding: 80px 0; }
-  .hero { padding: 90px 0 70px; }
+  /* Contact pindah ke dropdown agar header tidak meluber */
+  .nav-contact-only { display: flex; margin-top: 6px; }
+  .actions > .btn.primary { display: none; }
   .marquee { margin-top: 48px; }
   .carousel { padding: 28px; }
   .projects-toolbar { flex-direction: column; align-items: flex-start; }
@@ -1653,12 +1662,20 @@ summary:focus-visible {
 
 @media (max-width: 480px) {
   .brand { font-size: .9rem; }
-  .logo { width: 32px; height: 32px; font-size: .72rem; }
+  .logo { width: 34px; height: 34px; font-size: .72rem; }
   .header-inner { gap: 10px; padding: 12px 0; }
-  .actions { gap: 6px; }
-  select#langSelect { padding: 6px 8px; font-size: .78rem; }
-  .icon-btn { width: 34px; height: 34px; }
+  .actions { gap: 8px; }
+  select#langSelect { padding: 8px 8px; font-size: .8rem; }
+  .icon-btn { width: 40px; height: 40px; }
   .contact-form { padding: 22px; }
   .carousel { padding: 22px; }
   .testi > p { font-size: 1rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+}
+
+@media (max-width: 360px) {
+  .container { width: 94vw; }
+  .header-inner { gap: 8px; }
+  .actions { gap: 6px; }
 }
