@@ -82,20 +82,34 @@ const PROJECTS = [
     id: "website-profile-sekolah",
     title: "Website Profile Sekolah",
     category: "web",
-    desc_en: "School profile website with news, agenda, gallery, and admin content management.",
-    desc_id: "Website profil sekolah dengan berita, agenda, galeri, dan manajemen konten admin.",
+    desc_en: "A complete, WordPress-like school profile CMS built with Laravel 10 & Filament. Admins manage everything—news, agenda, galleries, pages, menus, and the whole theme—without writing code. One install fits any level: SD/MI, SMP/MTs, SMA/SMK.",
+    desc_id: "CMS profil sekolah lengkap ala WordPress berbasis Laravel 10 & Filament. Admin mengelola semuanya—berita, agenda, galeri, halaman, menu, hingga tema—tanpa ngoding. Satu instalasi untuk semua jenjang: SD/MI, SMP/MTs, SMA/SMK.",
     img: "assets/img/p4.svg",
-    tags: ["Laravel", "CMS", "School"],
-    link: "#",
+    tags: ["Laravel", "Filament", "CMS", "MySQL"],
+    link: "https://github.com/ZuzlifatulAdnan/website-profile-sekolah",
     details_en: [
-      "News, announcements, agenda, galleries.",
-      "Admin CMS for easy content updates.",
-      "SEO-friendly pages & responsive UI."
+      "Drag-and-drop Page Builder with 12 content blocks (heading, text, image, gallery, video, button, cards, columns, quote, stats, divider, HTML).",
+      "Central Media Library: bulk upload, collections, and reusable images across all content.",
+      "Dynamic menu builder: rename items, nested submenus, navbar & footer links, drag-to-reorder.",
+      "Customizable homepage: reorder or hide each section, plus free-form widget/content areas.",
+      "Theme customizer (no code): logo, favicon, colors, fonts, card style, and layout width.",
+      "Rich news module: multiple photos with a primary image, view counter, like button & social share.",
+      "Visitor analytics dashboard: today / month / year, trend charts, and most-popular pages.",
+      "Audit log of every admin action with printable, PDF & Excel reports.",
+      "Role-based access control (Super Admin & Content Operator) and Two-Factor Authentication (Google Authenticator).",
+      "Multi-level ready (SD/MI–SMA/SMK), accessibility toolbar, server-side lazy-loading, fully responsive & SEO-friendly."
     ],
     details_id: [
-      "Berita, pengumuman, agenda, galeri.",
-      "CMS admin untuk update konten dengan mudah.",
-      "Halaman SEO-friendly & tampilan responsif."
+      "Page Builder seret-lepas dengan 12 blok konten (judul, teks, gambar, galeri, video, tombol, kartu, kolom, kutipan, statistik, pemisah, HTML).",
+      "Media Library terpusat: unggah massal, koleksi, dan gambar bisa dipakai ulang di semua konten.",
+      "Menu builder dinamis: ganti nama, submenu bertingkat, tautan navbar & footer, urutkan dengan seret.",
+      "Beranda fleksibel: urutkan atau sembunyikan tiap section, plus area widget/konten bebas.",
+      "Customizer tema (tanpa ngoding): logo, favicon, warna, font, gaya kartu, dan lebar layout.",
+      "Modul berita lengkap: banyak foto dengan foto utama, penghitung dilihat, tombol suka & bagikan ke sosmed.",
+      "Dashboard statistik pengunjung: hari ini / bulan / tahun, grafik tren, dan halaman terpopuler.",
+      "Audit log setiap aktivitas admin dengan laporan siap cetak, PDF & Excel.",
+      "Kontrol akses berbasis peran (Super Admin & Operator Konten) dan Autentikasi Dua Faktor (Google Authenticator).",
+      "Siap multi-jenjang (SD/MI–SMA/SMK), toolbar aksesibilitas, lazy-loading sisi server, sepenuhnya responsif & SEO-friendly."
     ]
   },
   {
