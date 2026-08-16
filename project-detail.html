@@ -6,14 +6,28 @@
   <title>Project Detail — Zuzlifatul Adnan</title>
   <meta name="description" content="Project detail — Zuzlifatul Adnan portfolio."/>
   <meta name="author" content="Zuzlifatul Adnan"/>
-  <meta name="robots" content="index, follow, max-image-preview:large"/>
-  <meta name="googlebot" content="index, follow"/>
 
-  <!-- Search engine ownership verification (same tokens as index.html) -->
-  <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_TOKEN"/>
-  <meta name="msvalidate.01" content="REPLACE_WITH_BING_TOKEN"/>
+  <!--
+    Halaman ini digantikan oleh halaman statis di /projects/<id>/ yang punya
+    judul, deskripsi, dan konten HTML unik untuk tiap proyek. Sebelumnya 9 URL
+    berbagi satu file sehingga Google membacanya sebagai halaman duplikat.
+    File ini dipertahankan agar tautan lama (?id=...) tetap berfungsi, tetapi
+    tidak diindeks supaya tidak bersaing dengan halaman barunya.
+  -->
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" id="canonicalLink" href="https://zuzlifatuladnan.github.io/projects/"/>
 
-  <link rel="canonical" id="canonicalLink" href="https://zuzlifatuladnan.github.io/project-detail.html"/>
+  <!-- Alihkan tautan lama ke halaman statis yang sesuai, sebelum halaman dilukis. -->
+  <script>
+    (function () {
+      var id = new URLSearchParams(location.search).get('id');
+      // Path relatif supaya tetap benar saat diuji lokal di subfolder.
+      var target = id && /^[a-z0-9-]+$/.test(id)
+        ? 'projects/' + id + '/'
+        : 'projects/';
+      location.replace(target + location.hash);
+    })();
+  </script>
 
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="Zuzlifatul Adnan"/>
@@ -176,9 +190,8 @@
           <h4 data-i18n="footer.social">Connect</h4>
           <ul>
             <li><a href="mailto:juslifatuladnan@gmail.com">Email</a></li>
-            <li><a href="https://wa.me/6281000000000" target="_blank" rel="noreferrer">WhatsApp</a></li>
-            <li><a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a></li>
-            <li><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/ZuzlifatulAdnan" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="index.html#contact">Form konsultasi</a></li>
           </ul>
         </div>
       </div>

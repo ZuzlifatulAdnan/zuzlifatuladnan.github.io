@@ -363,7 +363,7 @@ function renderPackages(locale = 'en') {
 // ====== Projects + filters ======
 const projectGrid = document.getElementById('projectGrid');
 const projectFiltersEl = document.getElementById('projectFilters');
-let currentLocale = localStorage.getItem('lang') || 'en';
+let currentLocale = localStorage.getItem('lang') || 'id';
 let activeFilter = 'all';
 
 function renderProjectFilters(locale = 'en') {
@@ -409,7 +409,7 @@ function renderProjects(locale = 'en') {
         <p>${locale === 'id' ? (p.desc_id || '') : (p.desc_en || '')}</p>
         ${renderTechPills(p.tags)}
         <div class="project-actions">
-          <a class="project-link" href="project-detail.html?id=${encodeURIComponent(p.id)}">
+          <a class="project-link" href="projects/${encodeURIComponent(p.id)}/">
             <span>${viewLabel}</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </a>
@@ -535,7 +535,7 @@ function attachReveal() {
 
 // ====== I18N ======
 const langSelect = document.getElementById('langSelect');
-const savedLang = localStorage.getItem('lang') || 'en';
+const savedLang = localStorage.getItem('lang') || 'id';
 if (langSelect) langSelect.value = savedLang;
 
 async function loadI18n(lang) {
@@ -583,8 +583,8 @@ async function loadI18n(lang) {
     startAuto();
     initStats();
     fetchGitHub('en');
-    localStorage.setItem('lang', 'en');
-    if (langSelect) langSelect.value = 'en';
+    localStorage.setItem('lang', 'id');
+    if (langSelect) langSelect.value = 'id';
   }
 }
 
@@ -647,7 +647,7 @@ loadI18n(savedLang);
 function _initFallbacks() {
   setTimeout(() => {
     initStats();
-    const lang = (typeof currentLocale !== 'undefined' && currentLocale) || localStorage.getItem('lang') || 'en';
+    const lang = (typeof currentLocale !== 'undefined' && currentLocale) || localStorage.getItem('lang') || 'id';
     fetchGitHub(lang);
   }, 50);
 }

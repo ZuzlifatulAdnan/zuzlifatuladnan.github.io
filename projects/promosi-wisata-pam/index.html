@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Promosi Wisata dengan Clustering PAM (Laravel)</title>
+  <meta name="description" content="Studi kasus dashboard promosi wisata berbasis Laravel dengan clustering PAM untuk segmentasi pengunjung dan penentuan target promosi yang lebih tepat sasaran."/>
+  <meta name="keywords" content="dashboard promosi wisata, clustering PAM, segmentasi pengunjung wisata, aplikasi pariwisata Laravel, sistem informasi pariwisata"/>
+  <meta name="author" content="Zuzlifatul Adnan"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <link rel="canonical" href="https://zuzlifatuladnan.github.io/projects/promosi-wisata-pam/"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Zuzlifatul Adnan"/>
+  <meta property="og:locale" content="id_ID"/>
+  <meta property="og:url" content="https://zuzlifatuladnan.github.io/projects/promosi-wisata-pam/"/>
+  <meta property="og:title" content="Dashboard Promosi Wisata dengan Clustering PAM (Laravel)"/>
+  <meta property="og:description" content="Studi kasus dashboard promosi wisata berbasis Laravel dengan clustering PAM untuk segmentasi pengunjung dan penentuan target promosi yang lebih tepat sasaran."/>
+  <meta property="og:image" content="https://zuzlifatuladnan.github.io/assets/img/og/promosi-wisata-pam.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Promosi Wisata (PAM Clustering) — studi kasus oleh Zuzlifatul Adnan"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ZuzlifatulAdnan"/>
+  <meta name="twitter:title" content="Dashboard Promosi Wisata dengan Clustering PAM (Laravel)"/>
+  <meta name="twitter:description" content="Studi kasus dashboard promosi wisata berbasis Laravel dengan clustering PAM untuk segmentasi pengunjung dan penentuan target promosi yang lebih tepat sasaran."/>
+  <meta name="twitter:image" content="https://zuzlifatuladnan.github.io/assets/img/og/promosi-wisata-pam.png"/>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png"/>
+  <link rel="manifest" href="../../site.webmanifest"/>
+  <meta name="theme-color" content="#0a0a0b"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css"/>
+
+  <!-- Terapkan tema tersimpan sebelum halaman dilukis agar tidak berkedip. -->
+  <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://zuzlifatuladnan.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portofolio",
+      "item": "https://zuzlifatuladnan.github.io/projects/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Promosi Wisata (PAM Clustering)",
+      "item": "https://zuzlifatuladnan.github.io/projects/promosi-wisata-pam/"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Promosi Wisata (PAM Clustering)",
+  "headline": "Dashboard Promosi Wisata dengan Clustering PAM (Laravel)",
+  "description": "Studi kasus dashboard promosi wisata berbasis Laravel dengan clustering PAM untuk segmentasi pengunjung dan penentuan target promosi yang lebih tepat sasaran.",
+  "url": "https://zuzlifatuladnan.github.io/projects/promosi-wisata-pam/",
+  "image": "https://zuzlifatuladnan.github.io/assets/img/og/promosi-wisata-pam.png",
+  "inLanguage": "id-ID",
+  "keywords": "dashboard promosi wisata, clustering PAM, segmentasi pengunjung wisata, aplikasi pariwisata Laravel, sistem informasi pariwisata",
+  "genre": "Aplikasi Web",
+  "dateModified": "2026-08-16",
+  "author": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/",
+    "jobTitle": "Full-Stack Web & Mobile Developer"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Laravel"
+    },
+    {
+      "@type": "Thing",
+      "name": "PAM"
+    },
+    {
+      "@type": "Thing",
+      "name": "Clustering"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apa bedanya clustering PAM dan K-Means untuk data wisata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PAM menggunakan medoid (data asli) sebagai pusat klaster sehingga lebih tahan terhadap data ekstrem, misalnya lonjakan kunjungan saat libur panjang. K-Means memakai rata-rata sehingga lebih cepat, tetapi hasilnya bisa tergeser oleh pencilan. Untuk data kunjungan yang musiman, PAM biasanya memberi segmen yang lebih stabil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah sistem seperti ini bisa dipakai dinas pariwisata daerah lain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bisa. Struktur data dan parameter klaster dapat disesuaikan dengan indikator yang dipakai daerah masing-masing, seperti asal pengunjung, lama tinggal, atau jenis destinasi yang dikunjungi."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">
+        <span class="logo">ZA</span>
+        <span class="brand-name">Zuzlifatul Adnan</span>
+      </a>
+
+      <nav class="nav" id="navMenu">
+        <a href="../../#about">Tentang</a>
+        <a href="../../#services">Layanan</a>
+        <a href="../../projects/">Portofolio</a>
+        <a href="../../#packages">Paket</a>
+        <a href="../../#faq">FAQ</a>
+        <a href="../../#contact" class="nav-contact-only btn primary">Kontak</a>
+      </nav>
+
+      <div class="actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Ganti tema" title="Ganti tema terang/gelap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="../../#contact" class="btn primary" style="margin-left:4px;">Konsultasi Gratis</a>
+        <button id="navToggle" class="icon-btn nav-toggle" aria-label="Buka menu" aria-expanded="false" title="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+      <div class="container breadcrumb"><a href="../../">Beranda</a><span class="crumb-sep" aria-hidden="true">/</span><a href="../../projects/">Portofolio</a><span class="crumb-sep" aria-hidden="true">/</span><span aria-current="page">Promosi Wisata (PAM Clustering)</span></div>
+    </nav>
+
+    <article class="section">
+      <div class="container">
+        <div class="case-head">
+          <p class="eyebrow">Studi Kasus · Aplikasi Web</p>
+          <h1>Promosi Wisata (PAM Clustering)</h1>
+          <p class="lead">Dinas pariwisata dan pengelola destinasi sering punya data kunjungan, tetapi kesulitan mengubahnya menjadi keputusan promosi. Proyek ini membangun dashboard berbasis Laravel yang mengelompokkan pengunjung memakai algoritma PAM (Partitioning Around Medoids), sehingga anggaran promosi bisa diarahkan ke segmen yang benar-benar potensial.</p>
+          <div class="case-tags">
+            <span class="tech-pill">Laravel</span>
+            <span class="tech-pill">PAM</span>
+            <span class="tech-pill">Clustering</span>
+          </div>
+        </div>
+
+        <figure class="case-figure">
+          <img src="../../assets/img/p1.svg" width="1200" height="800"
+               alt="Tampilan Promosi Wisata (PAM Clustering) — aplikasi web oleh Zuzlifatul Adnan"/>
+          <figcaption class="muted">Dashboard promosi wisata menggunakan clustering PAM untuk segmentasi dan targeting pengunjung.</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-main">
+            <h2>Masalah yang diselesaikan</h2>
+            <p>Sebelum sistem ini ada, data kunjungan wisata tersimpan terpisah di spreadsheet dan hanya dibaca sebagai angka total. Tidak ada gambaran siapa pengunjungnya, dari mana asalnya, dan destinasi mana yang menarik kelompok tertentu. Akibatnya promosi dilakukan seragam untuk semua audiens, padahal karakteristik tiap kelompok berbeda.</p>
+
+            <h2>Kenapa memilih algoritma PAM</h2>
+            <p>PAM dipilih karena memakai medoid — titik data nyata — sebagai pusat klaster, bukan rata-rata seperti K-Means. Pendekatan ini lebih tahan terhadap data pencilan, yang umum terjadi pada data kunjungan wisata saat musim liburan atau event besar. Hasil klaster juga lebih mudah dijelaskan kepada stakeholder non-teknis karena setiap pusat klaster adalah profil pengunjung yang benar-benar ada.</p>
+
+            <h2>Hasil untuk pengguna</h2>
+            <p>Pengelola dapat melihat segmen pengunjung dalam bentuk visual, menyusun rencana kampanye per segmen, dan mengekspor laporan siap presentasi untuk rapat internal maupun stakeholder eksternal. Proses yang sebelumnya manual kini selesai dalam hitungan menit.</p>
+
+            <h2>Fitur utama yang dibangun</h2>
+            <ul class="detail-list">
+              <li>Clustering PAM untuk analisis segmentasi wisata.</li>
+              <li>Dashboard admin untuk targeting &amp; perencanaan promosi.</li>
+              <li>Laporan siap ekspor untuk stakeholder.</li>
+            </ul>
+          </div>
+
+          <aside class="case-side">
+            <div class="card">
+              <h3>Ringkasan proyek</h3>
+              <dl class="spec-list">
+                <dt>Kategori</dt><dd>Aplikasi Web</dd>
+                <dt>Teknologi</dt><dd>Laravel, PAM, Clustering</dd>
+                <dt>Peran</dt><dd>Full-stack developer (analisis, backend, frontend, deployment)</dd>
+                <dt>Lokasi</dt><dd>Lampung, Indonesia — dikerjakan remote</dd>
+              </dl>
+
+              <a class="btn ghost" style="margin-top:10px;" href="../../#contact">Butuh sistem serupa?</a>
+            </div>
+          </aside>
+        </div>
+
+        <section class="case-faq">
+          <h2>Pertanyaan seputar proyek ini</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Apa bedanya clustering PAM dan K-Means untuk data wisata?</summary>
+              <div class="faq-body">PAM menggunakan medoid (data asli) sebagai pusat klaster sehingga lebih tahan terhadap data ekstrem, misalnya lonjakan kunjungan saat libur panjang. K-Means memakai rata-rata sehingga lebih cepat, tetapi hasilnya bisa tergeser oleh pencilan. Untuk data kunjungan yang musiman, PAM biasanya memberi segmen yang lebih stabil.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah sistem seperti ini bisa dipakai dinas pariwisata daerah lain?</summary>
+              <div class="faq-body">Bisa. Struktur data dan parameter klaster dapat disesuaikan dengan indikator yang dipakai daerah masing-masing, seperti asal pengunjung, lama tinggal, atau jenis destinasi yang dikunjungi.</div>
+            </details>
+          </div>
+        </section>
+
+        <section class="related">
+          <h2>Proyek lain yang mungkin relevan</h2>
+          <div class="related-grid">
+            <a class="related-card" href="../../projects/pos-kmeans/">
+              <img src="../../assets/img/p2.svg" width="1200" height="800" loading="lazy" alt="POS K-Means"/>
+              <div>
+                <h3>POS K-Means</h3>
+                <p class="muted">Sistem POS dengan analisis clustering K-Means untuk insight penjualan/kelompok pelanggan.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/events-kmeans/">
+              <img src="../../assets/img/p3.svg" width="1200" height="800" loading="lazy" alt="Events (K-Means)"/>
+              <div>
+                <h3>Events (K-Means)</h3>
+                <p class="muted">Platform event dengan clustering K-Means untuk klasifikasi peserta dan rekomendasi lebih tepat.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/website-profile-sekolah/">
+              <img src="../../assets/img/p4.svg" width="1200" height="800" loading="lazy" alt="Website Profile Sekolah"/>
+              <div>
+                <h3>Website Profile Sekolah</h3>
+                <p class="muted">CMS profil sekolah lengkap ala WordPress berbasis Laravel 10 &amp; Filament. Admin mengelola…</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>Ingin sistem seperti ini untuk organisasi Anda?</h2>
+          <p class="lead">Ceritakan kebutuhan, target waktu, dan anggaran Anda. Saya balas dalam satu hari kerja dengan estimasi dan rencana pengerjaan.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="../../#contact">Konsultasi gratis</a>
+            <a class="btn ghost" href="../../projects/">Lihat portofolio lain</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../../">
+            <span class="logo">ZA</span>
+            <span>Zuzlifatul Adnan</span>
+          </a>
+          <p class="footer-tagline muted">Full-Stack Web &amp; Mobile Developer di Lampung, Indonesia. Laravel, Flutter, dan Kotlin.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="../../layanan/jasa-pembuatan-website-lampung/">Jasa Website Lampung</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-website-sekolah/">Jasa Website Sekolah</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-aplikasi-android/">Jasa Aplikasi Android</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-sistem-informasi/">Jasa Sistem Informasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Portofolio</h4>
+          <ul>
+            <li><a href="../../projects/promosi-wisata-pam/">Promosi Wisata (PAM Clustering)</a></li>
+            <li><a href="../../projects/pos-kmeans/">POS K-Means</a></li>
+            <li><a href="../../projects/events-kmeans/">Events (K-Means)</a></li>
+            <li><a href="../../projects/website-profile-sekolah/">Website Profile Sekolah</a></li>
+            <li><a href="../../projects/website-lpg-astar/">Website LPG (A* Route Finder)</a></li>
+            <li><a href="../../projects/">Semua proyek</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
+            <li><a href="https://github.com/ZuzlifatulAdnan" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="../../#contact">Form konsultasi</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Zuzlifatul Adnan. Seluruh hak cipta dilindungi.</p>
+        <p class="muted">Dibangun dengan Laravel · Flutter · Kotlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../page.js" defer></script>
+</body>
+</html>

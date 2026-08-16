@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CMS Website Profil Sekolah Laravel — Tanpa Perlu Ngoding</title>
+  <meta name="description" content="CMS website profil sekolah berbasis Laravel 10 &amp; Filament: page builder drag-and-drop, media library, menu dinamis, customizer tema, 2FA, dan statistik…"/>
+  <meta name="keywords" content="website profil sekolah, CMS sekolah Laravel, jasa pembuatan website sekolah, website SD SMP SMA SMK, aplikasi profil sekolah"/>
+  <meta name="author" content="Zuzlifatul Adnan"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <link rel="canonical" href="https://zuzlifatuladnan.github.io/projects/website-profile-sekolah/"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Zuzlifatul Adnan"/>
+  <meta property="og:locale" content="id_ID"/>
+  <meta property="og:url" content="https://zuzlifatuladnan.github.io/projects/website-profile-sekolah/"/>
+  <meta property="og:title" content="CMS Website Profil Sekolah Laravel — Tanpa Perlu Ngoding"/>
+  <meta property="og:description" content="CMS website profil sekolah berbasis Laravel 10 &amp; Filament: page builder drag-and-drop, media library, menu dinamis, customizer tema, 2FA, dan statistik…"/>
+  <meta property="og:image" content="https://zuzlifatuladnan.github.io/assets/img/og/website-profile-sekolah.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Website Profile Sekolah — studi kasus oleh Zuzlifatul Adnan"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ZuzlifatulAdnan"/>
+  <meta name="twitter:title" content="CMS Website Profil Sekolah Laravel — Tanpa Perlu Ngoding"/>
+  <meta name="twitter:description" content="CMS website profil sekolah berbasis Laravel 10 &amp; Filament: page builder drag-and-drop, media library, menu dinamis, customizer tema, 2FA, dan statistik…"/>
+  <meta name="twitter:image" content="https://zuzlifatuladnan.github.io/assets/img/og/website-profile-sekolah.png"/>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png"/>
+  <link rel="manifest" href="../../site.webmanifest"/>
+  <meta name="theme-color" content="#0a0a0b"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css"/>
+
+  <!-- Terapkan tema tersimpan sebelum halaman dilukis agar tidak berkedip. -->
+  <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://zuzlifatuladnan.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portofolio",
+      "item": "https://zuzlifatuladnan.github.io/projects/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Website Profile Sekolah",
+      "item": "https://zuzlifatuladnan.github.io/projects/website-profile-sekolah/"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Website Profile Sekolah",
+  "headline": "CMS Website Profil Sekolah Laravel — Tanpa Perlu Ngoding",
+  "description": "CMS website profil sekolah berbasis Laravel 10 & Filament: page builder drag-and-drop, media library, menu dinamis, customizer tema, 2FA, dan statistik pengunjung. Untuk SD, SMP, SMA, dan SMK.",
+  "url": "https://zuzlifatuladnan.github.io/projects/website-profile-sekolah/",
+  "image": "https://zuzlifatuladnan.github.io/assets/img/og/website-profile-sekolah.png",
+  "inLanguage": "id-ID",
+  "keywords": "website profil sekolah, CMS sekolah Laravel, jasa pembuatan website sekolah, website SD SMP SMA SMK, aplikasi profil sekolah",
+  "genre": "Aplikasi Web",
+  "dateModified": "2026-08-16",
+  "author": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/",
+    "jobTitle": "Full-Stack Web & Mobile Developer"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Laravel"
+    },
+    {
+      "@type": "Thing",
+      "name": "Filament"
+    },
+    {
+      "@type": "Thing",
+      "name": "CMS"
+    },
+    {
+      "@type": "Thing",
+      "name": "MySQL"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Apakah guru tanpa latar belakang IT bisa mengelola website ini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bisa. Seluruh pengelolaan dilakukan lewat panel admin dengan tampilan formulir dan seret-lepas. Menambah berita, mengganti foto beranda, menyusun menu, sampai mengubah warna tema tidak memerlukan pengetahuan pemrograman."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah satu website bisa dipakai untuk beberapa jenjang sekolah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sistem ini dirancang multi-jenjang, sehingga struktur konten seperti data guru, jurusan, dan ekstrakurikuler dapat disesuaikan untuk SD/MI, SMP/MTs, maupun SMA/SMK dari panel yang sama."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah ada laporan jumlah pengunjung website sekolah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ada. Dashboard menampilkan statistik pengunjung harian, bulanan, dan tahunan beserta grafik tren serta daftar halaman yang paling banyak dibuka."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">
+        <span class="logo">ZA</span>
+        <span class="brand-name">Zuzlifatul Adnan</span>
+      </a>
+
+      <nav class="nav" id="navMenu">
+        <a href="../../#about">Tentang</a>
+        <a href="../../#services">Layanan</a>
+        <a href="../../projects/">Portofolio</a>
+        <a href="../../#packages">Paket</a>
+        <a href="../../#faq">FAQ</a>
+        <a href="../../#contact" class="nav-contact-only btn primary">Kontak</a>
+      </nav>
+
+      <div class="actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Ganti tema" title="Ganti tema terang/gelap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="../../#contact" class="btn primary" style="margin-left:4px;">Konsultasi Gratis</a>
+        <button id="navToggle" class="icon-btn nav-toggle" aria-label="Buka menu" aria-expanded="false" title="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+      <div class="container breadcrumb"><a href="../../">Beranda</a><span class="crumb-sep" aria-hidden="true">/</span><a href="../../projects/">Portofolio</a><span class="crumb-sep" aria-hidden="true">/</span><span aria-current="page">Website Profile Sekolah</span></div>
+    </nav>
+
+    <article class="section">
+      <div class="container">
+        <div class="case-head">
+          <p class="eyebrow">Studi Kasus · Aplikasi Web</p>
+          <h1>Website Profile Sekolah</h1>
+          <p class="lead">Sebagian besar sekolah tidak punya staf teknis khusus, sehingga website yang dibuat sekali jalan cepat menjadi usang. Proyek ini menjawabnya dengan CMS lengkap berbasis Laravel 10 dan Filament: operator sekolah bisa mengubah berita, halaman, menu, bahkan tampilan tema tanpa menyentuh satu baris kode pun.</p>
+          <div class="case-tags">
+            <span class="tech-pill">Laravel</span>
+            <span class="tech-pill">Filament</span>
+            <span class="tech-pill">CMS</span>
+            <span class="tech-pill">MySQL</span>
+          </div>
+        </div>
+
+        <figure class="case-figure">
+          <img src="../../assets/img/p4.svg" width="1200" height="800"
+               alt="Tampilan Website Profile Sekolah — aplikasi web oleh Zuzlifatul Adnan"/>
+          <figcaption class="muted">CMS profil sekolah lengkap ala WordPress berbasis Laravel 10 &amp; Filament. Admin mengelola semuanya—berita, agenda, galeri, halaman, menu, hingga tema—tanpa ngoding. Satu instalasi untuk semua jenjang: SD/MI, SMP/MTs, SMA/SMK.</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-main">
+            <h2>Masalah yang diselesaikan</h2>
+            <p>Website sekolah biasanya berhenti diperbarui beberapa bulan setelah diluncurkan karena setiap perubahan kecil harus melalui pengembang. Halaman berita kosong, agenda kedaluwarsa, dan galeri tidak pernah bertambah. Sekolah butuh sistem yang bisa dikelola guru atau operator tata usaha sendiri.</p>
+
+            <h2>Page builder dan kontrol tampilan penuh</h2>
+            <p>Halaman disusun dari 12 blok konten yang dapat diseret dan diurutkan: judul, teks, gambar, galeri, video, tombol, kartu, kolom, kutipan, statistik, pemisah, dan HTML bebas. Customizer tema memungkinkan penggantian logo, favicon, warna, font, gaya kartu, hingga lebar layout langsung dari panel admin. Susunan beranda pun bisa diurutkan ulang atau disembunyikan per bagian.</p>
+
+            <h2>Keamanan dan pertanggungjawaban</h2>
+            <p>Akses dibagi menjadi Super Admin dan Operator Konten, dilengkapi Autentikasi Dua Faktor melalui Google Authenticator. Setiap aktivitas admin tercatat dalam audit log yang bisa dicetak atau diekspor ke PDF dan Excel — penting untuk sekolah negeri yang perlu jejak pertanggungjawaban.</p>
+
+            <h2>Siap untuk semua jenjang</h2>
+            <p>Satu instalasi dapat dipakai SD/MI, SMP/MTs, maupun SMA/SMK dengan penyesuaian melalui panel. Website hasilnya responsif di ponsel, memuat gambar secara bertahap agar ringan, menyertakan toolbar aksesibilitas, dan sudah disiapkan agar ramah mesin pencari.</p>
+
+            <h2>Fitur utama yang dibangun</h2>
+            <ul class="detail-list">
+              <li>Page Builder seret-lepas dengan 12 blok konten (judul, teks, gambar, galeri, video, tombol, kartu, kolom, kutipan, statistik, pemisah, HTML).</li>
+              <li>Media Library terpusat: unggah massal, koleksi, dan gambar bisa dipakai ulang di semua konten.</li>
+              <li>Menu builder dinamis: ganti nama, submenu bertingkat, tautan navbar &amp; footer, urutkan dengan seret.</li>
+              <li>Beranda fleksibel: urutkan atau sembunyikan tiap section, plus area widget/konten bebas.</li>
+              <li>Customizer tema (tanpa ngoding): logo, favicon, warna, font, gaya kartu, dan lebar layout.</li>
+              <li>Modul berita lengkap: banyak foto dengan foto utama, penghitung dilihat, tombol suka &amp; bagikan ke sosmed.</li>
+              <li>Dashboard statistik pengunjung: hari ini / bulan / tahun, grafik tren, dan halaman terpopuler.</li>
+              <li>Audit log setiap aktivitas admin dengan laporan siap cetak, PDF &amp; Excel.</li>
+              <li>Kontrol akses berbasis peran (Super Admin &amp; Operator Konten) dan Autentikasi Dua Faktor (Google Authenticator).</li>
+              <li>Siap multi-jenjang (SD/MI–SMA/SMK), toolbar aksesibilitas, lazy-loading sisi server, sepenuhnya responsif &amp; SEO-friendly.</li>
+            </ul>
+          </div>
+
+          <aside class="case-side">
+            <div class="card">
+              <h3>Ringkasan proyek</h3>
+              <dl class="spec-list">
+                <dt>Kategori</dt><dd>Aplikasi Web</dd>
+                <dt>Teknologi</dt><dd>Laravel, Filament, CMS, MySQL</dd>
+                <dt>Peran</dt><dd>Full-stack developer (analisis, backend, frontend, deployment)</dd>
+                <dt>Lokasi</dt><dd>Lampung, Indonesia — dikerjakan remote</dd>
+              </dl>
+              <a class="btn primary" style="margin-top:16px;" href="https://github.com/ZuzlifatulAdnan/website-profile-sekolah" target="_blank" rel="noreferrer">Lihat repository</a>
+              <a class="btn ghost" style="margin-top:10px;" href="../../#contact">Butuh sistem serupa?</a>
+            </div>
+          </aside>
+        </div>
+
+        <section class="case-faq">
+          <h2>Pertanyaan seputar proyek ini</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Apakah guru tanpa latar belakang IT bisa mengelola website ini?</summary>
+              <div class="faq-body">Bisa. Seluruh pengelolaan dilakukan lewat panel admin dengan tampilan formulir dan seret-lepas. Menambah berita, mengganti foto beranda, menyusun menu, sampai mengubah warna tema tidak memerlukan pengetahuan pemrograman.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah satu website bisa dipakai untuk beberapa jenjang sekolah?</summary>
+              <div class="faq-body">Sistem ini dirancang multi-jenjang, sehingga struktur konten seperti data guru, jurusan, dan ekstrakurikuler dapat disesuaikan untuk SD/MI, SMP/MTs, maupun SMA/SMK dari panel yang sama.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah ada laporan jumlah pengunjung website sekolah?</summary>
+              <div class="faq-body">Ada. Dashboard menampilkan statistik pengunjung harian, bulanan, dan tahunan beserta grafik tren serta daftar halaman yang paling banyak dibuka.</div>
+            </details>
+          </div>
+        </section>
+
+        <section class="related">
+          <h2>Proyek lain yang mungkin relevan</h2>
+          <div class="related-grid">
+            <a class="related-card" href="../../projects/promosi-wisata-pam/">
+              <img src="../../assets/img/p1.svg" width="1200" height="800" loading="lazy" alt="Promosi Wisata (PAM Clustering)"/>
+              <div>
+                <h3>Promosi Wisata (PAM Clustering)</h3>
+                <p class="muted">Dashboard promosi wisata menggunakan clustering PAM untuk segmentasi dan targeting pengunjung.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/pos-kmeans/">
+              <img src="../../assets/img/p2.svg" width="1200" height="800" loading="lazy" alt="POS K-Means"/>
+              <div>
+                <h3>POS K-Means</h3>
+                <p class="muted">Sistem POS dengan analisis clustering K-Means untuk insight penjualan/kelompok pelanggan.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/events-kmeans/">
+              <img src="../../assets/img/p3.svg" width="1200" height="800" loading="lazy" alt="Events (K-Means)"/>
+              <div>
+                <h3>Events (K-Means)</h3>
+                <p class="muted">Platform event dengan clustering K-Means untuk klasifikasi peserta dan rekomendasi lebih tepat.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>Ingin sistem seperti ini untuk organisasi Anda?</h2>
+          <p class="lead">Ceritakan kebutuhan, target waktu, dan anggaran Anda. Saya balas dalam satu hari kerja dengan estimasi dan rencana pengerjaan.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="../../#contact">Konsultasi gratis</a>
+            <a class="btn ghost" href="../../projects/">Lihat portofolio lain</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../../">
+            <span class="logo">ZA</span>
+            <span>Zuzlifatul Adnan</span>
+          </a>
+          <p class="footer-tagline muted">Full-Stack Web &amp; Mobile Developer di Lampung, Indonesia. Laravel, Flutter, dan Kotlin.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="../../layanan/jasa-pembuatan-website-lampung/">Jasa Website Lampung</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-website-sekolah/">Jasa Website Sekolah</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-aplikasi-android/">Jasa Aplikasi Android</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-sistem-informasi/">Jasa Sistem Informasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Portofolio</h4>
+          <ul>
+            <li><a href="../../projects/promosi-wisata-pam/">Promosi Wisata (PAM Clustering)</a></li>
+            <li><a href="../../projects/pos-kmeans/">POS K-Means</a></li>
+            <li><a href="../../projects/events-kmeans/">Events (K-Means)</a></li>
+            <li><a href="../../projects/website-profile-sekolah/">Website Profile Sekolah</a></li>
+            <li><a href="../../projects/website-lpg-astar/">Website LPG (A* Route Finder)</a></li>
+            <li><a href="../../projects/">Semua proyek</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
+            <li><a href="https://github.com/ZuzlifatulAdnan" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="../../#contact">Form konsultasi</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Zuzlifatul Adnan. Seluruh hak cipta dilindungi.</p>
+        <p class="muted">Dibangun dengan Laravel · Flutter · Kotlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../page.js" defer></script>
+</body>
+</html>

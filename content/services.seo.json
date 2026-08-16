@@ -1,0 +1,283 @@
+[
+  {
+    "slug": "jasa-pembuatan-website-lampung",
+    "navLabel": "Jasa Website Lampung",
+    "serviceType": "Web Development",
+    "seoTitle": "Jasa Pembuatan Website Lampung — Profesional & Responsif",
+    "metaDesc": "Jasa pembuatan website di Bandar Lampung dan sekitarnya: company profile, toko online, dan website instansi. Mulai Rp 699.000, source code milik Anda, pengerjaan 2–6 minggu.",
+    "eyebrow": "Layanan · Lampung",
+    "h1": "Jasa Pembuatan Website di Lampung",
+    "lead": "Saya membangun website untuk usaha, sekolah, dan instansi di Bandar Lampung, Metro, dan kabupaten sekitarnya — dikerjakan langsung oleh developer yang berdomisili di Lampung, bukan diteruskan ke pihak ketiga. Anda bisa berdiskusi dalam bahasa yang sama, zona waktu yang sama, dan bertemu langsung bila diperlukan.",
+    "keywords": [
+      "jasa pembuatan website Lampung",
+      "jasa web developer Bandar Lampung",
+      "buat website Lampung",
+      "jasa website company profile Lampung",
+      "programmer Lampung"
+    ],
+    "stack": ["Laravel", "PHP", "MySQL", "JavaScript"],
+    "timeline": "2–6 minggu untuk website umum",
+    "priceFrom": "Rp 699.000 (paket Standar)",
+    "sections": [
+      {
+        "h2": "Kenapa memilih developer yang berada di Lampung",
+        "p": "Banyak usaha lokal akhirnya menyesal karena website dibuat oleh pihak yang sulit dihubungi setelah proyek selesai. Dengan developer yang berdomisili di Lampung, komunikasi berjalan lebih cepat, revisi tidak tertahan perbedaan zona waktu, dan pertemuan tatap muka tetap memungkinkan untuk proyek instansi yang memerlukan pembahasan langsung. Pengerjaan tetap dilakukan secara remote agar efisien, tetapi kanal komunikasinya selalu terbuka."
+      },
+      {
+        "h2": "Jenis website yang biasa saya kerjakan",
+        "p": "Website company profile untuk usaha jasa dan dagang, website profil sekolah dengan panel admin sendiri, portal informasi untuk instansi pemerintah, katalog produk dengan pemesanan melalui WhatsApp, serta sistem internal seperti pendataan dan pelaporan. Setiap kebutuhan dipetakan dulu sebelum desain dibuat, sehingga fitur yang dibangun benar-benar dipakai."
+      },
+      {
+        "h2": "Website yang bisa Anda kelola sendiri",
+        "p": "Website tanpa panel admin akan cepat menjadi usang karena setiap perubahan kecil harus melalui developer. Karena itu sebagian besar proyek saya lengkapi panel admin agar Anda dapat menambah berita, mengganti foto, dan memperbarui informasi kontak tanpa bantuan teknis. Serah terima proyek selalu disertai sesi pelatihan singkat untuk staf yang akan mengelola."
+      },
+      {
+        "h2": "Optimasi mesin pencari sejak awal, bukan tambahan",
+        "p": "Struktur judul, deskripsi, alamat URL yang rapi, sitemap, dan data terstruktur saya siapkan sejak halaman pertama dibangun. Website juga dioptimalkan agar cepat dibuka di jaringan seluler, karena sebagian besar pengunjung dari daerah membuka situs lewat ponsel. Situs yang Anda baca sekarang dibangun dengan pendekatan yang sama."
+      }
+    ],
+    "deliverables": [
+      "Desain responsif yang rapi di ponsel, tablet, dan desktop",
+      "Panel admin untuk mengelola konten sendiri tanpa ngoding",
+      "Optimasi SEO on-page: judul, deskripsi, sitemap, dan data terstruktur",
+      "Setup hosting, domain, dan sertifikat HTTPS",
+      "Integrasi WhatsApp, Google Maps, dan Google Analytics",
+      "Source code beserta seluruh aset menjadi milik Anda",
+      "Pelatihan penggunaan dan dukungan 30 hari setelah peluncuran"
+    ],
+    "projects": ["website-profile-sekolah", "website-lpg-astar", "promosi-wisata-pam"],
+    "faq": [
+      {
+        "q": "Apakah bisa bertemu langsung di Bandar Lampung?",
+        "a": "Bisa, terutama untuk proyek instansi atau sekolah yang memerlukan pembahasan kebutuhan secara langsung. Pengerjaan hariannya tetap remote agar lebih efisien, dengan pembaruan progres rutin."
+      },
+      {
+        "q": "Berapa biaya pembuatan website untuk usaha kecil?",
+        "a": "Paket Standar mulai Rp 699.000 untuk website profil usaha, dan Rp 1.999.000 untuk paket dengan CMS serta sistem berita. Kebutuhan di luar itu dihitung berdasarkan ruang lingkup setelah konsultasi, tanpa biaya tersembunyi."
+      },
+      {
+        "q": "Apakah domain dan hosting sudah termasuk?",
+        "a": "Setup domain dan hosting saya bantu sepenuhnya. Biaya langganan domain dan hosting dibayarkan langsung ke penyedia atas nama Anda, sehingga kepemilikannya tetap di tangan Anda."
+      },
+      {
+        "q": "Berapa lama pengerjaan website?",
+        "a": "Website umum selesai dalam 2–6 minggu bergantung jumlah halaman dan kesiapan materi. Sistem yang lebih kompleks seperti dashboard atau aplikasi mobile biasanya 6–12 minggu."
+      }
+    ],
+    "ctaHeading": "Siap punya website yang benar-benar dipakai?",
+    "ctaText": "Kirim gambaran usaha atau instansi Anda beserta target waktunya. Saya balas dengan estimasi biaya dan rencana pengerjaan dalam satu hari kerja."
+  },
+
+  {
+    "slug": "jasa-pembuatan-website-sekolah",
+    "navLabel": "Jasa Website Sekolah",
+    "serviceType": "Web Development",
+    "seoTitle": "Jasa Pembuatan Website Sekolah — CMS Lengkap Tanpa Ngoding",
+    "metaDesc": "Jasa pembuatan website sekolah SD, SMP, SMA, dan SMK dengan CMS Laravel: page builder, berita, agenda, galeri, PPDB, statistik pengunjung, dan 2FA. Bisa dikelola guru sendiri.",
+    "eyebrow": "Layanan · Pendidikan",
+    "h1": "Jasa Pembuatan Website Sekolah (SD, SMP, SMA, SMK)",
+    "lead": "Website sekolah yang baik bukan yang paling mewah, melainkan yang masih aktif diperbarui setahun setelah diluncurkan. Saya membangun website sekolah di atas CMS Laravel buatan sendiri yang dirancang agar operator tata usaha atau guru dapat mengelola seluruh isinya tanpa pengetahuan pemrograman.",
+    "keywords": [
+      "jasa pembuatan website sekolah",
+      "website sekolah SD SMP SMA SMK",
+      "CMS sekolah Laravel",
+      "website profil sekolah murah",
+      "aplikasi website madrasah"
+    ],
+    "stack": ["Laravel 10", "Filament", "MySQL", "Tailwind"],
+    "timeline": "2–4 minggu untuk website sekolah standar",
+    "priceFrom": "Rp 1.999.000 (paket dengan CMS)",
+    "sections": [
+      {
+        "h2": "Masalah paling umum pada website sekolah",
+        "p": "Sebagian besar website sekolah berhenti diperbarui beberapa bulan setelah peluncuran. Penyebabnya hampir selalu sama: setiap perubahan kecil harus melalui pengembang, sementara sekolah tidak punya anggaran perawatan rutin. Akibatnya halaman berita kosong, agenda kedaluwarsa, dan data guru tidak pernah diperbarui — justru saat website dibutuhkan untuk akreditasi atau penerimaan siswa baru."
+      },
+      {
+        "h2": "CMS yang dirancang untuk operator sekolah",
+        "p": "Website dibangun di atas CMS profil sekolah yang saya kembangkan menggunakan Laravel 10 dan Filament. Halaman disusun dari blok konten yang tinggal diseret: judul, teks, gambar, galeri, video, tombol, kartu, statistik, dan lainnya. Menu navigasi, susunan beranda, warna, font, hingga logo dapat diubah langsung dari panel admin. Tidak ada satu pun langkah yang memerlukan penulisan kode."
+      },
+      {
+        "h2": "Fitur yang memang dibutuhkan sekolah",
+        "p": "Modul berita dengan banyak foto dan tombol berbagi ke media sosial, agenda kegiatan, galeri kegiatan, profil guru dan staf, halaman jurusan atau ekstrakurikuler, serta informasi penerimaan peserta didik baru. Dashboard menampilkan statistik pengunjung harian hingga tahunan lengkap dengan halaman terpopuler, yang berguna sebagai bukti keaktifan website saat akreditasi."
+      },
+      {
+        "h2": "Keamanan dan jejak pertanggungjawaban",
+        "p": "Akses dibagi menjadi Super Admin dan Operator Konten sehingga tanggung jawab jelas. Login dapat dilindungi Autentikasi Dua Faktor melalui Google Authenticator, dan setiap aktivitas admin tercatat dalam audit log yang bisa dicetak maupun diekspor ke PDF dan Excel. Untuk sekolah negeri, catatan seperti ini penting saat pemeriksaan."
+      },
+      {
+        "h2": "Satu sistem untuk semua jenjang",
+        "p": "Struktur kontennya disiapkan agar dapat dipakai SD/MI, SMP/MTs, maupun SMA/SMK dengan penyesuaian dari panel admin. Sekolah dengan beberapa unit di bawah satu yayasan dapat memakai pendekatan yang sama, sehingga tampilan tetap konsisten tanpa perlu membangun sistem terpisah untuk setiap jenjang."
+      }
+    ],
+    "deliverables": [
+      "Website sekolah responsif dengan tampilan yang bisa disesuaikan sendiri",
+      "Page builder seret-lepas dengan 12 blok konten",
+      "Modul berita, agenda, galeri, profil guru, dan halaman PPDB",
+      "Media library terpusat untuk seluruh foto kegiatan",
+      "Dashboard statistik pengunjung harian, bulanan, dan tahunan",
+      "Audit log aktivitas admin dengan ekspor PDF dan Excel",
+      "Autentikasi Dua Faktor (Google Authenticator) untuk keamanan login",
+      "Toolbar aksesibilitas dan struktur yang ramah mesin pencari",
+      "Pelatihan operator sekolah dan dukungan 30 hari"
+    ],
+    "projects": ["website-profile-sekolah", "sistem-akademik-sekolah", "absensi-qr-sekolah-kotlin-laravel"],
+    "faq": [
+      {
+        "q": "Apakah guru tanpa latar belakang IT bisa mengelola website ini?",
+        "a": "Bisa. Seluruh pengelolaan dilakukan melalui panel admin berbentuk formulir dan seret-lepas. Saat serah terima, saya berikan pelatihan singkat untuk operator yang ditunjuk sekolah."
+      },
+      {
+        "q": "Apakah website ini mendukung PPDB online?",
+        "a": "Halaman informasi PPDB tersedia sebagai bagian standar. Untuk pendaftaran online dengan formulir, unggah berkas, dan verifikasi berjenjang, fiturnya dikembangkan menyesuaikan alur penerimaan sekolah Anda."
+      },
+      {
+        "q": "Bagaimana jika sekolah kami sudah punya website lama?",
+        "a": "Konten lama seperti berita dan galeri dapat dipindahkan ke sistem baru. Alamat halaman lama juga bisa diarahkan ke halaman baru agar peringkat pencarian yang sudah terbentuk tidak hilang."
+      },
+      {
+        "q": "Apakah ada biaya perpanjangan setiap tahun?",
+        "a": "Tidak ada biaya lisensi ke saya. Yang perlu diperpanjang hanya domain dan hosting yang dibayarkan langsung ke penyedia atas nama sekolah."
+      }
+    ],
+    "ctaHeading": "Ingin website sekolah yang tetap aktif tahun depan?",
+    "ctaText": "Sampaikan jenjang sekolah dan fitur yang Anda butuhkan. Saya kirimkan demo panel admin beserta estimasi biayanya."
+  },
+
+  {
+    "slug": "jasa-pembuatan-aplikasi-android",
+    "navLabel": "Jasa Aplikasi Android",
+    "serviceType": "Mobile App Development",
+    "seoTitle": "Jasa Pembuatan Aplikasi Android — Kotlin & Flutter",
+    "metaDesc": "Jasa pembuatan aplikasi Android dengan Kotlin native atau Flutter, lengkap dengan backend Laravel, REST API, notifikasi WhatsApp, dan publikasi ke Google Play.",
+    "eyebrow": "Layanan · Mobile",
+    "h1": "Jasa Pembuatan Aplikasi Android (Kotlin & Flutter)",
+    "lead": "Aplikasi mobile hanya bermanfaat jika benar-benar dipakai setiap hari oleh penggunanya. Saya membangun aplikasi Android beserta backend-nya sekaligus — dari desain alur, pengembangan aplikasi, API, sampai proses publikasi — sehingga tidak ada bagian yang terputus antara aplikasi dan sistem di belakangnya.",
+    "keywords": [
+      "jasa pembuatan aplikasi android",
+      "jasa aplikasi Kotlin",
+      "jasa pembuatan aplikasi Flutter",
+      "developer aplikasi mobile Indonesia",
+      "aplikasi android untuk bisnis"
+    ],
+    "stack": ["Kotlin", "Flutter", "Laravel REST API", "Firebase"],
+    "timeline": "6–12 minggu bergantung kompleksitas fitur",
+    "priceFrom": "Penawaran setelah pemetaan kebutuhan",
+    "sections": [
+      {
+        "h2": "Kotlin native atau Flutter — mana yang tepat",
+        "p": "Kotlin native saya pilih ketika aplikasi menyasar pengguna dengan ponsel spesifikasi rendah atau memerlukan akses perangkat yang intensif seperti kamera, pemindai QR, dan lokasi yang akurat. Flutter lebih tepat ketika aplikasi perlu tersedia di Android dan iOS dengan satu basis kode dan tampilan yang konsisten. Pilihan ini dibahas di awal berdasarkan siapa pengguna Anda, bukan berdasarkan teknologi yang sedang populer."
+      },
+      {
+        "h2": "Aplikasi dan backend dibangun satu paket",
+        "p": "Sebagian besar kegagalan proyek aplikasi terjadi di sambungan antara aplikasi dan server. Karena saya mengerjakan keduanya, struktur data, keamanan API, dan alur autentikasi dirancang menyatu sejak awal. Backend Laravel menyediakan REST API sekaligus panel admin berbasis web, sehingga aplikasi mobile dan pengelolaan data memakai satu sumber data yang sama."
+      },
+      {
+        "h2": "Fitur yang sering dibutuhkan",
+        "p": "Pemindaian QR code untuk absensi atau tiket, validasi lokasi GPS untuk memastikan aktivitas dilakukan di tempat yang benar, pelacakan status pesanan, notifikasi WhatsApp otomatis melalui gateway seperti Fonnte, unggah foto dari kamera, serta mode daftar yang tetap terbaca saat koneksi lambat. Semua fitur ini sudah pernah saya terapkan pada proyek nyata."
+      },
+      {
+        "h2": "Sampai tayang di Google Play",
+        "p": "Pekerjaan tidak berhenti di file APK. Saya bantu penyiapan akun developer, penulisan deskripsi aplikasi, penyiapan tangkapan layar, kebijakan privasi, hingga proses peninjauan Google Play. Setelah tayang, pembaruan versi berikutnya dapat Anda kelola sendiri karena source code dan kunci penandatanganan menjadi milik Anda."
+      }
+    ],
+    "deliverables": [
+      "Aplikasi Android (Kotlin native atau Flutter) sesuai kebutuhan pengguna",
+      "Backend Laravel dengan REST API dan panel admin web",
+      "Autentikasi pengguna yang aman beserta manajemen peran",
+      "Integrasi notifikasi WhatsApp, Firebase, atau email",
+      "Berkas rilis siap unggah beserta pendampingan publikasi Google Play",
+      "Source code aplikasi dan backend menjadi milik Anda",
+      "Dokumentasi teknis dan pendampingan 30 hari setelah rilis"
+    ],
+    "projects": ["absensi-qr-sekolah-kotlin-laravel", "cleanwash-laundry-kotlin-laravel", "pos-kmeans"],
+    "faq": [
+      {
+        "q": "Berapa biaya pembuatan aplikasi Android?",
+        "a": "Biaya sangat bergantung jumlah peran pengguna dan kompleksitas alurnya. Setelah sesi pemetaan kebutuhan, saya kirimkan rincian ruang lingkup beserta harga tetap, sehingga tidak ada biaya tambahan di tengah jalan."
+      },
+      {
+        "q": "Apakah aplikasi juga tersedia untuk iPhone?",
+        "a": "Jika iOS termasuk kebutuhan Anda, saya sarankan Flutter agar satu basis kode melayani kedua platform. Perlu dicatat bahwa publikasi ke App Store memerlukan akun developer Apple berbayar tahunan."
+      },
+      {
+        "q": "Siapa pemilik akun Google Play-nya?",
+        "a": "Akun developer didaftarkan atas nama Anda atau organisasi Anda. Saya hanya membantu proses teknis, sehingga kendali penuh atas aplikasi tetap berada di pihak Anda."
+      },
+      {
+        "q": "Apakah aplikasi bisa berjalan tanpa internet?",
+        "a": "Bisa dirancang menyimpan data sementara di perangkat lalu menyinkronkannya saat koneksi tersedia. Pendekatan ini penting untuk pengguna lapangan di area dengan sinyal terbatas."
+      }
+    ],
+    "ctaHeading": "Punya ide aplikasi yang ingin diwujudkan?",
+    "ctaText": "Ceritakan siapa penggunanya dan masalah apa yang ingin diselesaikan. Saya bantu menyusun ruang lingkup yang realistis beserta estimasi biayanya."
+  },
+
+  {
+    "slug": "jasa-pembuatan-sistem-informasi",
+    "navLabel": "Jasa Sistem Informasi",
+    "serviceType": "Custom Software Development",
+    "seoTitle": "Jasa Pembuatan Sistem Informasi & Dashboard Admin (Laravel)",
+    "metaDesc": "Jasa pembuatan sistem informasi dan dashboard admin berbasis Laravel: multi-role, laporan otomatis, ekspor PDF & Excel, audit log, untuk instansi, sekolah, dan perusahaan.",
+    "eyebrow": "Layanan · Sistem Informasi",
+    "h1": "Jasa Pembuatan Sistem Informasi & Dashboard Admin",
+    "lead": "Ketika pekerjaan masih dikelola dengan puluhan berkas Excel yang saling disalin, kesalahan data hanya soal waktu. Saya membangun sistem informasi berbasis web yang menyatukan pencatatan, persetujuan, dan pelaporan dalam satu tempat — dengan hak akses yang jelas untuk setiap peran.",
+    "keywords": [
+      "jasa pembuatan sistem informasi",
+      "jasa pembuatan dashboard admin",
+      "aplikasi manajemen berbasis web",
+      "sistem informasi Laravel",
+      "software custom perusahaan"
+    ],
+    "stack": ["Laravel", "MySQL", "PostgreSQL", "Chart.js"],
+    "timeline": "6–12 minggu untuk sistem multi-peran",
+    "priceFrom": "Penawaran setelah pemetaan proses",
+    "sections": [
+      {
+        "h2": "Dari berkas Excel yang tersebar ke satu sumber data",
+        "p": "Masalah paling sering bukan kekurangan data, melainkan data yang sama tersimpan di banyak tempat dengan versi berbeda. Langkah pertama yang saya lakukan adalah memetakan proses yang berjalan sekarang, lalu merancang struktur data tunggal sehingga setiap bagian mengisi dan membaca informasi dari sumber yang sama. Perubahan alur kerja dibuat bertahap agar staf tidak kewalahan."
+      },
+      {
+        "h2": "Hak akses per peran, bukan satu akun untuk semua",
+        "p": "Sistem yang dipakai bersama memerlukan pembatasan yang tegas. Admin mengelola data induk, operator mengisi transaksi harian, pimpinan hanya melihat ringkasan dan laporan. Pembagian ini menjaga kerahasiaan data sekaligus mengurangi risiko salah entri. Untuk instansi yang memerlukan pertanggungjawaban, setiap perubahan penting dapat dicatat dalam audit log."
+      },
+      {
+        "h2": "Laporan yang siap dipakai, bukan sekadar tabel",
+        "p": "Data hanya berguna ketika bisa dibaca cepat oleh pengambil keputusan. Dashboard menampilkan indikator utama beserta grafik tren, sementara laporan rinci dapat difilter menurut periode dan diekspor ke PDF maupun Excel untuk kebutuhan rapat atau pemeriksaan. Rekap yang sebelumnya disusun berhari-hari menjadi tersedia kapan saja."
+      },
+      {
+        "h2": "Dibangun agar bisa dikembangkan lagi",
+        "p": "Sistem internal hampir selalu berkembang mengikuti kebutuhan organisasi. Karena itu kode ditulis dengan struktur Laravel yang standar dan terdokumentasi, sehingga tim internal atau pengembang lain dapat melanjutkan tanpa harus membongkar ulang. Source code dan basis data sepenuhnya menjadi milik Anda."
+      }
+    ],
+    "deliverables": [
+      "Pemetaan proses kerja dan rancangan struktur data",
+      "Sistem berbasis web dengan hak akses multi-peran",
+      "Dashboard indikator utama beserta grafik tren",
+      "Laporan yang dapat difilter dan diekspor ke PDF serta Excel",
+      "Audit log aktivitas pengguna untuk kebutuhan pertanggungjawaban",
+      "Impor data awal dari berkas Excel yang sudah ada",
+      "Dokumentasi teknis, pelatihan pengguna, dan dukungan 30 hari"
+    ],
+    "projects": ["sistem-akademik-sekolah", "peminjaman-ruangan-fifo", "promosi-wisata-pam"],
+    "faq": [
+      {
+        "q": "Apakah data lama kami di Excel bisa dipindahkan?",
+        "a": "Bisa. Data dari berkas Excel atau CSV dapat diimpor selama formatnya konsisten. Proses pembersihan dan pencocokan data menjadi bagian dari tahap awal pengerjaan."
+      },
+      {
+        "q": "Apakah sistem dipasang di server kami sendiri?",
+        "a": "Bisa dipasang di server internal instansi maupun di layanan cloud, menyesuaikan kebijakan keamanan data Anda. Keduanya saya bantu proses pemasangan dan konfigurasinya."
+      },
+      {
+        "q": "Bagaimana jika nanti butuh menambah fitur baru?",
+        "a": "Struktur kode dan dokumentasinya disiapkan agar mudah dikembangkan. Penambahan fitur dapat saya kerjakan sebagai pekerjaan lanjutan, atau diteruskan tim internal Anda karena source code sepenuhnya milik Anda."
+      },
+      {
+        "q": "Apakah sistem bisa diakses dari luar kantor?",
+        "a": "Bisa, karena berbasis web dan dapat dibuka melalui peramban di ponsel maupun komputer. Akses dari luar jaringan kantor dapat dibatasi sesuai kebijakan keamanan yang Anda tetapkan."
+      }
+    ],
+    "ctaHeading": "Proses kerja Anda masih bergantung pada Excel?",
+    "ctaText": "Ceritakan alur kerja yang berjalan sekarang beserta bagian yang paling sering bermasalah. Saya bantu susun rencana penggantiannya secara bertahap."
+  }
+]

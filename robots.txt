@@ -1,8 +1,25 @@
 User-agent: *
 Allow: /
 
-# Disallow common development / private paths if any (none currently)
+# Halaman lama yang sudah digantikan /projects/<id>/ — sudah noindex,
+# tetapi tetap diblokir agar anggaran crawl tidak terbuang.
+Disallow: /project-detail.html
+
+# Prototipe & berkas kerja, bukan konten untuk publik.
+Disallow: /prototype/
+Disallow: /tools/
+Disallow: /content/
 Disallow: /memory/
 Disallow: /.git/
+
+# Blokir crawler pengumpul data yang tidak memberi trafik balik.
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 Sitemap: https://zuzlifatuladnan.github.io/sitemap.xml

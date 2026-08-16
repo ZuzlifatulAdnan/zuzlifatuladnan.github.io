@@ -1,0 +1,17 @@
+{
+  "name": "zuzlifatuladnan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portofolio & halaman layanan Zuzlifatul Adnan (situs statis GitHub Pages)",
+  "scripts": {
+    "build": "node tools/build-seo.mjs && node tools/check-seo.mjs",
+    "build:pages": "node tools/build-seo.mjs",
+    "build:images": "python tools/make-og.py",
+    "localize": "node tools/localize-html.mjs",
+    "check": "node tools/check-seo.mjs",
+    "serve": "python -m http.server 8080"
+  },
+  "keywords": ["portfolio", "seo", "github-pages"],
+  "author": "Zuzlifatul Adnan",
+  "license": "UNLICENSED"
+}

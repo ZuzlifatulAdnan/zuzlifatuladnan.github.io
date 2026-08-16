@@ -5,7 +5,9 @@ const PROFILE = {
   email: "juslifatuladnan@gmail.com",
   location: "Lampung, Indonesia",
   experience: "4+ years",
-  whatsapp: "6281000000000",
+  // Isi dengan nomor asli (format internasional tanpa "+"), lalu aktifkan
+  // kembali blok WhatsApp di index.html. Lihat SEO.md bagian 3.3.
+  whatsapp: "",
   github: "ZuzlifatulAdnan",
   siteUrl: "https://zuzlifatuladnan.github.io/"
 };

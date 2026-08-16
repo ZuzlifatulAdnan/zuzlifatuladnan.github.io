@@ -1,0 +1,290 @@
+{
+  "_comment": "Konten SEO unik per proyek (bahasa Indonesia). Dipakai oleh tools/build-seo.mjs untuk membangun halaman statis di /projects/<id>/. Data teknis (judul, tag, gambar, highlight) tetap diambil dari data.js — file ini hanya menambahkan narasi, meta, dan FAQ yang tidak boleh sama antar halaman.",
+
+  "promosi-wisata-pam": {
+    "seoTitle": "Dashboard Promosi Wisata dengan Clustering PAM (Laravel)",
+    "metaDesc": "Studi kasus dashboard promosi wisata berbasis Laravel dengan clustering PAM untuk segmentasi pengunjung dan penentuan target promosi yang lebih tepat sasaran.",
+    "keywords": ["dashboard promosi wisata", "clustering PAM", "segmentasi pengunjung wisata", "aplikasi pariwisata Laravel", "sistem informasi pariwisata"],
+    "lead": "Dinas pariwisata dan pengelola destinasi sering punya data kunjungan, tetapi kesulitan mengubahnya menjadi keputusan promosi. Proyek ini membangun dashboard berbasis Laravel yang mengelompokkan pengunjung memakai algoritma PAM (Partitioning Around Medoids), sehingga anggaran promosi bisa diarahkan ke segmen yang benar-benar potensial.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Sebelum sistem ini ada, data kunjungan wisata tersimpan terpisah di spreadsheet dan hanya dibaca sebagai angka total. Tidak ada gambaran siapa pengunjungnya, dari mana asalnya, dan destinasi mana yang menarik kelompok tertentu. Akibatnya promosi dilakukan seragam untuk semua audiens, padahal karakteristik tiap kelompok berbeda."
+      },
+      {
+        "h2": "Kenapa memilih algoritma PAM",
+        "p": "PAM dipilih karena memakai medoid — titik data nyata — sebagai pusat klaster, bukan rata-rata seperti K-Means. Pendekatan ini lebih tahan terhadap data pencilan, yang umum terjadi pada data kunjungan wisata saat musim liburan atau event besar. Hasil klaster juga lebih mudah dijelaskan kepada stakeholder non-teknis karena setiap pusat klaster adalah profil pengunjung yang benar-benar ada."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Pengelola dapat melihat segmen pengunjung dalam bentuk visual, menyusun rencana kampanye per segmen, dan mengekspor laporan siap presentasi untuk rapat internal maupun stakeholder eksternal. Proses yang sebelumnya manual kini selesai dalam hitungan menit."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa bedanya clustering PAM dan K-Means untuk data wisata?",
+        "a": "PAM menggunakan medoid (data asli) sebagai pusat klaster sehingga lebih tahan terhadap data ekstrem, misalnya lonjakan kunjungan saat libur panjang. K-Means memakai rata-rata sehingga lebih cepat, tetapi hasilnya bisa tergeser oleh pencilan. Untuk data kunjungan yang musiman, PAM biasanya memberi segmen yang lebih stabil."
+      },
+      {
+        "q": "Apakah sistem seperti ini bisa dipakai dinas pariwisata daerah lain?",
+        "a": "Bisa. Struktur data dan parameter klaster dapat disesuaikan dengan indikator yang dipakai daerah masing-masing, seperti asal pengunjung, lama tinggal, atau jenis destinasi yang dikunjungi."
+      }
+    ]
+  },
+
+  "pos-kmeans": {
+    "seoTitle": "Aplikasi POS dengan Analisis K-Means (Kasir + Laporan)",
+    "metaDesc": "Studi kasus aplikasi POS/kasir berbasis Laravel dengan clustering K-Means untuk mengelompokkan pelanggan dan produk, lengkap dengan laporan penjualan dan dashboard insight.",
+    "keywords": ["aplikasi POS Laravel", "aplikasi kasir online", "K-Means penjualan", "segmentasi pelanggan", "software kasir toko"],
+    "lead": "Aplikasi kasir umumnya berhenti pada pencatatan transaksi. Proyek ini melangkah lebih jauh: setiap transaksi yang masuk langsung diolah menjadi bahan analisis dengan clustering K-Means, sehingga pemilik usaha tahu produk mana yang menopang omzet dan pelanggan mana yang layak diprioritaskan.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Pemilik toko punya ribuan baris transaksi tetapi tidak punya waktu mengolahnya. Keputusan stok dan promosi akhirnya diambil berdasarkan perkiraan. Yang dibutuhkan bukan laporan tambahan, melainkan ringkasan yang langsung bisa ditindaklanjuti."
+      },
+      {
+        "h2": "Cara K-Means dipakai di sistem ini",
+        "p": "Data transaksi diringkas menjadi indikator seperti frekuensi belanja, nilai rata-rata pembelian, dan waktu transaksi terakhir. Indikator tersebut dikelompokkan dengan K-Means menjadi beberapa segmen, misalnya pelanggan rutin bernilai tinggi, pelanggan musiman, dan pelanggan yang mulai berhenti belanja. Segmentasi yang sama juga diterapkan pada produk untuk memisahkan barang cepat laku dari barang lambat."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Kasir tetap sederhana untuk operator harian, sementara pemilik mendapat dashboard terpisah berisi ringkasan penjualan, komposisi segmen pelanggan, dan daftar produk yang perlu perhatian. Laporan dapat diunduh untuk keperluan pembukuan."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah aplikasi POS ini bisa dipakai tanpa koneksi internet?",
+        "a": "Versi yang dibangun berjalan berbasis web di jaringan lokal maupun internet. Untuk toko dengan koneksi tidak stabil, arsitekturnya bisa disesuaikan agar transaksi disimpan sementara di perangkat lalu disinkronkan saat koneksi tersedia."
+      },
+      {
+        "q": "Berapa minimal data transaksi agar hasil clustering bermakna?",
+        "a": "Semakin banyak semakin stabil, tetapi pola awal biasanya sudah terlihat setelah beberapa ratus transaksi dari pelanggan yang berulang. Sebelum jumlah itu tercapai, dashboard tetap berguna sebagai laporan penjualan biasa."
+      }
+    ]
+  },
+
+  "events-kmeans": {
+    "seoTitle": "Platform Event dengan Klasifikasi Peserta K-Means (Laravel)",
+    "metaDesc": "Studi kasus platform manajemen event berbasis Laravel dengan clustering K-Means untuk mengklasifikasikan peserta dan menyusun rekomendasi acara yang lebih relevan.",
+    "keywords": ["aplikasi manajemen event", "platform pendaftaran acara", "K-Means peserta", "sistem event organizer", "website event Laravel"],
+    "lead": "Event organizer mengumpulkan data pendaftar setiap kali menggelar acara, tetapi data itu jarang dipakai untuk acara berikutnya. Platform ini menyimpan riwayat partisipasi dan mengelompokkan peserta dengan K-Means, sehingga undangan dan rekomendasi acara berikutnya lebih tepat sasaran.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Pendaftaran peserta biasanya tersebar di formulir online yang berbeda untuk tiap acara. Tidak ada riwayat terpusat, sehingga panitia mengirim informasi yang sama ke seluruh daftar kontak dan tingkat kehadiran sulit diprediksi."
+      },
+      {
+        "h2": "Klasifikasi peserta dan rekomendasi",
+        "p": "Sistem mencatat kategori acara yang pernah diikuti, frekuensi kehadiran, dan preferensi yang diisi saat pendaftaran. Data ini dikelompokkan dengan K-Means menjadi segmen minat. Ketika acara baru dibuat, panitia dapat langsung melihat segmen mana yang paling relevan untuk dihubungi."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Panitia mengelola acara, peserta, dan komunikasi dari satu panel admin. Data peserta yang menumpuk dari acara-acara sebelumnya berubah menjadi aset untuk perencanaan acara berikutnya, bukan sekadar arsip."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah platform ini mendukung pendaftaran berbayar?",
+        "a": "Alur pendaftaran, kuota, dan status peserta sudah tersedia. Integrasi payment gateway dapat ditambahkan sesuai penyedia pembayaran yang dipakai penyelenggara."
+      },
+      {
+        "q": "Bagaimana sistem menangani peserta yang baru pertama kali mendaftar?",
+        "a": "Peserta baru belum punya riwayat, sehingga rekomendasi awal didasarkan pada preferensi yang mereka isi saat mendaftar. Setelah mengikuti satu atau dua acara, mereka otomatis masuk ke segmen yang sesuai."
+      }
+    ]
+  },
+
+  "website-profile-sekolah": {
+    "seoTitle": "CMS Website Profil Sekolah Laravel — Tanpa Perlu Ngoding",
+    "metaDesc": "CMS website profil sekolah berbasis Laravel 10 & Filament: page builder drag-and-drop, media library, menu dinamis, customizer tema, 2FA, dan statistik pengunjung. Untuk SD, SMP, SMA, dan SMK.",
+    "keywords": ["website profil sekolah", "CMS sekolah Laravel", "jasa pembuatan website sekolah", "website SD SMP SMA SMK", "aplikasi profil sekolah"],
+    "lead": "Sebagian besar sekolah tidak punya staf teknis khusus, sehingga website yang dibuat sekali jalan cepat menjadi usang. Proyek ini menjawabnya dengan CMS lengkap berbasis Laravel 10 dan Filament: operator sekolah bisa mengubah berita, halaman, menu, bahkan tampilan tema tanpa menyentuh satu baris kode pun.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Website sekolah biasanya berhenti diperbarui beberapa bulan setelah diluncurkan karena setiap perubahan kecil harus melalui pengembang. Halaman berita kosong, agenda kedaluwarsa, dan galeri tidak pernah bertambah. Sekolah butuh sistem yang bisa dikelola guru atau operator tata usaha sendiri."
+      },
+      {
+        "h2": "Page builder dan kontrol tampilan penuh",
+        "p": "Halaman disusun dari 12 blok konten yang dapat diseret dan diurutkan: judul, teks, gambar, galeri, video, tombol, kartu, kolom, kutipan, statistik, pemisah, dan HTML bebas. Customizer tema memungkinkan penggantian logo, favicon, warna, font, gaya kartu, hingga lebar layout langsung dari panel admin. Susunan beranda pun bisa diurutkan ulang atau disembunyikan per bagian."
+      },
+      {
+        "h2": "Keamanan dan pertanggungjawaban",
+        "p": "Akses dibagi menjadi Super Admin dan Operator Konten, dilengkapi Autentikasi Dua Faktor melalui Google Authenticator. Setiap aktivitas admin tercatat dalam audit log yang bisa dicetak atau diekspor ke PDF dan Excel — penting untuk sekolah negeri yang perlu jejak pertanggungjawaban."
+      },
+      {
+        "h2": "Siap untuk semua jenjang",
+        "p": "Satu instalasi dapat dipakai SD/MI, SMP/MTs, maupun SMA/SMK dengan penyesuaian melalui panel. Website hasilnya responsif di ponsel, memuat gambar secara bertahap agar ringan, menyertakan toolbar aksesibilitas, dan sudah disiapkan agar ramah mesin pencari."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah guru tanpa latar belakang IT bisa mengelola website ini?",
+        "a": "Bisa. Seluruh pengelolaan dilakukan lewat panel admin dengan tampilan formulir dan seret-lepas. Menambah berita, mengganti foto beranda, menyusun menu, sampai mengubah warna tema tidak memerlukan pengetahuan pemrograman."
+      },
+      {
+        "q": "Apakah satu website bisa dipakai untuk beberapa jenjang sekolah?",
+        "a": "Sistem ini dirancang multi-jenjang, sehingga struktur konten seperti data guru, jurusan, dan ekstrakurikuler dapat disesuaikan untuk SD/MI, SMP/MTs, maupun SMA/SMK dari panel yang sama."
+      },
+      {
+        "q": "Apakah ada laporan jumlah pengunjung website sekolah?",
+        "a": "Ada. Dashboard menampilkan statistik pengunjung harian, bulanan, dan tahunan beserta grafik tren serta daftar halaman yang paling banyak dibuka."
+      }
+    ]
+  },
+
+  "website-lpg-astar": {
+    "seoTitle": "Sistem Cari Pengecer LPG Terdekat dengan Algoritma A*",
+    "metaDesc": "Studi kasus sistem pencarian pengecer LPG terdekat berbasis Laravel dengan algoritma A*, pengecekan stok real-time, dan integrasi rute Google Maps.",
+    "keywords": ["aplikasi cari LPG terdekat", "algoritma A* Laravel", "sistem stok gas LPG", "aplikasi pencarian lokasi terdekat", "integrasi Google Maps Laravel"],
+    "lead": "Saat gas habis, pertanyaan pertama selalu sama: pangkalan mana yang masih punya stok dan paling dekat? Sistem ini menggabungkan data stok pengecer dengan algoritma pencarian rute A* berbasis lokasi pengguna, lalu meneruskannya ke Google Maps untuk navigasi.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Pembeli sering mendatangi beberapa pangkalan sebelum menemukan yang stoknya tersedia. Di sisi lain, pengecer tidak punya kanal untuk mengumumkan ketersediaan stok. Keduanya kehilangan waktu karena tidak ada informasi yang terhubung."
+      },
+      {
+        "h2": "Kenapa A* dan bukan sekadar jarak lurus",
+        "p": "Menghitung jarak garis lurus sering menyesatkan karena tidak memperhitungkan jalur yang benar-benar bisa dilalui. A* mencari rute dengan mempertimbangkan biaya tempuh sekaligus perkiraan jarak ke tujuan, sehingga hasil urutan pengecer terdekat lebih mendekati kondisi nyata di jalan."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Pengguna membuka halaman, mengizinkan akses lokasi, lalu langsung melihat daftar pengecer terdekat lengkap dengan jarak dan status stok. Satu ketukan membuka arah menuju lokasi di Google Maps. Pengecer memperbarui stok sendiri melalui panel sederhana."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah data stok LPG diperbarui otomatis?",
+        "a": "Stok diperbarui oleh pengecer melalui panel masing-masing. Sistem juga dapat dihubungkan ke pencatatan penjualan agar pengurangan stok berjalan otomatis apabila datanya tersedia."
+      },
+      {
+        "q": "Bisakah pendekatan ini dipakai untuk komoditas atau layanan lain?",
+        "a": "Bisa. Pola yang sama berlaku untuk pencarian apotek, depot air, bengkel, atau titik layanan lain yang perlu diurutkan berdasarkan lokasi pengguna dan ketersediaan barang."
+      }
+    ]
+  },
+
+  "peminjaman-ruangan-fifo": {
+    "seoTitle": "Sistem Peminjaman Ruangan Online dengan Antrian FIFO",
+    "metaDesc": "Studi kasus sistem peminjaman ruangan berbasis Laravel dengan antrian FIFO untuk mencegah jadwal bentrok, alur persetujuan admin, dan tampilan kalender jadwal.",
+    "keywords": ["sistem peminjaman ruangan", "aplikasi booking ruangan kampus", "sistem reservasi ruang meeting", "aplikasi jadwal ruangan", "booking ruangan online"],
+    "lead": "Peminjaman ruangan yang dicatat di buku atau grup chat hampir selalu berujung bentrok jadwal. Sistem ini memindahkan seluruh proses ke satu tempat dengan aturan antrian FIFO yang jelas: siapa mengajukan lebih dulu, dialah yang mendapat slot.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Di kampus dan kantor, satu ruangan sering diminta beberapa pihak pada jam yang sama. Tanpa aturan yang tegas dan catatan waktu pengajuan, keputusan terasa tidak adil dan sering memicu perselisihan antar unit."
+      },
+      {
+        "h2": "Antrian FIFO sebagai aturan yang transparan",
+        "p": "Setiap pengajuan tercatat lengkap dengan waktu masuk. Ketika dua permintaan bertabrakan pada slot yang sama, sistem mendahulukan yang lebih awal dan menandai sisanya sebagai antrian. Aturan ini terlihat oleh semua pemohon, sehingga keputusan tidak lagi bergantung pada kedekatan personal."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Pemohon melihat ketersediaan ruangan sebelum mengajukan, admin menyetujui atau menolak dari satu halaman, dan seluruh jadwal tampil dalam kalender bersama. Arsitekturnya sudah disiapkan untuk pengiriman notifikasi melalui email maupun WhatsApp."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Bagaimana jika dua orang mengajukan ruangan pada jam yang sama?",
+        "a": "Sistem membandingkan waktu pengajuan. Permintaan yang masuk lebih dulu mendapat slot, sedangkan yang lain masuk daftar antrian dan otomatis dapat naik apabila peminjam sebelumnya membatalkan."
+      },
+      {
+        "q": "Apakah sistem ini cocok untuk kantor, bukan hanya kampus?",
+        "a": "Cocok. Konsepnya sama untuk ruang rapat kantor, aula, laboratorium, maupun fasilitas olahraga — yang berubah hanya jenis ruangan dan alur persetujuannya."
+      }
+    ]
+  },
+
+  "sistem-akademik-sekolah": {
+    "seoTitle": "Sistem Informasi Akademik Sekolah Multi-Role (Laravel)",
+    "metaDesc": "Studi kasus sistem informasi akademik sekolah berbasis Laravel: data siswa dan guru, jadwal pelajaran, nilai, absensi, serta laporan dengan hak akses admin, guru, dan siswa.",
+    "keywords": ["sistem informasi akademik", "aplikasi akademik sekolah", "sistem nilai dan absensi siswa", "aplikasi rapor online", "software manajemen sekolah"],
+    "lead": "Administrasi akademik yang masih bergantung pada berkas Excel terpisah membuat data siswa, nilai, dan absensi sulit dicocokkan menjelang pembagian rapor. Sistem ini menyatukan seluruh proses akademik dalam satu aplikasi dengan hak akses berbeda untuk admin, guru, dan siswa.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Setiap guru menyimpan nilai dengan format sendiri, wali kelas harus menggabungkannya secara manual, dan kesalahan salin data baru ketahuan saat rapor dicetak. Prosesnya memakan waktu berhari-hari setiap akhir semester."
+      },
+      {
+        "h2": "Pembagian peran yang jelas",
+        "p": "Admin mengelola data induk seperti siswa, guru, kelas, dan jadwal. Guru mengisi nilai serta absensi kelas yang diampunya saja. Siswa hanya melihat data miliknya sendiri. Pemisahan ini menjaga privasi data sekaligus mengurangi risiko salah entri lintas kelas."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Nilai dan absensi terkumpul di satu basis data sejak awal semester, sehingga laporan dapat dihasilkan kapan saja tanpa penggabungan manual. Rekap kehadiran juga membantu wali kelas mendeteksi siswa yang mulai sering absen lebih cepat."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah sistem ini bisa mencetak rapor sesuai format sekolah?",
+        "a": "Format laporan mengikuti kebutuhan sekolah dan dapat disesuaikan, termasuk komponen penilaian, bobot, serta tata letak cetaknya."
+      },
+      {
+        "q": "Bisakah orang tua ikut memantau nilai dan absensi anak?",
+        "a": "Bisa ditambahkan sebagai peran terpisah dengan akses baca saja, sehingga orang tua melihat perkembangan anaknya tanpa dapat mengubah data."
+      }
+    ]
+  },
+
+  "cleanwash-laundry-kotlin-laravel": {
+    "seoTitle": "Aplikasi Laundry Android Kotlin + Backend Laravel",
+    "metaDesc": "Studi kasus aplikasi pemesanan laundry: klien Android native Kotlin, backend API Laravel, pelacakan status cucian, alur pembayaran, dan notifikasi WhatsApp.",
+    "keywords": ["aplikasi laundry android", "jasa pembuatan aplikasi Kotlin", "aplikasi pemesanan online", "backend Laravel API", "notifikasi WhatsApp aplikasi"],
+    "lead": "Usaha laundry yang menerima pesanan lewat chat kewalahan saat pelanggan bertambah: pesanan tercecer, status cucian ditanyakan berulang, dan rekap harian dihitung manual. Aplikasi ini memindahkan seluruh alur ke aplikasi Android native Kotlin dengan backend Laravel.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Pemilik laundry harus membalas pertanyaan \"cucian saya sudah selesai belum?\" puluhan kali sehari. Pesanan yang masuk lewat beberapa nomor berbeda mudah terlewat, dan tidak ada catatan rapi untuk menghitung pendapatan."
+      },
+      {
+        "h2": "Aplikasi Android native dan API terpisah",
+        "p": "Sisi pelanggan dibangun native dengan Kotlin agar ringan dan responsif di perangkat kelas menengah ke bawah. Seluruh data dilayani backend Laravel melalui REST API, sehingga panel admin berbasis web dan aplikasi mobile memakai satu sumber data yang sama."
+      },
+      {
+        "h2": "Pelacakan status dan notifikasi otomatis",
+        "p": "Setiap pesanan melewati tahap yang jelas mulai dari penjemputan, pencucian, hingga siap diambil. Perubahan status memicu notifikasi WhatsApp otomatis yang telah disiapkan untuk layanan gateway seperti Fonnte, sehingga pelanggan tidak perlu bertanya lagi."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Kenapa memakai Kotlin native dan bukan aplikasi hybrid?",
+        "a": "Kotlin native memberi performa dan akses perangkat yang lebih baik pada ponsel spesifikasi rendah, yang banyak dipakai pelanggan layanan harian seperti laundry. Ukuran aplikasinya juga lebih ringan."
+      },
+      {
+        "q": "Apakah notifikasi WhatsApp dikenakan biaya terpisah?",
+        "a": "Ya, biaya mengikuti penyedia gateway WhatsApp yang dipilih. Aplikasinya sendiri sudah disiapkan agar tinggal dihubungkan dengan kredensial penyedia tersebut."
+      }
+    ]
+  },
+
+  "absensi-qr-sekolah-kotlin-laravel": {
+    "seoTitle": "Aplikasi Absensi QR Code Sekolah dengan Validasi Lokasi",
+    "metaDesc": "Studi kasus aplikasi absensi QR code berbasis Kotlin Android dan Laravel dengan validasi geolokasi untuk mencegah titip absen, plus rekap kehadiran otomatis.",
+    "keywords": ["aplikasi absensi QR code", "absensi sekolah online", "aplikasi absen dengan lokasi GPS", "sistem kehadiran siswa", "aplikasi absensi Kotlin Laravel"],
+    "lead": "Absensi manual memakan waktu di awal jam pelajaran dan tetap rawan titip absen. Aplikasi ini memakai pemindaian QR code yang dipadukan dengan validasi geolokasi, sehingga kehadiran hanya tercatat jika pemindaian benar-benar dilakukan di area sekolah.",
+    "sections": [
+      {
+        "h2": "Masalah yang diselesaikan",
+        "p": "Mengedarkan daftar hadir memotong waktu belajar, dan rekapitulasinya harus disalin ulang ke komputer. Sistem absensi digital sederhana pun masih bisa disiasati karena tidak memeriksa dari mana pemindaian dilakukan."
+      },
+      {
+        "h2": "QR code dipadukan dengan validasi lokasi",
+        "p": "Selain memvalidasi kode yang dipindai, aplikasi memeriksa koordinat perangkat terhadap radius lokasi sekolah yang ditentukan. Pemindaian dari luar area ditolak, sehingga praktik titip absen jauh lebih sulit dilakukan."
+      },
+      {
+        "h2": "Hasil untuk pengguna",
+        "p": "Proses absensi satu kelas selesai dalam hitungan menit dan rekap kehadiran langsung tersedia bagi wali kelas maupun admin. Data historis memudahkan sekolah menindaklanjuti siswa dengan tingkat kehadiran rendah sebelum menjadi masalah serius."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Bagaimana aplikasi mencegah siswa menitipkan absen?",
+        "a": "Pemindaian QR harus dilakukan dalam radius lokasi sekolah yang telah ditetapkan. Jika koordinat perangkat berada di luar area tersebut, absensi ditolak dan tercatat sebagai percobaan yang gagal."
+      },
+      {
+        "q": "Apakah aplikasi ini bisa dipakai untuk absensi karyawan?",
+        "a": "Bisa. Mekanisme QR dan validasi lokasi yang sama dapat diterapkan untuk absensi karyawan kantor maupun pekerja lapangan dengan penyesuaian jam kerja dan titik lokasi."
+      }
+    ]
+  }
+}

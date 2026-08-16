@@ -100,7 +100,7 @@ function byId(id) {
 }
 
 // ===== Render Detail =====
-let currentLocale = localStorage.getItem('lang') || 'en';
+let currentLocale = localStorage.getItem('lang') || 'id';
 
 function renderDetail(project) {
   const titleEl = document.getElementById('detailTitle');
@@ -239,7 +239,7 @@ function showNotFound() {
 
 // ===== I18N =====
 const langSelect = document.getElementById('langSelect');
-const savedLang = localStorage.getItem('lang') || 'en';
+const savedLang = localStorage.getItem('lang') || 'id';
 if (langSelect) langSelect.value = savedLang;
 
 async function loadI18n(lang) {
@@ -259,8 +259,8 @@ async function loadI18n(lang) {
   } catch (err) {
     console.warn(err);
     currentLocale = 'en';
-    localStorage.setItem('lang', 'en');
-    if (langSelect) langSelect.value = 'en';
+    localStorage.setItem('lang', 'id');
+    if (langSelect) langSelect.value = 'id';
   }
 }
 

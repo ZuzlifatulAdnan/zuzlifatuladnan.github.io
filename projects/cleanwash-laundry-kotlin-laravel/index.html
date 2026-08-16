@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aplikasi Laundry Android Kotlin + Backend Laravel</title>
+  <meta name="description" content="Studi kasus aplikasi pemesanan laundry: klien Android native Kotlin, backend API Laravel, pelacakan status cucian, alur pembayaran, dan notifikasi WhatsApp."/>
+  <meta name="keywords" content="aplikasi laundry android, jasa pembuatan aplikasi Kotlin, aplikasi pemesanan online, backend Laravel API, notifikasi WhatsApp aplikasi"/>
+  <meta name="author" content="Zuzlifatul Adnan"/>
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1"/>
+  <link rel="canonical" href="https://zuzlifatuladnan.github.io/projects/cleanwash-laundry-kotlin-laravel/"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="Zuzlifatul Adnan"/>
+  <meta property="og:locale" content="id_ID"/>
+  <meta property="og:url" content="https://zuzlifatuladnan.github.io/projects/cleanwash-laundry-kotlin-laravel/"/>
+  <meta property="og:title" content="Aplikasi Laundry Android Kotlin + Backend Laravel"/>
+  <meta property="og:description" content="Studi kasus aplikasi pemesanan laundry: klien Android native Kotlin, backend API Laravel, pelacakan status cucian, alur pembayaran, dan notifikasi WhatsApp."/>
+  <meta property="og:image" content="https://zuzlifatuladnan.github.io/assets/img/og/cleanwash-laundry-kotlin-laravel.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Clean Wash Laundry (Kotlin + Laravel) — studi kasus oleh Zuzlifatul Adnan"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ZuzlifatulAdnan"/>
+  <meta name="twitter:title" content="Aplikasi Laundry Android Kotlin + Backend Laravel"/>
+  <meta name="twitter:description" content="Studi kasus aplikasi pemesanan laundry: klien Android native Kotlin, backend API Laravel, pelacakan status cucian, alur pembayaran, dan notifikasi WhatsApp."/>
+  <meta name="twitter:image" content="https://zuzlifatuladnan.github.io/assets/img/og/cleanwash-laundry-kotlin-laravel.png"/>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png"/>
+  <link rel="manifest" href="../../site.webmanifest"/>
+  <meta name="theme-color" content="#0a0a0b"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css"/>
+
+  <!-- Terapkan tema tersimpan sebelum halaman dilukis agar tidak berkedip. -->
+  <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}</script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://zuzlifatuladnan.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portofolio",
+      "item": "https://zuzlifatuladnan.github.io/projects/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Clean Wash Laundry (Kotlin + Laravel)",
+      "item": "https://zuzlifatuladnan.github.io/projects/cleanwash-laundry-kotlin-laravel/"
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Clean Wash Laundry (Kotlin + Laravel)",
+  "headline": "Aplikasi Laundry Android Kotlin + Backend Laravel",
+  "description": "Studi kasus aplikasi pemesanan laundry: klien Android native Kotlin, backend API Laravel, pelacakan status cucian, alur pembayaran, dan notifikasi WhatsApp.",
+  "url": "https://zuzlifatuladnan.github.io/projects/cleanwash-laundry-kotlin-laravel/",
+  "image": "https://zuzlifatuladnan.github.io/assets/img/og/cleanwash-laundry-kotlin-laravel.png",
+  "inLanguage": "id-ID",
+  "keywords": "aplikasi laundry android, jasa pembuatan aplikasi Kotlin, aplikasi pemesanan online, backend Laravel API, notifikasi WhatsApp aplikasi",
+  "genre": "Aplikasi Mobile",
+  "dateModified": "2026-08-16",
+  "author": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/",
+    "jobTitle": "Full-Stack Web & Mobile Developer"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Zuzlifatul Adnan"
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Kotlin"
+    },
+    {
+      "@type": "Thing",
+      "name": "Laravel"
+    },
+    {
+      "@type": "Thing",
+      "name": "WhatsApp"
+    }
+  ],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Zuzlifatul Adnan",
+    "url": "https://zuzlifatuladnan.github.io/"
+  }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kenapa memakai Kotlin native dan bukan aplikasi hybrid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kotlin native memberi performa dan akses perangkat yang lebih baik pada ponsel spesifikasi rendah, yang banyak dipakai pelanggan layanan harian seperti laundry. Ukuran aplikasinya juga lebih ringan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah notifikasi WhatsApp dikenakan biaya terpisah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, biaya mengikuti penyedia gateway WhatsApp yang dipilih. Aplikasinya sendiri sudah disiapkan agar tinggal dihubungkan dengan kredensial penyedia tersebut."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../">
+        <span class="logo">ZA</span>
+        <span class="brand-name">Zuzlifatul Adnan</span>
+      </a>
+
+      <nav class="nav" id="navMenu">
+        <a href="../../#about">Tentang</a>
+        <a href="../../#services">Layanan</a>
+        <a href="../../projects/">Portofolio</a>
+        <a href="../../#packages">Paket</a>
+        <a href="../../#faq">FAQ</a>
+        <a href="../../#contact" class="nav-contact-only btn primary">Kontak</a>
+      </nav>
+
+      <div class="actions">
+        <button id="themeToggle" class="icon-btn" aria-label="Ganti tema" title="Ganti tema terang/gelap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <a href="../../#contact" class="btn primary" style="margin-left:4px;">Konsultasi Gratis</a>
+        <button id="navToggle" class="icon-btn nav-toggle" aria-label="Buka menu" aria-expanded="false" title="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+      <div class="container breadcrumb"><a href="../../">Beranda</a><span class="crumb-sep" aria-hidden="true">/</span><a href="../../projects/">Portofolio</a><span class="crumb-sep" aria-hidden="true">/</span><span aria-current="page">Clean Wash Laundry (Kotlin + Laravel)</span></div>
+    </nav>
+
+    <article class="section">
+      <div class="container">
+        <div class="case-head">
+          <p class="eyebrow">Studi Kasus · Aplikasi Mobile</p>
+          <h1>Clean Wash Laundry (Kotlin + Laravel)</h1>
+          <p class="lead">Usaha laundry yang menerima pesanan lewat chat kewalahan saat pelanggan bertambah: pesanan tercecer, status cucian ditanyakan berulang, dan rekap harian dihitung manual. Aplikasi ini memindahkan seluruh alur ke aplikasi Android native Kotlin dengan backend Laravel.</p>
+          <div class="case-tags">
+            <span class="tech-pill">Kotlin</span>
+            <span class="tech-pill">Laravel</span>
+            <span class="tech-pill">WhatsApp</span>
+          </div>
+        </div>
+
+        <figure class="case-figure">
+          <img src="../../assets/img/p8.svg" width="1200" height="800"
+               alt="Tampilan Clean Wash Laundry (Kotlin + Laravel) — aplikasi mobile oleh Zuzlifatul Adnan"/>
+          <figcaption class="muted">Aplikasi laundry dengan client Kotlin Android dan backend Laravel, termasuk tracking dan notifikasi.</figcaption>
+        </figure>
+
+        <div class="case-grid">
+          <div class="case-main">
+            <h2>Masalah yang diselesaikan</h2>
+            <p>Pemilik laundry harus membalas pertanyaan &quot;cucian saya sudah selesai belum?&quot; puluhan kali sehari. Pesanan yang masuk lewat beberapa nomor berbeda mudah terlewat, dan tidak ada catatan rapi untuk menghitung pendapatan.</p>
+
+            <h2>Aplikasi Android native dan API terpisah</h2>
+            <p>Sisi pelanggan dibangun native dengan Kotlin agar ringan dan responsif di perangkat kelas menengah ke bawah. Seluruh data dilayani backend Laravel melalui REST API, sehingga panel admin berbasis web dan aplikasi mobile memakai satu sumber data yang sama.</p>
+
+            <h2>Pelacakan status dan notifikasi otomatis</h2>
+            <p>Setiap pesanan melewati tahap yang jelas mulai dari penjemputan, pencucian, hingga siap diambil. Perubahan status memicu notifikasi WhatsApp otomatis yang telah disiapkan untuk layanan gateway seperti Fonnte, sehingga pelanggan tidak perlu bertanya lagi.</p>
+
+            <h2>Fitur utama yang dibangun</h2>
+            <ul class="detail-list">
+              <li>Aplikasi Kotlin Android untuk order &amp; tracking status.</li>
+              <li>Backend Laravel API untuk alur order/pembayaran.</li>
+              <li>Notifikasi WhatsApp (siap Fonnte).</li>
+            </ul>
+          </div>
+
+          <aside class="case-side">
+            <div class="card">
+              <h3>Ringkasan proyek</h3>
+              <dl class="spec-list">
+                <dt>Kategori</dt><dd>Aplikasi Mobile</dd>
+                <dt>Teknologi</dt><dd>Kotlin, Laravel, WhatsApp</dd>
+                <dt>Peran</dt><dd>Full-stack developer (analisis, backend, frontend, deployment)</dd>
+                <dt>Lokasi</dt><dd>Lampung, Indonesia — dikerjakan remote</dd>
+              </dl>
+
+              <a class="btn ghost" style="margin-top:10px;" href="../../#contact">Butuh sistem serupa?</a>
+            </div>
+          </aside>
+        </div>
+
+        <section class="case-faq">
+          <h2>Pertanyaan seputar proyek ini</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Kenapa memakai Kotlin native dan bukan aplikasi hybrid?</summary>
+              <div class="faq-body">Kotlin native memberi performa dan akses perangkat yang lebih baik pada ponsel spesifikasi rendah, yang banyak dipakai pelanggan layanan harian seperti laundry. Ukuran aplikasinya juga lebih ringan.</div>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah notifikasi WhatsApp dikenakan biaya terpisah?</summary>
+              <div class="faq-body">Ya, biaya mengikuti penyedia gateway WhatsApp yang dipilih. Aplikasinya sendiri sudah disiapkan agar tinggal dihubungkan dengan kredensial penyedia tersebut.</div>
+            </details>
+          </div>
+        </section>
+
+        <section class="related">
+          <h2>Proyek lain yang mungkin relevan</h2>
+          <div class="related-grid">
+            <a class="related-card" href="../../projects/absensi-qr-sekolah-kotlin-laravel/">
+              <img src="../../assets/img/p9.svg" width="1200" height="800" loading="lazy" alt="Absensi QR Sekolah (Kotlin + Laravel)"/>
+              <div>
+                <h3>Absensi QR Sekolah (Kotlin + Laravel)</h3>
+                <p class="muted">Absensi QR dengan validasi geolokasi, laporan, dan backend API Laravel.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/promosi-wisata-pam/">
+              <img src="../../assets/img/p1.svg" width="1200" height="800" loading="lazy" alt="Promosi Wisata (PAM Clustering)"/>
+              <div>
+                <h3>Promosi Wisata (PAM Clustering)</h3>
+                <p class="muted">Dashboard promosi wisata menggunakan clustering PAM untuk segmentasi dan targeting pengunjung.</p>
+              </div>
+            </a>
+            <a class="related-card" href="../../projects/pos-kmeans/">
+              <img src="../../assets/img/p2.svg" width="1200" height="800" loading="lazy" alt="POS K-Means"/>
+              <div>
+                <h3>POS K-Means</h3>
+                <p class="muted">Sistem POS dengan analisis clustering K-Means untuk insight penjualan/kelompok pelanggan.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="cta-panel">
+          <h2>Ingin sistem seperti ini untuk organisasi Anda?</h2>
+          <p class="lead">Ceritakan kebutuhan, target waktu, dan anggaran Anda. Saya balas dalam satu hari kerja dengan estimasi dan rencana pengerjaan.</p>
+          <div class="cta-actions">
+            <a class="btn primary" href="../../#contact">Konsultasi gratis</a>
+            <a class="btn ghost" href="../../projects/">Lihat portofolio lain</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../../">
+            <span class="logo">ZA</span>
+            <span>Zuzlifatul Adnan</span>
+          </a>
+          <p class="footer-tagline muted">Full-Stack Web &amp; Mobile Developer di Lampung, Indonesia. Laravel, Flutter, dan Kotlin.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="../../layanan/jasa-pembuatan-website-lampung/">Jasa Website Lampung</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-website-sekolah/">Jasa Website Sekolah</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-aplikasi-android/">Jasa Aplikasi Android</a></li>
+            <li><a href="../../layanan/jasa-pembuatan-sistem-informasi/">Jasa Sistem Informasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Portofolio</h4>
+          <ul>
+            <li><a href="../../projects/promosi-wisata-pam/">Promosi Wisata (PAM Clustering)</a></li>
+            <li><a href="../../projects/pos-kmeans/">POS K-Means</a></li>
+            <li><a href="../../projects/events-kmeans/">Events (K-Means)</a></li>
+            <li><a href="../../projects/website-profile-sekolah/">Website Profile Sekolah</a></li>
+            <li><a href="../../projects/website-lpg-astar/">Website LPG (A* Route Finder)</a></li>
+            <li><a href="../../projects/">Semua proyek</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="mailto:juslifatuladnan@gmail.com">juslifatuladnan@gmail.com</a></li>
+            <li><a href="https://github.com/ZuzlifatulAdnan" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="../../#contact">Form konsultasi</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Zuzlifatul Adnan. Seluruh hak cipta dilindungi.</p>
+        <p class="muted">Dibangun dengan Laravel · Flutter · Kotlin</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../page.js" defer></script>
+</body>
+</html>
